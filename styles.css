@@ -297,12 +297,56 @@ section[id] {
 .hero {
   background: var(--bg-lavender-alt);
   padding: clamp(3rem, 8vw, 6rem) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Dekorativní bloby v pozadí: organické světlo bez rušivosti */
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Větší blob vpravo nahoře — teplý fialový nádech za fotkou */
+.hero::before {
+  width: 55vw;
+  max-width: 680px;
+  aspect-ratio: 1;
+  top: -18%;
+  right: -14%;
+  background: radial-gradient(
+    circle,
+    rgba(102, 58, 180, 0.11) 0%,
+    rgba(102, 58, 180, 0.04) 55%,
+    transparent 75%
+  );
+}
+
+/* Menší blob vlevo dole — jemný lavender akcent */
+.hero::after {
+  width: 38vw;
+  max-width: 440px;
+  aspect-ratio: 1;
+  bottom: -22%;
+  left: -8%;
+  background: radial-gradient(
+    circle,
+    rgba(149, 117, 205, 0.10) 0%,
+    rgba(149, 117, 205, 0.03) 55%,
+    transparent 75%
+  );
 }
 
 .hero__grid {
   display: grid;
   gap: clamp(1.75rem, 4vw, 2.5rem);
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 @media (max-width: 767px) {
@@ -335,48 +379,25 @@ section[id] {
 }
 
 @media (min-width: 768px) {
-  /* Děti .hero__text jdou přímo do mřížky — fotka ve stejném řádku jako H1, vertikálně k němu */
-  .hero__text {
-    display: contents;
-  }
-
+  /*
+   * Dva sloupce, jeden řádek: vlevo celý textový blok (kicker → H1 → perex → CTA).
+   * Fotka nesmí sdílet řádek jen s H1 — jinak výška řádku = výška kruhu a mezi H1 a perexem vznikne „díra“.
+   */
   .hero__grid {
     grid-template-columns: minmax(17.5rem, 1fr)
       min(calc(12.5rem + 30px), calc(28vw + 30px));
-    align-items: start;
+    align-items: center;
     column-gap: clamp(1.75rem, 4vw, 2.5rem);
     row-gap: 0;
   }
 
-  .hero__kicker,
-  .hero__title,
-  .hero__perex,
-  .hero__cta {
-    grid-column: 1;
+  .hero__text {
     min-width: 0;
     max-width: 32rem;
   }
 
-  .hero__kicker {
-    grid-row: 1;
-  }
-
-  .hero__title {
-    grid-row: 2;
-  }
-
-  .hero__perex {
-    grid-row: 3;
-  }
-
-  .hero__cta {
-    grid-row: 4;
-    justify-self: start;
-  }
-
   .hero__photo-wrap {
     grid-column: 2;
-    grid-row: 2;
     align-self: center;
     width: min(calc(12.5rem + 30px), calc(28vw + 30px));
     justify-self: end;
