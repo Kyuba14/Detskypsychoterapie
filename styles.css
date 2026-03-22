@@ -296,9 +296,13 @@ section[id] {
 /* ——— Hero ——— */
 .hero {
   background: var(--bg-lavender-alt);
+  /* Výška celého viewportu (svh = bez lišty prohlížeče na mobilu) minus výška navigace */
+  min-height: calc(100svh - var(--nav-height));
   padding: clamp(3rem, 8vw, 6rem) 0;
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 
 /* Dekorativní bloby v pozadí: organické světlo bez rušivosti */
@@ -347,6 +351,7 @@ section[id] {
   align-items: center;
   position: relative;
   z-index: 1;
+  width: 100%;
 }
 
 @media (max-width: 767px) {
