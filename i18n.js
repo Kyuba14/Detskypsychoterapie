@@ -66,7 +66,6 @@
       "Seit über dreißig Jahren arbeite ich in Prag 6 als Psychologin und Sonderpädagogin und suche stets Wege, bewährte psychotherapeutische Methoden mit einem einfühlsamen, ganzheitlichen Zugang zu Kind und Familie zu verbinden.",
 
     topics_heading: "Meine Spezialisierungen",
-    topic_school: "Bildung und spezifische Störungen",
     topic_psyche: "Psyche und Verhalten",
     topic_family: "Familie und Unterstützung",
 
