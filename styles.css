@@ -76,6 +76,15 @@ h3 {
   font-size: var(--fs-h3);
 }
 
+/* Mobil: pevné velikosti nadpisů */
+@media (max-width: 767px) {
+  :root {
+    --fs-h1: 50px;
+    --fs-h2: 30px;
+    --fs-h3: 20px;
+  }
+}
+
 a {
   color: inherit;
 }
@@ -488,6 +497,13 @@ section[id] {
   font-size: var(--fs-h1);
 }
 
+/* Jediné H1 je v úvodu — na mobilu vždy 50px (clamp v :root by jinak dával ~30px). */
+@media (max-width: 767px) {
+  .hero__title {
+    font-size: 50px;
+  }
+}
+
 .hero__title-line {
   display: block;
   max-width: 100%;
@@ -551,6 +567,17 @@ section[id] {
   display: grid;
   gap: clamp(1.25rem, 3vw, 2rem);
   align-items: start;
+}
+
+/* Mobil: nejdřív jméno + nadpis + popisek, bubliny až pod ním */
+@media (max-width: 767px) {
+  .about__grid > div:last-child {
+    order: 1;
+  }
+
+  .about__grid > .badges-strip {
+    order: 2;
+  }
 }
 
 @media (min-width: 768px) {
