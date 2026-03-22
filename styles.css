@@ -295,10 +295,18 @@ section[id] {
 
 /* ——— Hero ——— */
 .hero {
-  background: var(--bg-lavender-alt);
+  /*
+   * Gradient-mesh: teplý fialový záblesk vpravo nahoře + lavender vlevo dole + grain.
+   * Grain = jemný šum jako na kvalitním papíře, dává pozadí haptický pocit.
+   */
+  background-color: var(--bg-lavender-alt);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)' opacity='0.038'/%3E%3C/svg%3E"),
+    radial-gradient(ellipse 58% 52% at 88% 8%,  rgba(160, 120, 220, 0.20) 0%, transparent 68%),
+    radial-gradient(ellipse 52% 46% at 8%  92%,  rgba(190, 175, 235, 0.22) 0%, transparent 65%),
+    radial-gradient(ellipse 65% 55% at 50% 48%,  rgba(248, 244, 255, 0.55) 0%, transparent 78%);
   /*
    * Viewport výška minus nav minus ~56px — další sekce vykukuje ze spodního okraje.
-   * 100svh = výška bez lišty prohlížeče na mobilu.
    */
   min-height: calc(100svh - var(--nav-height) - 3.5rem);
   padding: clamp(3rem, 8vw, 6rem) 0;
@@ -308,44 +316,36 @@ section[id] {
   align-items: center;
 }
 
-/* Dekorativní bloby v pozadí: organické světlo bez rušivosti */
-.hero::before,
+/* Dekorativní oblouk v pravém dolním rohu — jemný, kompletní, bezpečný */
+.hero::before {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  width: min(44vw, 520px);
+  aspect-ratio: 1;
+  bottom: -30%;
+  right: -10%;
+  border-radius: 50%;
+  border: 1.5px solid rgba(120, 80, 200, 0.10);
+  box-shadow:
+    inset 0 0 0 min(5vw, 60px) rgba(140, 100, 210, 0.05),
+    0 0 0 min(3vw, 36px) rgba(160, 120, 220, 0.04);
+}
+
+/* Malý doplňkový kruh vlevo nahoře */
 .hero::after {
   content: "";
   position: absolute;
-  border-radius: 50%;
   pointer-events: none;
   z-index: 0;
-}
-
-/* Větší blob vpravo nahoře — teplý fialový nádech za fotkou */
-.hero::before {
-  width: 55vw;
-  max-width: 680px;
+  width: min(22vw, 260px);
   aspect-ratio: 1;
-  top: -18%;
-  right: -14%;
-  background: radial-gradient(
-    circle,
-    rgba(102, 58, 180, 0.11) 0%,
-    rgba(102, 58, 180, 0.04) 55%,
-    transparent 75%
-  );
-}
-
-/* Menší blob vlevo dole — jemný lavender akcent */
-.hero::after {
-  width: 38vw;
-  max-width: 440px;
-  aspect-ratio: 1;
-  bottom: -22%;
-  left: -8%;
-  background: radial-gradient(
-    circle,
-    rgba(149, 117, 205, 0.10) 0%,
-    rgba(149, 117, 205, 0.03) 55%,
-    transparent 75%
-  );
+  top: -12%;
+  left: -6%;
+  border-radius: 50%;
+  border: 1px solid rgba(140, 100, 210, 0.08);
+  box-shadow: inset 0 0 0 min(3vw, 40px) rgba(160, 120, 220, 0.04);
 }
 
 .hero__grid {
