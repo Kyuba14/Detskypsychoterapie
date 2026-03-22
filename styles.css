@@ -398,14 +398,29 @@ section[id] {
   }
 }
 
+/* H1: 1. řádek „Bezpečný prostor“, 2. řádek „pro růst…“ — na desktopu celé řádky bez zalomení uvnitř, pokud šířka dovolí */
 .hero__title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   font-family: var(--font-serif);
   font-weight: 600;
   font-style: italic;
   color: var(--ink-hero);
   margin: 0 0 1.1rem;
   line-height: 1.15;
-  text-wrap: balance;
+  font-size: clamp(1.85rem, 4.2vw + 0.85rem, 3.35rem);
+}
+
+.hero__title-line {
+  display: block;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .hero__title-line {
+    white-space: nowrap;
+  }
 }
 
 .hero__perex {

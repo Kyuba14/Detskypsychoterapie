@@ -49,7 +49,7 @@
 
     hero_kicker: "KINDERPSYCHOTHERAPIE PRAG 6",
     hero_title:
-      "Ein sicherer Raum<br />für das Wachstum Ihres Kindes",
+      '<span class="hero__title-line">Ein sicherer Raum</span><span class="hero__title-line">für das Wachstum Ihres Kindes</span>',
     hero_perex:
       "Psychologische und heilpädagogische Betreuung für Kinder, Jugendliche und ihre Familien. Privatpraxis in Prag 6 — ohne Überweisung, diskret und persönlich.",
     hero_cta: "Termin vereinbaren",
