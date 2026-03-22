@@ -105,7 +105,8 @@
 
     <section class="about" id="o-mne" aria-labelledby="about-heading">
       <div class="container about__grid">
-        <div class="badges" aria-hidden="true">
+        <div class="badges-strip">
+          <div class="badges" aria-hidden="true">
           <div class="hex">
             <svg class="hex__blob" viewBox="0 0 232 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M18 20 C40 2, 120 0, 180 8 C220 14, 234 50, 230 100 C226 140, 190 162, 140 158 C90 154, 30 150, 10 118 C-8 88, -4 38, 18 20Z"/>
@@ -132,6 +133,7 @@
               <div class="hex__label" data-i18n="about_stat_lang">JAZYK</div>
               <div class="hex__value">CZ/DE</div>
             </div>
+          </div>
           </div>
         </div>
         <div>
@@ -328,29 +330,97 @@
           <span class="faq-page-title__line faq-page-title__line--a" data-i18n="faq_title_a">odpovědi</span>
         </h2>
         <div class="faq-list">
-          <article class="quote-offset faq-pair">
-            <h3 data-i18n="faq_q1">Jak probíhá první návštěva u dětského psychologa?</h3>
-            <blockquote data-i18n="faq_a1" data-i18n-html>
-              „První konzultace probíhá obvykle pouze s rodiči, bez přítomnosti dítěte. Potřebuji znát detailní rodinnou anamnézu a pohled rodičů na problémy ve škole či doma. Společně nastavíme plán, jak dítěti návštěvu v naší ordinaci na Praze 6 vysvětlit tak, aby se nebálo a cítilo se bezpečně."
-            </blockquote>
+          <article class="faq-item">
+            <button
+              type="button"
+              class="faq-item__trigger"
+              id="faq-trigger-1"
+              aria-expanded="false"
+              aria-controls="faq-panel-1"
+            >
+              <span class="faq-item__question" data-i18n="faq_q1">Jak probíhá první návštěva u dětského psychologa?</span>
+              <span class="faq-item__chevron" aria-hidden="true"></span>
+            </button>
+            <div
+              class="faq-item__panel"
+              id="faq-panel-1"
+              role="region"
+              aria-labelledby="faq-trigger-1"
+              hidden
+            >
+              <blockquote data-i18n="faq_a1" data-i18n-html>
+                „První konzultace probíhá obvykle pouze s rodiči, bez přítomnosti dítěte. Potřebuji znát detailní rodinnou anamnézu a pohled rodičů na problémy ve škole či doma. Společně nastavíme plán, jak dítěti návštěvu v naší ordinaci na Praze 6 vysvětlit tak, aby se nebálo a cítilo se bezpečně."
+              </blockquote>
+            </div>
           </article>
-          <article class="quote-offset faq-pair">
-            <h3 data-i18n="faq_q2">Řešíte i specifické poruchy jako ADHD, úzkosti nebo sebepoškozování?</h3>
-            <blockquote data-i18n="faq_a2" data-i18n-html>
-              „Ano, ve své praxi se specializuji na široké spektrum potíží. Pomáhám dětem zvládat úzkostné stavy, panické ataky, ADHD a poruchy soustředění. Věnuji se také psychosomatickým potížím (bolesti břicha či hlavy ze stresu) a provázím rodiny náročným obdobím, jako je rozvod rodičů."
-            </blockquote>
+          <article class="faq-item">
+            <button
+              type="button"
+              class="faq-item__trigger"
+              id="faq-trigger-2"
+              aria-expanded="false"
+              aria-controls="faq-panel-2"
+            >
+              <span class="faq-item__question" data-i18n="faq_q2">Řešíte i specifické poruchy jako ADHD, úzkosti nebo sebepoškozování?</span>
+              <span class="faq-item__chevron" aria-hidden="true"></span>
+            </button>
+            <div
+              class="faq-item__panel"
+              id="faq-panel-2"
+              role="region"
+              aria-labelledby="faq-trigger-2"
+              hidden
+            >
+              <blockquote data-i18n="faq_a2" data-i18n-html>
+                „Ano, ve své praxi se specializuji na široké spektrum potíží. Pomáhám dětem zvládat úzkostné stavy, panické ataky, ADHD a poruchy soustředění. Věnuji se také psychosomatickým potížím (bolesti břicha či hlavy ze stresu) a provázím rodiny náročným obdobím, jako je rozvod rodičů."
+              </blockquote>
+            </div>
           </article>
-          <article class="quote-offset faq-pair">
-            <h3 data-i18n="faq_q3">Potřebuji k vám žádanku od pediatra?</h3>
-            <blockquote data-i18n="faq_a3" data-i18n-html>
-              „Ne, žádanku od lékaře nepotřebujete. Jsem soukromé zařízení, což zaručuje krátké objednací lhůty a maximální diskrétnost. Vaše návštěvy se nezapisují do zdravotní dokumentace u pediatra. Služby hradíte formou přímé platby (viz ceník psychoterapie níže)."
-            </blockquote>
+          <article class="faq-item">
+            <button
+              type="button"
+              class="faq-item__trigger"
+              id="faq-trigger-3"
+              aria-expanded="false"
+              aria-controls="faq-panel-3"
+            >
+              <span class="faq-item__question" data-i18n="faq_q3">Potřebuji k vám žádanku od pediatra?</span>
+              <span class="faq-item__chevron" aria-hidden="true"></span>
+            </button>
+            <div
+              class="faq-item__panel"
+              id="faq-panel-3"
+              role="region"
+              aria-labelledby="faq-trigger-3"
+              hidden
+            >
+              <blockquote data-i18n="faq_a3" data-i18n-html>
+                „Ne, žádanku od lékaře nepotřebujete. Jsem soukromé zařízení, což zaručuje krátké objednací lhůty a maximální diskrétnost. Vaše návštěvy se nezapisují do zdravotní dokumentace u pediatra. Služby hradíte formou přímé platby (viz ceník psychoterapie níže)."
+              </blockquote>
+            </div>
           </article>
-          <article class="quote-offset faq-pair" id="dospivajici">
-            <h3 id="dospivajici-nadpis" data-i18n="faq_q4">Co dělat, když dospívající odmítá psychoterapii?</h3>
-            <blockquote data-i18n="faq_a4" data-i18n-html>
-              „Pokud dospívající dítě odmítá psychologa, nenuťte ho násilím. V takovém případě se objednejte na rodičovské poradenství. Často dokážeme situaci doma zklidnit změnou přístupu rodičů. Efektivní výchovné poradenství funguje i bez přímé účasti dítěte."
-            </blockquote>
+          <article class="faq-item" id="dospivajici">
+            <button
+              type="button"
+              class="faq-item__trigger"
+              id="faq-trigger-4"
+              aria-expanded="false"
+              aria-controls="faq-panel-4"
+            >
+              <span class="faq-item__question" id="dospivajici-nadpis" data-i18n="faq_q4">Co dělat, když dospívající odmítá psychoterapii?</span>
+              <span class="faq-item__chevron" aria-hidden="true"></span>
+            </button>
+            <div
+              class="faq-item__panel"
+              id="faq-panel-4"
+              role="region"
+              aria-labelledby="faq-trigger-4"
+              hidden
+            >
+              <blockquote data-i18n="faq_a4" data-i18n-html>
+                „Pokud dospívající dítě odmítá psychologa, nenuťte ho násilím. V takovém případě se objednejte na rodičovské poradenství. Často dokážeme situaci doma zklidnit změnou přístupu rodičů. Efektivní výchovné poradenství funguje i bez přímé účasti dítěte."
+              </blockquote>
+            </div>
           </article>
         </div>
       </div>
@@ -452,6 +522,7 @@
     </footer>
 
     <script src="i18n.js" defer></script>
+    <script src="faq.js" defer></script>
     <script src="tags.js" defer></script>
     <script>
       (function () {

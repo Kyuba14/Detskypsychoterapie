@@ -164,6 +164,8 @@
 
   var SNAPSHOT = {};
   var captured = false;
+  /** Snímek českých <li> ve vzdělání jen jednou — jinak by při DE→CS přepsal snapshot němčinou. */
+  var eduLisCaptured = false;
 
   function capture() {
     if (captured) return;
@@ -279,6 +281,8 @@
   }
 
   function captureEduLis() {
+    if (eduLisCaptured) return;
+    eduLisCaptured = true;
     document
       .querySelectorAll("#vzdelani .edu-list li[data-i18n-edu-li]")
       .forEach(function (li) {
