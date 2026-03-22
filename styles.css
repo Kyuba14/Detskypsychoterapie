@@ -305,6 +305,12 @@ section[id] {
   align-items: center;
 }
 
+@media (max-width: 767px) {
+  .hero__photo-wrap {
+    order: -1;
+  }
+}
+
 /* Fotka v kruhu; na mobilu zarovnání vlevo */
 .hero__photo-wrap {
   border-radius: 50%;
@@ -324,7 +330,7 @@ section[id] {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 20%;
+  object-position: center center;
   display: block;
 }
 
@@ -335,11 +341,15 @@ section[id] {
   }
 
   .hero__text {
+    grid-column: 1;
     min-width: 0;
     max-width: 32rem;
+    order: 0;
   }
 
   .hero__photo-wrap {
+    grid-column: 2;
+    order: 0;
     width: min(12.5rem, 28vw);
     justify-self: end;
     margin-inline: 0;
@@ -424,8 +434,8 @@ section[id] {
 
 @media (min-width: 768px) {
   .about__grid {
-    /* auto = šířka jen podle bublin, text začíná blíž */
-    grid-template-columns: auto 1fr;
+    /* První sloupec = šířka bublin, druhý = text (nesmí „spadnout“ vpravo) */
+    grid-template-columns: max-content 1fr;
     column-gap: clamp(0.85rem, 2.2vw, 1.5rem);
     row-gap: clamp(1.25rem, 3vw, 2rem);
     align-items: center;
@@ -433,11 +443,21 @@ section[id] {
 
   .about__grid > div:last-child {
     min-width: 0;
+    justify-self: stretch;
+    width: 100%;
   }
 }
 
+/* Na mobilu min-width: 0 kvůli horizontálnímu scrollu; na desktopu nesmí klesnout pod šířku bublin */
 .about__grid > .badges-strip {
   min-width: 0;
+}
+
+@media (min-width: 768px) {
+  .about__grid > .badges-strip {
+    min-width: max-content;
+    overflow-x: visible;
+  }
 }
 
 /* Horizontální pás bublin + carousel na úzkém viewportu */
@@ -471,7 +491,24 @@ section[id] {
   scroll-snap-align: start;
 }
 
+@media (max-width: 767px) {
+  .badges-strip {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  /* Mezera mezi bublinami max. dojem úzkého řádku (≤ 20px) — více jich vydrží ve viewportu */
+  .badges {
+    gap: 12px;
+  }
+}
+
 @media (min-width: 768px) {
+  .about .badges-strip {
+    width: max-content;
+    max-width: 100%;
+  }
+
   .badges-strip {
     padding: 0 16px;
     max-width: 100%;
@@ -567,6 +604,7 @@ section[id] {
   text-transform: uppercase;
   margin: 0 0 1rem;
   opacity: 0.95;
+  text-align: left;
 }
 
 .about__headline {
@@ -574,6 +612,7 @@ section[id] {
   font-weight: 600;
   margin: 0 0 1.25rem;
   line-height: 1.35;
+  text-align: left;
 }
 
 .about__text {
@@ -582,6 +621,7 @@ section[id] {
   line-height: 1.65;
   opacity: 0.95;
   max-width: 40rem;
+  text-align: left;
 }
 
 /* ——— Témata (tagy) ——— */
