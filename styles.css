@@ -501,12 +501,18 @@ section[id] {
   .badges {
     gap: 12px;
   }
+
+  .about .hex__inner {
+    padding: 20px;
+  }
 }
 
 @media (min-width: 768px) {
   .about .badges-strip {
     width: max-content;
     max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .badges-strip {
@@ -514,8 +520,23 @@ section[id] {
     max-width: 100%;
   }
 
-  .badges {
-    gap: 1.1rem;
+  /* Vertikální stupňovité bubliny: odsazení od levého okraje sloupce */
+  .about .badges {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .about .badges .hex:nth-child(1) {
+    margin-left: 0;
+  }
+
+  .about .badges .hex:nth-child(2) {
+    margin-left: 80px;
+  }
+
+  .about .badges .hex:nth-child(3) {
+    margin-left: 40px;
   }
 }
 
