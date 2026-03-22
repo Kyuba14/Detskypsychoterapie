@@ -16,7 +16,7 @@
   --hex-fill: rgba(255, 255, 255, 0.12);
   --font-serif: "Playfair Display", Georgia, serif;
   --font-sans: "Montserrat", system-ui, sans-serif;
-  --max: 880px;
+  --max: 1000px;
   --nav-max: 1100px;
   --radius-pill: 9999px;
   --radius-photo: 2.5rem;
@@ -296,8 +296,11 @@ section[id] {
 /* ——— Hero ——— */
 .hero {
   background: var(--bg-lavender-alt);
-  /* Výška celého viewportu (svh = bez lišty prohlížeče na mobilu) minus výška navigace */
-  min-height: calc(100svh - var(--nav-height));
+  /*
+   * Viewport výška minus nav minus ~56px — další sekce vykukuje ze spodního okraje.
+   * 100svh = výška bez lišty prohlížeče na mobilu.
+   */
+  min-height: calc(100svh - var(--nav-height) - 3.5rem);
   padding: clamp(3rem, 8vw, 6rem) 0;
   position: relative;
   overflow: hidden;
@@ -351,7 +354,7 @@ section[id] {
   align-items: center;
   position: relative;
   z-index: 1;
-  width: 100%;
+  /* width přebírá .container (min(100% - 2.5rem, var(--max))) — nepřepisovat */
 }
 
 @media (max-width: 767px) {
