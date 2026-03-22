@@ -371,6 +371,7 @@ section[id] {
 
   .hero__cta {
     grid-row: 4;
+    justify-self: start;
   }
 
   .hero__photo-wrap {
@@ -419,6 +420,8 @@ section[id] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: fit-content;
+  max-width: 100%;
   padding: 0.9rem 24px;
   background: var(--ink-hero);
   color: var(--white);
