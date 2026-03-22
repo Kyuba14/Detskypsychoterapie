@@ -15,7 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=13" />
+    <link rel="stylesheet" href="styles.css?v=14" />
     <link rel="canonical" href="https://detska-psychoterapie.cz/" />
     <!-- Náhled při sdílení: fialové pozadí + jméno (žádná fotka); ?v= pro invalidaci cache -->
     <meta property="og:type" content="website" />
@@ -58,14 +58,13 @@
       <div class="container site-nav__inner">
         <a class="site-nav__brand" href="#uvod">Dr. Veronika Kieslingová</a>
         <ul class="site-nav__menu">
-            <li><a href="#o-mne" data-i18n="nav_about">O mně</a></li>
             <li>
               <a
                 href="#temata"
                 data-i18n="nav_help"
                 data-i18n-title="nav_help_title"
-                title="Jak mohu pomoci"
-                >Jak mohu pomoci</a
+                title="Moje specializace"
+                >Moje specializace</a
               >
             </li>
             <li>
@@ -185,38 +184,49 @@
 
     <section class="topics" id="temata" aria-labelledby="temata-heading">
       <div class="container">
-        <h2 id="temata-heading" class="page-title" data-i18n="topics_heading">Jak mohu pomoci</h2>
+        <h2 id="temata-heading" class="page-title" data-i18n="topics_heading">Moje specializace</h2>
         <div class="tags topics__lead-tags">
           <button type="button" class="tag" data-def="adhd" data-i18n="tag_adhd">ADHD</button>
-          <button type="button" class="tag" data-def="poruchy-uceni" data-i18n="tag_poruchy_uceni">Poruchy učení</button>
           <button type="button" class="tag" data-def="detske-uzkosti" data-i18n="tag_detske_uzkosti">Dětské úzkosti</button>
           <button type="button" class="tag" data-def="strach-ze-skoly" data-i18n="tag_strach_ze_skoly">Strach ze školy</button>
           <button type="button" class="tag" data-def="rozvod-rodicu" data-i18n="tag_rozvod_rodicu">Rozvod rodičů</button>
+          <button type="button" class="tag" data-def="krizova-intervence" data-i18n="tag_krizova_intervence">Krizová intervence</button>
           <button type="button" class="tag" data-def="detska-psychoterapie" data-i18n="tag_detska_psychoterapie">Dětská psychoterapie</button>
-          <button type="button" class="tag" data-def="rodinna-terapie" data-i18n="tag_rodinna_terapie">Rodinná terapie</button>
         </div>
         <div class="topic-block">
-          <h3 data-i18n="topic_school">Škola a učení</h3>
+          <h3 data-i18n="topic_school">Vzdělávání a specifické poruchy</h3>
           <div class="tags">
-            <button type="button" class="tag" data-def="odklad-skoly" data-i18n="tag_odklad_skoly">Odklad školy</button>
+            <button type="button" class="tag" data-def="adhd" data-i18n="tag_adhd">ADHD</button>
+            <button type="button" class="tag" data-def="poruchy-uceni" data-i18n="tag_poruchy_uceni">Poruchy učení</button>
             <button type="button" class="tag" data-def="dyslexie" data-i18n="tag_dyslexie">Dyslexie</button>
             <button type="button" class="tag" data-def="dysgrafie" data-i18n="tag_dysgrafie">Dysgrafie</button>
             <button type="button" class="tag" data-def="dyskalkulie" data-i18n="tag_dyskalkulie">Dyskalkulie</button>
             <button type="button" class="tag" data-def="napravna-cviceni" data-i18n="tag_napravna_cviceni">Nápravná cvičení</button>
             <button type="button" class="tag" data-def="metoda-sindelar" data-i18n="tag_metoda_sindelar">Metoda Sindelar</button>
+            <button type="button" class="tag" data-def="odklad-skoly" data-i18n="tag_odklad_skoly">Odklad školy</button>
+            <button type="button" class="tag" data-def="specialni-pedagogika" data-i18n="tag_specialni_pedagogika">Speciální pedagogika</button>
           </div>
         </div>
         <div class="topic-block">
-          <h3 data-i18n="topic_psyche">Psychika, rodina a podpora</h3>
+          <h3 data-i18n="topic_psyche">Psychika a chování</h3>
           <div class="tags">
+            <button type="button" class="tag" data-def="detske-uzkosti" data-i18n="tag_detske_uzkosti">Dětské úzkosti</button>
+            <button type="button" class="tag" data-def="strach-ze-skoly" data-i18n="tag_strach_ze_skoly">Strach ze školy</button>
             <button type="button" class="tag" data-def="agresivita" data-i18n="tag_agresivita">Agresivita</button>
             <button type="button" class="tag" data-def="psychosomatika" data-i18n="tag_psychosomatika">Psychosomatika</button>
             <button type="button" class="tag" data-def="poruchy-spanku" data-i18n="tag_poruchy_spanku">Poruchy spánku</button>
             <button type="button" class="tag" data-def="pomocovani" data-i18n="tag_pomocovani">Pomočování</button>
             <button type="button" class="tag" data-def="koktavost" data-i18n="tag_koktavost">Koktavost</button>
-            <button type="button" class="tag" data-def="krizova-intervence" data-i18n="tag_krizova_intervence">Krizová intervence</button>
-            <button type="button" class="tag" data-def="specialni-pedagogika" data-i18n="tag_specialni_pedagogika">Speciální pedagogika</button>
+          </div>
+        </div>
+        <div class="topic-block">
+          <h3 data-i18n="topic_family">Rodina a podpora</h3>
+          <div class="tags">
+            <button type="button" class="tag" data-def="rozvod-rodicu" data-i18n="tag_rozvod_rodicu">Rozvod rodičů</button>
+            <button type="button" class="tag" data-def="rodinna-terapie" data-i18n="tag_rodinna_terapie">Rodinná terapie</button>
             <button type="button" class="tag" data-def="vychovne-poradenstvi" data-i18n="tag_vychovne_poradenstvi">Výchovné poradenství</button>
+            <button type="button" class="tag" data-def="krizova-intervence" data-i18n="tag_krizova_intervence">Krizová intervence</button>
+            <button type="button" class="tag" data-def="detska-psychoterapie" data-i18n="tag_detska_psychoterapie">Dětská psychoterapie</button>
           </div>
         </div>
       </div>

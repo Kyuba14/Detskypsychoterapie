@@ -11,7 +11,7 @@
       "Kinderpsychotherapie und Beratung in Prag 6. Dr. Veronika Kieslingová — 30 Jahre Praxis, ADHS, Ängste, Schulprobleme, Familienberatung. Privatpraxis ohne Überweisung.",
 
     nav_about: "Über mich",
-    nav_help: "Wie kann ich helfen",
+    nav_help: "Meine Spezialisierungen",
     nav_edu: "Ausbildung",
     nav_faq: "Häufige Fragen",
     nav_pricing: "Preise",
@@ -65,9 +65,10 @@
     about_text:
       "Seit über dreißig Jahren arbeite ich in Prag 6 als Psychologin und Sonderpädagogin und suche stets Wege, bewährte psychotherapeutische Methoden mit einem einfühlsamen, ganzheitlichen Zugang zu Kind und Familie zu verbinden.",
 
-    topics_heading: "Wie kann ich helfen",
-    topic_school: "Schule und Lernen",
-    topic_psyche: "Psyche, Familie und Unterstützung",
+    topics_heading: "Meine Spezialisierungen",
+    topic_school: "Bildung und spezifische Störungen",
+    topic_psyche: "Psyche und Verhalten",
+    topic_family: "Familie und Unterstützung",
 
     edu_heading: "Ausbildung",
     edu_academic: "Akademische Ausbildung",
