@@ -341,7 +341,8 @@ section[id] {
   }
 
   .hero__grid {
-    grid-template-columns: minmax(17.5rem, 1fr) min(12.5rem, 28vw);
+    grid-template-columns: minmax(17.5rem, 1fr)
+      min(calc(12.5rem + 30px), calc(28vw + 30px));
     align-items: start;
     column-gap: clamp(1.75rem, 4vw, 2.5rem);
     row-gap: 0;
@@ -376,7 +377,7 @@ section[id] {
     grid-column: 2;
     grid-row: 2;
     align-self: center;
-    width: min(12.5rem, 28vw);
+    width: min(calc(12.5rem + 30px), calc(28vw + 30px));
     justify-self: end;
     margin-inline: 0;
   }
@@ -418,7 +419,7 @@ section[id] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.9rem 2.25rem;
+  padding: 0.9rem 24px;
   background: var(--ink-hero);
   color: var(--white);
   font-size: 0.8rem;
@@ -527,11 +528,6 @@ section[id] {
   .badges {
     gap: 12px;
   }
-
-  .about .hex__inner {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
 }
 
 @media (min-width: 768px) {
@@ -602,6 +598,26 @@ section[id] {
   justify-content: center;
   gap: 0.12rem;
   text-align: center;
+}
+
+/* Mobil: přesně 20px vlevo/vpravo od okraje bubliny + šířka podle textu (pevné rem šířky mačkaly obsah) */
+@media (max-width: 767px) {
+  .about .badges .hex:nth-child(1),
+  .about .badges .hex:nth-child(2),
+  .about .badges .hex:nth-child(3) {
+    width: max-content;
+    max-width: min(100vw - 3rem, 22rem);
+  }
+
+  .about .hex__inner {
+    box-sizing: border-box;
+    width: auto;
+    max-width: 100%;
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 /* Odsazení od levého okraje layoutu (obsah .container) */
