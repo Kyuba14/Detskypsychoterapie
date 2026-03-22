@@ -436,7 +436,8 @@ section[id] {
   .hero__grid {
     grid-template-columns: min(calc(12.5rem + 30px), calc(28vw + 30px))
       minmax(17.5rem, 1fr);
-    align-items: center;
+    /* Fotka nahoře v jedné linii s kickrem „Dětská psychoterapie…“ */
+    align-items: start;
     column-gap: clamp(1.75rem, 4vw, 2.5rem);
     row-gap: 0;
   }
@@ -452,7 +453,7 @@ section[id] {
   .hero__photo-wrap {
     grid-column: 1;
     grid-row: 1;
-    align-self: center;
+    align-self: start;
     width: min(calc(12.5rem + 30px), calc(28vw + 30px));
     justify-self: start;
     margin-inline: 0;
