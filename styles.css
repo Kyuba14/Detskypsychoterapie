@@ -316,36 +316,71 @@ section[id] {
   align-items: center;
 }
 
-/* Dekorativní oblouk v pravém dolním rohu — jemný, kompletní, bezpečný */
-.hero::before {
-  content: "";
-  position: absolute;
-  pointer-events: none;
-  z-index: 0;
-  width: min(44vw, 520px);
-  aspect-ratio: 1;
-  bottom: -30%;
-  right: -10%;
-  border-radius: 50%;
-  border: 1.5px solid rgba(120, 80, 200, 0.10);
-  box-shadow:
-    inset 0 0 0 min(5vw, 60px) rgba(140, 100, 210, 0.05),
-    0 0 0 min(3vw, 36px) rgba(160, 120, 220, 0.04);
-}
-
-/* Malý doplňkový kruh vlevo nahoře */
+/* Animované blur-bloby: pomalu a plynule mění polohu */
+.hero::before,
 .hero::after {
   content: "";
   position: absolute;
+  border-radius: 50%;
   pointer-events: none;
   z-index: 0;
-  width: min(22vw, 260px);
+  will-change: transform;
+}
+
+/* Větší blob vpravo nahoře */
+.hero::before {
+  width: min(58vw, 700px);
   aspect-ratio: 1;
-  top: -12%;
-  left: -6%;
-  border-radius: 50%;
-  border: 1px solid rgba(140, 100, 210, 0.08);
-  box-shadow: inset 0 0 0 min(3vw, 40px) rgba(160, 120, 220, 0.04);
+  top: -20%;
+  right: -12%;
+  background: radial-gradient(
+    circle,
+    rgba(110, 65, 195, 0.13) 0%,
+    rgba(110, 65, 195, 0.05) 50%,
+    transparent 72%
+  );
+  filter: blur(48px);
+  animation: hero-blob-a 22s ease-in-out infinite;
+}
+
+/* Menší blob vlevo dole */
+.hero::after {
+  width: min(42vw, 500px);
+  aspect-ratio: 1;
+  bottom: -18%;
+  left: -8%;
+  background: radial-gradient(
+    circle,
+    rgba(155, 125, 215, 0.14) 0%,
+    rgba(155, 125, 215, 0.05) 50%,
+    transparent 72%
+  );
+  filter: blur(40px);
+  animation: hero-blob-b 28s ease-in-out infinite;
+}
+
+@keyframes hero-blob-a {
+  0%   { transform: translate(0,    0);    }
+  25%  { transform: translate(-5%,  5%);   }
+  50%  { transform: translate(4%,   8%);   }
+  75%  { transform: translate(7%,  -3%);   }
+  100% { transform: translate(0,    0);    }
+}
+
+@keyframes hero-blob-b {
+  0%   { transform: translate(0,    0);    }
+  30%  { transform: translate(7%,  -6%);   }
+  55%  { transform: translate(-4%, -4%);   }
+  80%  { transform: translate(-7%,  6%);   }
+  100% { transform: translate(0,    0);    }
+}
+
+/* Accessibility: vypne animaci pro uživatele, kteří preferují klid */
+@media (prefers-reduced-motion: reduce) {
+  .hero::before,
+  .hero::after {
+    animation: none;
+  }
 }
 
 .hero__grid {
