@@ -23,7 +23,7 @@
   --nav-height: 3.5rem;
   --edu-grid-left: minmax(10.5rem, 36%);
   --edu-grid-gap: clamp(1.5rem, 4vw, 2.75rem);
-  --fs-h1: 60px;
+  --fs-h1: clamp(1.85rem, 4.2vw + 0.85rem, 65px);
   --fs-h2: 40px;
   --fs-h3: 28px;
 }
@@ -473,7 +473,7 @@ section[id] {
   color: var(--ink-hero);
   margin: 0 0 1.1rem;
   line-height: 1.15;
-  font-size: clamp(1.85rem, 4.2vw + 0.85rem, 3.35rem);
+  font-size: var(--fs-h1);
 }
 
 .hero__title-line {
