@@ -1511,7 +1511,18 @@ body.tag-sheet-open {
 .pricing__cards {
   display: grid;
   gap: clamp(1.25rem, 3vw, 1.75rem);
-  margin-bottom: clamp(2rem, 4vw, 2.75rem);
+  margin-bottom: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+.pricing__access-note {
+  max-width: 36rem;
+  margin: 0 auto clamp(1.5rem, 3.5vw, 2.25rem);
+  padding: 0 0.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.92);
+  letter-spacing: 0.01em;
 }
 
 @media (min-width: 640px) {

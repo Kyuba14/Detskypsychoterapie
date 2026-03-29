@@ -89,10 +89,12 @@
     pricing_base_hint: "/ 50 Min.",
     pricing_consult: "Beratungsgespräch",
     pricing_consult_hint: "/ 50 Min.",
-    pricing_note_evening: "ab 18 Uhr — 1 500 Kč",
-    pricing_note_weekend: "am Wochenende — 1 800 Kč",
+    pricing_note_evening: "ab 18 Uhr — 1 800 Kč",
+    pricing_note_weekend: "am Wochenende — 2 000 Kč",
     pricing_note_evening2: "ab 18 Uhr — 1 800 Kč",
     pricing_note_weekend2: "am Wochenende — 2 000 Kč",
+    pricing_access_note:
+      "„Mir ist wichtig, dass die Betreuung zugänglich ist. Bei finanzieller Notlage kann ein individueller Preis vereinbart werden.“",
     pricing_banner:
       "Eine kostenlose Terminabsage ist bis spätestens 24 Stunden im Voraus möglich. Vielen Dank für Ihr Verständnis.",
 
