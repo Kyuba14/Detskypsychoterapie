@@ -414,9 +414,9 @@ section[id] {
   }
 }
 
-/* Fotka v kruhu; na mobilu zarovnání vlevo */
+/* Fotka v kruhu (100 % poloměru rohů = plný kruh u čtverce); na mobilu zarovnání vlevo */
 .hero__photo-wrap {
-  border-radius: 50%;
+  border-radius: 100%;
   overflow: hidden;
   box-shadow:
     0 1rem 2.25rem rgba(59, 30, 123, 0.16),
@@ -432,6 +432,7 @@ section[id] {
 .hero__photo-wrap img {
   width: 100%;
   height: 100%;
+  border-radius: 100%;
   object-fit: cover;
   object-position: center center;
   display: block;
@@ -1515,13 +1516,13 @@ body.tag-sheet-open {
 }
 
 .pricing__access-note {
-  max-width: 36rem;
-  margin: 0 auto clamp(1.5rem, 3.5vw, 2.25rem);
+  max-width: 38rem;
+  margin: 0 auto clamp(1.35rem, 3vw, 2rem);
   padding: 0 0.5rem;
-  font-size: 0.9375rem;
-  line-height: 1.55;
+  font-size: 0.875rem;
+  line-height: 1.6;
   text-align: center;
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(255, 255, 255, 0.88);
   letter-spacing: 0.01em;
 }
 

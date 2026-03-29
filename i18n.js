@@ -64,7 +64,7 @@
     about_headline:
       "Ich widme mein ganzes Berufsleben Kindern, Familien und ihrem Weg zu mehr Wohlbefinden.",
     about_text:
-      "Seit über dreißig Jahren arbeite ich in Prag 6 als Psychologin und Sonderpädagogin. Meinen Beruf verstehe ich als lebenslanges Lernen – ich suche stets Wege, bewährte psychotherapeutische Methoden mit einem einfühlsamen, ganzheitlichen Zugang zu Kind und Familie zu verbinden.",
+      "Seit über dreißig Jahren arbeite ich in Prag 6 als Psychotherapeutin und Sonderpädagogin. Meinen Beruf verstehe ich als lebenslanges Lernen – ich suche stets Wege, bewährte psychotherapeutische Methoden mit einem einfühlsamen, ganzheitlichen Zugang zu Kind und Familie zu verbinden.",
 
     topics_heading: "Meine Spezialisierungen",
     topic_psyche: "Psyche und Verhalten",
@@ -94,7 +94,7 @@
     pricing_note_evening2: "ab 18 Uhr — 1 800 Kč",
     pricing_note_weekend2: "am Wochenende — 2 000 Kč",
     pricing_access_note:
-      "„Mir ist wichtig, dass die Betreuung zugänglich ist. Bei finanzieller Notlage kann ein individueller Preis vereinbart werden.“",
+      "Mir ist wichtig, dass die Betreuung zugänglich ist. Bei finanzieller Notlage kann ein individueller Preis vereinbart werden.",
     pricing_banner:
       "Eine kostenlose Terminabsage ist bis spätestens 24 Stunden im Voraus möglich. Vielen Dank für Ihr Verständnis.",
 
@@ -166,6 +166,7 @@
     "<strong>Deutsche Schule und Gymnasium</strong> in Prag 5 – Psychologin",
     "<strong>Deutscher Kindergarten</strong> in Prag 5 – Psychologin",
     "<strong>Kindergruppe Romodrom</strong> – Therapeutin",
+    "<strong>Renomia</strong> – psychologische Konsultationen seit 2019",
   ];
 
   var SNAPSHOT = {};
