@@ -683,10 +683,6 @@ section[id] {
   }
 
   .about .badges .hex:nth-child(2) {
-    margin-left: 80px;
-  }
-
-  .about .badges .hex:nth-child(3) {
     margin-left: 40px;
   }
 }
@@ -731,8 +727,7 @@ section[id] {
 /* Mobil: přesně 20px vlevo/vpravo od okraje bubliny + šířka podle textu (pevné rem šířky mačkaly obsah) */
 @media (max-width: 767px) {
   .about .badges .hex:nth-child(1),
-  .about .badges .hex:nth-child(2),
-  .about .badges .hex:nth-child(3) {
+  .about .badges .hex:nth-child(2) {
     width: max-content;
     max-width: min(100vw - 3rem, 22rem);
   }
@@ -756,12 +751,6 @@ section[id] {
 }
 
 .hex:nth-child(2) {
-  width: 11.5rem;
-  height: 5.35rem;
-  margin-left: 0;
-}
-
-.hex:nth-child(3) {
   width: 9.75rem;
   height: 4.6rem;
   margin-left: 0;
@@ -786,8 +775,7 @@ section[id] {
 }
 
 .hex:nth-child(1) .hex__value { font-size: clamp(1.55rem, 3.6vw, 2.05rem); }
-.hex:nth-child(2) .hex__value { font-size: clamp(1.35rem, 3.2vw, 1.75rem); }
-.hex:nth-child(3) .hex__value { font-size: clamp(1.15rem, 2.8vw, 1.45rem); }
+.hex:nth-child(2) .hex__value { font-size: clamp(1.15rem, 2.8vw, 1.45rem); }
 
 .about__name {
   font-size: 0.72rem;

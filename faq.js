@@ -11,16 +11,4 @@
       panel.hidden = expanded;
     });
   });
-
-  if (location.hash === "#dospivajici") {
-    var article = document.getElementById("dospivajici");
-    if (article) {
-      var t = article.querySelector(".faq-item__trigger");
-      var p = article.querySelector(".faq-item__panel");
-      if (t && p) {
-        t.setAttribute("aria-expanded", "true");
-        p.hidden = false;
-      }
-    }
-  }
 })();

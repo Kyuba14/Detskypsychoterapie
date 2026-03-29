@@ -6,42 +6,46 @@
       "Obtíže při učení (čtení, psaní, počítání, souvislé učení), které nejsou způsobené jen nedostatečnou výukou nebo prostředím.",
     adhd:
       "Porucha pozornosti s hyperaktivitou a/nebo impulzivitou (ADHD). Často jde o slabší udržení soustředění, podrážděnost, nadměrný pohyb nebo impulzivní rozhodování — i bez formální diagnózy lze hledat praktické strategie pro školu i domov.",
-    "odklad-skoly":
-      "O rok pozdější nástup do první třídy podle doporučení, často kvůli zralosti, zdraví nebo přípravě na školní nároky.",
     "napravna-cviceni":
       "Cílené činnosti na posílení slabších dovedností (čtení, psaní, počty, pozornost) podle individuálních potřeb.",
+    "vysetreni-reci":
+      "Hodnocení vývoje řeči a komunikace: výslovnost, slovní zásoba, porozumění — v kontextu školy i domova.",
+    "spoluprace-se-skolami":
+      "Spolupráce s učiteli a školou: sdílení doporučení, úpravy podpory ve výuce a srozumitelná komunikace o potřebách dítěte.",
     dyskalkulie:
       "Specifická porucha matematických představ a počítání; dítěti se obtížně pracuje s čísly a úlohami.",
-    "metoda-sindelar":
-      "Strukturovaný přístup k nácviku čtení a psaní (např. práce s hláskami a grafomotorikou) podle koncepce V. Sindelara.",
-    "strach-ze-skoly":
-      "Silná úzkost, odpor nebo fyzické potíže spojené se školou, docházkou nebo školním výkonem.",
     dysgrafie:
       "Specifická porucha písma: obtížné, pomalé nebo nečitelné psaní při zachovaném rozumovém potenciálu.",
     dyslexie:
       "Specifická porucha čtení: pomalé rozpoznávání slov, přeházení písmen, slabší plynulost a porozumění textu.",
-    "detske-uzkosti":
+    uzkosti:
       "Nadměrný strach, napětí nebo obavy v běžných situacích, které omezují hru, školu nebo vztahy.",
+    strach:
+      "Silná úzkost, odpor nebo tělesné potíže v náročných situacích — včetně strachu ze školy, nových prostředí nebo nároků na výkon.",
+    vztek:
+      "Intenzivní hněv nebo výbuchy vzteku — často souvisí s frustrací, přetížením nebo neschopností pojmenovat potřeby.",
+    psychosomatika:
+      "Tělesné potíže (bolesti břicha, hlavy, nevolnost), u kterých hraje roli stres a psychické vypětí.",
     "poruchy-spanku":
       "Problémy s usínáním, častým budením, nočními můrami nebo neosvěžujícím spánkem.",
     pomocovani:
       "Mimovolní močení ve spánku nebo přes den u věku, kdy už většina vrstevníků zvládá kontinent.",
-    koktavost:
-      "Kolísání plynulosti řeči: zadrhávání, opakování zvuků nebo slov; není způsobeno leností ani výchovou.",
-    agresivita:
-      "Slovní nebo fyzické útoky, výbuchy vzteku; často souvisí s frustrací, úzkostí nebo neschopností vyjádřit potřeby.",
-    psychosomatika:
-      "Tělesné potíže (bolesti břicha, hlavy, nevolnost), u kterých hraje roli stres a psychické vypětí.",
+    "vztah-k-jidlu":
+      "Selektivní stravování, strach z jídla, tlak na váhu nebo výrazné změny chování u jídla — s ohledem na věk a vývoj dítěte.",
+    "male-sebevedomi":
+      "Sklon k přehnané sebekritice, vyhýbání se novým výzvám nebo silné obavy z neúspěchu.",
+    "panicke-ataky":
+      "Náhlé intenzivní epizody strachu s tělesnými příznaky (bušení srdce, dušnost, závrať); důležitá je psychoedukace a bezpečný postup.",
     "rozvod-rodicu":
       "Ukončení partnerského vztahu rodičů; dítě potřebuje srozumitelné informace a emoční oporu při změnách.",
+    "umrti-v-rodine":
+      "Smrt blízkého člověka v rodině; děti i dospívající potřebují čas, pravdivé informace věku přiměřeně a prostor pro smutek bez tlaku na „být silný“.",
+    "vazne-onemocneni":
+      "Závažná nemoc člena rodiny nebo dítěte samého — změny režimu, strach z budoucnosti a potřeba srozumitelné komunikace podle věku dítěte.",
     "detska-psychoterapie":
       "Pravidelná psychologická práce s dítětem zaměřená na obtíže, emoce, chování a vztahy.",
-    "rodinna-terapie":
-      "Společná práce terapeuta s rodinou na komunikaci, konfliktech a vzájemném porozumění.",
     "krizova-intervence":
       "Krátkodobá intenzivní podpora hned po náročné události (úraz, ztráta, náhlý šok, vážný konflikt).",
-    "specialni-pedagogika":
-      "Podpora dětí s vývojovými a výukovými specifiky ve škole i doma (strategie učení, reedukace, spolupráce se školou).",
     "vychovne-poradenstvi":
       "Konzultace s rodiči: hranice, komunikace s dítětem, řešení konfliktů a výchovných dilemat.",
   };
@@ -51,42 +55,46 @@
       "Schwierigkeiten beim Lernen (Lesen, Schreiben, Rechnen, zusammenhängendes Lernen), die nicht allein durch Unterricht oder Umfeld bedingt sind.",
     adhd:
       "Aufmerksamkeitsdefizit-/Hyperaktivitätsstörung mit und/oder ohne Impulsivität (ADHS). Oft schwächere Konzentration, Unruhe, vermehrte Bewegung oder impulsives Handeln — auch ohne formale Diagnose können wir praktische Strategien für Schule und Zuhause finden.",
-    "odklad-skoly":
-      "Ein Jahr späterer Schuleintritt in die erste Klasse nach Empfehlung, oft wegen Reife, Gesundheit oder Vorbereitung auf schulische Anforderungen.",
     "napravna-cviceni":
       "Gezielte Übungen zur Stärkung schwächerer Fähigkeiten (Lesen, Schreiben, Rechnen, Aufmerksamkeit) nach individuellem Bedarf.",
+    "vysetreni-reci":
+      "Einschätzung von Sprachentwicklung und Kommunikation: Aussprache, Wortschatz, Verständnis – im Schul- und familiären Kontext.",
+    "spoluprace-se-skolami":
+      "Zusammenarbeit mit Lehrkräften und Schule: Austausch über Empfehlungen, Unterstützung im Unterricht und klare Kommunikation über die Bedürfnisse des Kindes.",
     dyskalkulie:
       "Spezifische Störung mathematischer Vorstellungen und des Rechnens; das Kind hat Mühe mit Zahlen und Aufgaben.",
-    "metoda-sindelar":
-      "Strukturierter Ansatz zum Lesen- und Schreibtraining (z. B. Lautarbeit und Graphomotorik) nach V. Sindelar.",
-    "strach-ze-skoly":
-      "Starke Angst, Widerstand oder körperliche Beschwerden in Verbindung mit Schule, Anwesenheit oder Leistung.",
     dysgrafie:
       "Spezifische Schreibstörung: mühsames, langsames oder unleserliches Schreiben bei erhaltenem intellektuellen Potenzial.",
     dyslexie:
       "Spezifische Lesestörung: langsames Worterkennen, Buchstabenvertauschungen, geringere Flüssigkeit und Textverständnis.",
-    "detske-uzkosti":
+    uzkosti:
       "Übermäßige Angst, Anspannung oder Sorgen in Alltagssituationen, die Spiel, Schule oder Beziehungen einschränken.",
+    strach:
+      "Starke Angst, Widerstand oder körperliche Beschwerden in belastenden Situationen – etwa in der Schule, in neuen Umgebungen oder bei Leistungsanforderungen.",
+    vztek:
+      "Heftiger Ärger oder Wutausbrüche – oft im Zusammenhang mit Frustration, Überforderung oder dem Gefühl, Bedürfnisse nicht ausdrücken zu können.",
+    psychosomatika:
+      "Körperliche Beschwerden (Bauch- oder Kopfschmerzen, Übelkeit), bei denen Stress und psychische Belastung eine Rolle spielen.",
     "poruchy-spanku":
       "Schwierigkeiten beim Einschlafen, häufiges Erwachen, Alpträume oder unerholsamer Schlaf.",
     pomocovani:
       "Unwillkürliches Urinieren im Schlaf oder am Tag in einem Alter, in dem die meisten Gleichaltrigen die Kontinenz beherrschen.",
-    koktavost:
-      "Wechselnde Sprechflüssigkeit: Stocken, Wiederholen von Lauten oder Wörtern; nicht durch Faulheit oder Erziehung verursacht.",
-    agresivita:
-      "Verbale oder körperliche Angriffe, Wutausbrüche; oft im Zusammenhang mit Frustration, Angst oder unerfüllten Bedürfnissen.",
-    psychosomatika:
-      "Körperliche Beschwerden (Bauch- oder Kopfschmerzen, Übelkeit), bei denen Stress und psychische Belastung eine Rolle spielen.",
+    "vztah-k-jidlu":
+      "Selektives Essen, Angst vor Essen, Druck bezüglich Gewicht oder deutliche Veränderungen des Essverhaltens – alters- und entwicklungsbezogen betrachtet.",
+    "male-sebevedomi":
+      "Tendenz zu starker Selbstkritik, Vermeidung neuer Herausforderungen oder starke Sorge vor Misserfolg.",
+    "panicke-ataky":
+      "Plötzliche intensive Angstepisoden mit körperlichen Symptomen (Herzklopfen, Atemnot, Schwindel); Psychoedukation und ein sicheres Vorgehen sind wichtig.",
     "rozvod-rodicu":
       "Beendigung der Partnerschaft der Eltern; das Kind braucht verständliche Informationen und emotionale Unterstützung bei Veränderungen.",
+    "umrti-v-rodine":
+      "Tod einer nahestehenden Person in der Familie; Kinder und Jugendliche brauchen Zeit, altersgerechte, ehrliche Informationen und Raum für Trauer ohne Druck, „stark sein zu müssen“.",
+    "vazne-onemocneni":
+      "Schwere Erkrankung eines Familienmitglieds oder des Kindes selbst — Veränderungen im Alltag, Angst vor der Zukunft und bedarfsgerechte, altersgerechte Kommunikation.",
     "detska-psychoterapie":
       "Regelmäßige psychologische Arbeit mit dem Kind zu Schwierigkeiten, Emotionen, Verhalten und Beziehungen.",
-    "rodinna-terapie":
-      "Gemeinsame Arbeit der Therapeutin mit der Familie an Kommunikation, Konflikten und gegenseitigem Verständnis.",
     "krizova-intervence":
       "Kurzfristige intensive Unterstützung unmittelbar nach belastenden Ereignissen (Unfall, Verlust, Schock, schwerer Konflikt).",
-    "specialni-pedagogika":
-      "Unterstützung von Kindern mit Entwicklungs- und Lernbesonderheiten in Schule und Zuhause (Lernstrategien, Reeducation, Schulkooperation).",
     "vychovne-poradenstvi":
       "Beratung der Eltern: Grenzen, Kommunikation mit dem Kind, Konfliktlösung und Erziehungsfragen.",
   };

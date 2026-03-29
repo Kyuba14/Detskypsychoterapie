@@ -19,7 +19,7 @@
     nav_help_title: "Wie kann ich helfen",
     nav_edu_title: "Ausbildung",
     lang_toggle_btn: "Tschechische Version anzeigen",
-    nav_faq_title: "Fragen und Antworten, u. a. zu Jugendlichen",
+    nav_faq_title: "Fragen und Antworten",
     nav_aria_main: "Hauptnavigation",
 
     lang_aria: "Sprache der Seite",
@@ -27,24 +27,26 @@
 
     tag_poruchy_uceni: "Lernstörungen",
     tag_adhd: "ADHS",
-    tag_odklad_skoly: "Schuleintritt verschieben",
     tag_napravna_cviceni: "Förderübungen",
+    tag_vysetreni_reci: "Sprachuntersuchung",
+    tag_spoluprace_se_skolami: "Zusammenarbeit mit Schulen",
     tag_dyskalkulie: "Dyskalkulie",
-    tag_metoda_sindelar: "Sindelar-Methode",
-    tag_strach_ze_skoly: "Schulangst",
     tag_dysgrafie: "Dysgraphie",
     tag_dyslexie: "Dyslexie",
-    tag_detske_uzkosti: "Ängste bei Kindern",
+    tag_uzkosti: "Ängste",
+    tag_strach: "Angst",
+    tag_vztek: "Wut",
+    tag_psychosomatika: "Psychosomatik",
     tag_poruchy_spanku: "Schlafstörungen",
     tag_pomocovani: "Einnässen",
-    tag_koktavost: "Stottern",
-    tag_agresivita: "Aggressivität",
-    tag_psychosomatika: "Psychosomatik",
+    tag_vztah_k_jidlu: "Beziehung zum Essen",
+    tag_male_sebevedomi: "Geringes Selbstwertgefühl",
+    tag_panicke_ataky: "Panikattacken",
     tag_rozvod_rodicu: "Scheidung der Eltern",
+    tag_umrti_v_rodine: "Tod in der Familie",
+    tag_vazne_onemocneni: "Schwere Erkrankung",
     tag_detska_psychoterapie: "Kinderpsychotherapie",
-    tag_rodinna_terapie: "Familientherapie",
     tag_krizova_intervence: "Krisenintervention",
-    tag_specialni_pedagogika: "Sonderpädagogik",
     tag_vychovne_poradenstvi: "Erziehungsberatung",
 
     hero_kicker: "KINDERPSYCHOTHERAPIE PRAG 6",
@@ -58,12 +60,11 @@
 
     about_stat_practice: "PRAXIS",
     about_stat_practice_val: "30 Jahre",
-    about_stat_families: "KINDER & FAMILIEN",
     about_stat_lang: "SPRACHE",
     about_headline:
       "Ich widme mein ganzes Berufsleben Kindern, Familien und ihrem Weg zu mehr Wohlbefinden.",
     about_text:
-      "Seit über dreißig Jahren arbeite ich in Prag 6 als Psychologin und Sonderpädagogin und suche stets Wege, bewährte psychotherapeutische Methoden mit einem einfühlsamen, ganzheitlichen Zugang zu Kind und Familie zu verbinden.",
+      "Seit über dreißig Jahren arbeite ich in Prag 6 als Psychologin und Sonderpädagogin. Meinen Beruf verstehe ich als lebenslanges Lernen – ich suche stets Wege, bewährte psychotherapeutische Methoden mit einem einfühlsamen, ganzheitlichen Zugang zu Kind und Familie zu verbinden.",
 
     topics_heading: "Meine Spezialisierungen",
     topic_psyche: "Psyche und Verhalten",
@@ -115,14 +116,16 @@
     faq_q2:
       "Behandeln Sie auch spezifische Störungen wie ADHS, Ängste oder Selbstverletzung?",
     faq_a2:
-      "„Ja, in meiner Praxis spezialisiere ich mich auf ein breites Spektrum von Schwierigkeiten. Ich helfe Kindern, mit Ängsten, Panikattacken, ADHS und Konzentrationsstörungen umzugehen. Ich widme mich auch psychosomatischen Beschwerden (Bauch- oder Kopfschmerzen durch Stress) und begleite Familien durch belastende Zeiten, etwa eine Scheidung der Eltern.“",
+      "„Ja, in meiner Praxis spezialisiere ich mich auf ein breites Spektrum von Schwierigkeiten. Ich helfe Kindern, mit Ängsten, Panikattacken, ADHS und Konzentrationsstörungen umzugehen. Ich widme mich auch psychosomatischen Beschwerden und begleite Familien durch belastende Zeiten — etwa eine Scheidung der Eltern, eine schwere Erkrankung oder einen Todesfall in der Familie.“",
     faq_q3: "Brauche ich eine Überweisung vom Kinderarzt?",
     faq_a3:
       "„Nein, eine ärztliche Überweisung brauchen Sie nicht. Ich bin eine private Einrichtung — das bedeutet kurze Wartezeiten und maximale Diskretion. Ihre Besuche werden nicht in der Akte beim Kinderarzt vermerkt. Die Leistungen zahlen Sie direkt (siehe Preise für Psychotherapie unten).“",
-    faq_q4:
-      "Was tun, wenn ein Jugendlicher Psychotherapie ablehnt?",
+    faq_q4: "Wie läuft die Therapie mit einem kleinen Kind ab?",
     faq_a4:
-      "„Wenn ein Jugendlicher den Psychologen ablehnt, zwingen Sie ihn nicht. Vereinbaren Sie in diesem Fall eine elterliche Beratung. Oft können wir die Situation zu Hause durch eine veränderte Haltung der Eltern beruhigen. Wirksame Erziehungsberatung funktioniert auch ohne direkte Beteiligung des Kindes.“",
+      "„Bei jüngeren Kindern verläuft die Therapie nicht wie ein klassisches Gespräch — ich arbeite mit Spiel, Zeichnen, Geschichten und anderen Techniken, die dem Kind entsprechen. Über das Spiel öffnen sich Kinder oft viel leichter als nur mit Worten. Die Eltern werden regelmäßig über den Verlauf informiert und erhalten konkrete Tipps, wie sie dem Kind auch zu Hause helfen können.“",
+    faq_q5: "Wie viele Sitzungen wird das Kind brauchen?",
+    faq_a5:
+      "„Die Dauer der Therapie hängt von Art und Tiefe der Schwierigkeiten ab. Bei manchen Kindern reichen einige Beratungsgespräche zu einer konkreten Situation, andere Fälle brauchen längerfristige Zusammenarbeit. Wir gehen immer nach einem individuellen Plan vor und bewerten den Verlauf regelmäßig gemeinsam mit den Eltern.“",
   };
 
   /** InnerHTML pro <li> ve vzdělání (tučné názvy + zbytek) — pořadí jako v HTML. */
@@ -131,6 +134,7 @@
     "<strong>Systemische Paar- und Familienpsychotherapie</strong> 3 Jahre, ISZ Prag",
     "<strong>Weiterbildung in analytischer Kinderpsychotherapie</strong> 1 Jahr, IPDAR",
     "<strong>Hakomi-Therapie</strong> Hakomi-Institut Leipzig",
+    "<strong>Grundausbildung KVT</strong> Prag",
     "<strong>Systemische Arbeit</strong> mit Kindern und Jugendlichen, SPAS Prag",
     "<strong>Psychotherapie für Kinder und Jugendliche</strong> – Manfred Voght, ISZ Prag",
     "<strong>Emotionale und soziale Geburt des Kindes</strong>, CKP Dobřichovice",
