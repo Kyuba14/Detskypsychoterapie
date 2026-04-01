@@ -484,7 +484,7 @@ section[id] {
   }
 }
 
-/* H1: 1. řádek „Bezpečný prostor“, 2. řádek „pro růst…“ — na desktopu celé řádky bez zalomení uvnitř, pokud šířka dovolí */
+/* H1: dva bloky (.hero__title-line); uvnitř každého přirozené zalomení podle šířky (CS krátké, DE může na více řádků) */
 .hero__title {
   display: flex;
   flex-direction: column;
@@ -508,13 +508,11 @@ section[id] {
 .hero__title-line {
   display: block;
   max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
-@media (min-width: 768px) {
-  .hero__title-line {
-    white-space: nowrap;
-  }
-}
+/* Bez nowrap na desktopu: dlouhé jazyky (např. DE) se zalomí uvnitř řádku místo oříznutí. */
 
 .hero__perex {
   margin: 0 0 2rem;

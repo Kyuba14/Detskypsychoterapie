@@ -36,6 +36,8 @@
       "Sklon k přehnané sebekritice, vyhýbání se novým výzvám nebo silné obavy z neúspěchu.",
     "panicke-ataky":
       "Náhlé intenzivní epizody strachu s tělesnými příznaky (bušení srdce, dušnost, závrať); důležitá je psychoedukace a bezpečný postup.",
+    sebeposkozovani:
+      "Opakované ubližování sobě (např. škrábání, řezání) nebo jiné rizikové chování; často souvisí s emočním přetížením, studem nebo tíživými situacemi — důležitá je bezpečí, důvěra a včasná odborná podpora.",
     "rozvod-rodicu":
       "Ukončení partnerského vztahu rodičů; dítě potřebuje srozumitelné informace a emoční oporu při změnách.",
     "umrti-v-rodine":
@@ -85,6 +87,8 @@
       "Tendenz zu starker Selbstkritik, Vermeidung neuer Herausforderungen oder starke Sorge vor Misserfolg.",
     "panicke-ataky":
       "Plötzliche intensive Angstepisoden mit körperlichen Symptomen (Herzklopfen, Atemnot, Schwindel); Psychoedukation und ein sicheres Vorgehen sind wichtig.",
+    sebeposkozovani:
+      "Wiederholtes Selbstverletzen (z. B. Kratzen, Ritzen) oder anderes riskantes Verhalten; oft im Zusammenhang mit emotionaler Überlastung, Scham oder belastenden Situationen — Sicherheit, Vertrauen und rechtzeitige fachliche Unterstützung sind wichtig.",
     "rozvod-rodicu":
       "Beendigung der Partnerschaft der Eltern; das Kind braucht verständliche Informationen und emotionale Unterstützung bei Veränderungen.",
     "umrti-v-rodine":

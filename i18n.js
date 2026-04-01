@@ -42,6 +42,7 @@
     tag_vztah_k_jidlu: "Beziehung zum Essen",
     tag_male_sebevedomi: "Geringes Selbstwertgefühl",
     tag_panicke_ataky: "Panikattacken",
+    tag_sebeposkozovani: "Selbstverletzung",
     tag_rozvod_rodicu: "Scheidung der Eltern",
     tag_umrti_v_rodine: "Tod in der Familie",
     tag_vazne_onemocneni: "Schwere Erkrankung",
@@ -53,7 +54,7 @@
     hero_title:
       '<span class="hero__title-line">Ein sicherer Raum</span><span class="hero__title-line">für das Wachstum Ihres Kindes</span>',
     hero_perex:
-      "Psychologische und heilpädagogische Betreuung für Kinder, Jugendliche und ihre Familien. Privatpraxis in Prag 6 — ohne Überweisung, diskret und persönlich.",
+      "Psychotherapeutische und heilpädagogische Betreuung für Kinder, Jugendliche und ihre Familien. Privatpraxis in Prag 6 — ohne Überweisung, diskret und persönlich.",
     hero_cta: "Termin vereinbaren",
     hero_img_alt:
       "Dr. Veronika Kieslingová, Kinderpsychologin Prag 6",
@@ -67,7 +68,6 @@
       "Seit über dreißig Jahren arbeite ich in Prag 6 als Psychotherapeutin und Sonderpädagogin. Meinen Beruf verstehe ich als lebenslanges Lernen – ich suche stets Wege, bewährte psychotherapeutische Methoden mit einem einfühlsamen, ganzheitlichen Zugang zu Kind und Familie zu verbinden.",
 
     topics_heading: "Meine Spezialisierungen",
-    topic_psyche: "Psyche und Verhalten",
     topic_family: "Familie und Unterstützung",
 
     edu_heading: "Ausbildung",
@@ -75,7 +75,7 @@
     edu_degree1: "Sonderpädagogik – Defektologie",
     edu_degree2: "Psychologie",
     edu_school2: "Außerordentliches Studium, Philosophische Fakultät UK",
-    edu_degree3: "Promotion",
+    edu_degree3: "Doktorat",
     edu_school3: "an der PF UK",
     edu_psychotherapy: "Psychotherapie und Weiterbildungen",
     edu_more: "Weitere Kurse und Praxis",
@@ -86,9 +86,11 @@
 
     pricing_heading: "Preise",
     pricing_child: "Kinderpsychotherapie",
-    pricing_base_hint: "/ 50 Min.",
+    pricing_price_child: "1 500 Kč",
+    pricing_base_hint: "/ 60 Min.",
     pricing_consult: "Beratungsgespräch",
-    pricing_consult_hint: "/ 50 Min.",
+    pricing_price_consult: "1 700 Kč",
+    pricing_consult_hint: "/ 60 Min.",
     pricing_note_evening: "ab 18 Uhr — 1 800 Kč",
     pricing_note_weekend: "am Wochenende — 2 000 Kč",
     pricing_note_evening2: "ab 18 Uhr — 1 800 Kč",
@@ -166,7 +168,7 @@
     "<strong>Deutsche Schule und Gymnasium</strong> in Prag 5 – Psychologin",
     "<strong>Deutscher Kindergarten</strong> in Prag 5 – Psychologin",
     "<strong>Kindergruppe Romodrom</strong> – Therapeutin",
-    "<strong>Renomia</strong> – psychologische Konsultationen seit 2019",
+    "<strong>Renomia</strong> – psychologische Konsultationen seit dem Jahr 2019",
   ];
 
   var SNAPSHOT = {};
