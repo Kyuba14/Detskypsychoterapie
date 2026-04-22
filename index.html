@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#2f3d36" />
     <title>Dětská psychoterapie Praha 6 | Dr. Veronika Kieslingová</title>
     <meta name="description" content="Dětská psychoterapie Praha 6 – Dr. Veronika Kieslingová. Bez žádanky, diskrétně. ADHD, úzkosti, poruchy učení. Tel: +420 602 643 450">
     <meta name="robots" content="index, follow" />
@@ -22,7 +23,9 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=24" />
+    <link rel="icon" href="favicon-32.png?v=2" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2" />
+    <link rel="stylesheet" href="styles.css?v=45" />
     <link rel="canonical" href="https://detska-psychoterapie.cz/" />
     <!-- Náhled při sdílení (OG / WhatsApp / iMessage); ?v= pro invalidaci cache -->
     <meta property="og:type" content="website" />
@@ -120,26 +123,26 @@
     <header class="hero" id="uvod">
       <div class="container hero__grid">
         <div class="hero__text">
+          <div class="hero__photo-wrap hero__photo-wrap--logo">
+            <img
+              src="brand-mark-icon.png?v=6"
+              alt=""
+              width="80"
+              height="80"
+              decoding="async"
+              fetchpriority="high"
+              aria-hidden="true"
+            />
+          </div>
           <p class="hero__kicker" data-i18n="hero_kicker">DĚTSKÁ PSYCHOTERAPIE PRAHA 6</p>
           <h1 class="hero__title" data-i18n="hero_title" data-i18n-html>
-            <span class="hero__title-line">Bezpečný prostor</span
-            ><span class="hero__title-line">pro růst vašeho dítěte</span>
+            <span class="hero__title-line">Prostor růstu pro děti,</span
+            ><span class="hero__title-line">dospívající a mladé dospělé</span>
           </h1>
           <p class="hero__perex" data-i18n="hero_perex">
-            Psychoterapeutická a speciálně pedagogická péče pro děti, dospívající a jejich rodiny. Soukromá praxe v Praze 6 — bez žádanky, s diskrétností a lidským přístupem.
+            Psychoterapeutická&nbsp;a&nbsp;speciálně pedagogická péče v&nbsp;soukromé praxi na&nbsp;Praze&nbsp;6. Bez žádanky od&nbsp;lékaře, v&nbsp;diskrétním&nbsp;a&nbsp;klidném prostředí.
           </p>
           <a class="hero__cta" href="#kontakt" data-i18n="hero_cta">Kontakt</a>
-        </div>
-        <div class="hero__photo-wrap">
-          <img
-            src="veronika-kieslingova.png?v=3"
-            data-i18n-alt="hero_img_alt"
-            alt="Dr. Veronika Kieslingová, dětská psycholožka Praha 6"
-            width="1024"
-            height="1024"
-            decoding="async"
-            fetchpriority="high"
-          />
         </div>
       </div>
     </header>
@@ -147,28 +150,19 @@
     <section class="about" id="o-mne" aria-labelledby="about-heading">
       <div class="container about__grid">
         <div class="badges-strip">
-          <div class="badges" aria-hidden="true">
-          <div class="hex">
-            <svg class="hex__blob" viewBox="0 0 232 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M18 20 C40 2, 120 0, 180 8 C220 14, 234 50, 230 100 C226 140, 190 162, 140 158 C90 154, 30 150, 10 118 C-8 88, -4 38, 18 20Z"/>
-            </svg>
-            <div class="hex__inner">
-              <div class="hex__label" data-i18n="about_stat_practice">PRAXE</div>
-              <div class="hex__value" data-i18n="about_stat_practice_val">30 let</div>
-            </div>
-          </div>
-          <div class="hex">
-            <svg class="hex__blob" viewBox="0 0 152 112" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 16 C28 2, 80 -2, 122 6 C148 12, 156 40, 150 72 C144 100, 116 114, 80 112 C46 110, 14 102, 4 78 C-6 54, -4 30, 12 16Z"/>
-            </svg>
-            <div class="hex__inner">
-              <div class="hex__label" data-i18n="about_stat_lang">JAZYK</div>
-              <div class="hex__value">CZ/DE</div>
-            </div>
-          </div>
+          <div class="about__photo-wrap">
+            <img
+              src="veronika-kieslingova.png?v=4"
+              data-i18n-alt="hero_img_alt"
+              alt="Dr. Veronika Kieslingová, dětská psycholožka Praha 6"
+              width="600"
+              height="600"
+              decoding="async"
+              loading="lazy"
+            />
           </div>
         </div>
-        <div>
+        <div class="about__intro">
           <p class="about__name">DR. VERONIKA KIESLINGOVÁ</p>
           <h2 id="about-heading" class="about__headline" data-i18n="about_headline">
             Celý svůj profesní život zasvěcuji dětem, rodinám a jejich cestě k větší pohodě.
@@ -176,6 +170,26 @@
           <p class="about__text" data-i18n="about_text">
             Více než třicet let pracuji na Praze 6 jako psychoterapeutka a speciální pedagožka. Svůj obor považuji za celoživotní učení – neustále hledám cesty, jak propojit ověřené psychoterapeutické metody s laskavým a celostním přístupem k dítěti i rodině.
           </p>
+          <div class="badges" aria-hidden="true">
+            <div class="hex">
+              <svg class="hex__blob" viewBox="0 0 232 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 20 C40 2, 120 0, 180 8 C220 14, 234 50, 230 100 C226 140, 190 162, 140 158 C90 154, 30 150, 10 118 C-8 88, -4 38, 18 20Z"/>
+              </svg>
+              <div class="hex__inner">
+                <div class="hex__label" data-i18n="about_stat_practice">PRAXE</div>
+                <div class="hex__value" data-i18n="about_stat_practice_val">30 let</div>
+              </div>
+            </div>
+            <div class="hex">
+              <svg class="hex__blob" viewBox="0 0 152 112" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 16 C28 2, 80 -2, 122 6 C148 12, 156 40, 150 72 C144 100, 116 114, 80 112 C46 110, 14 102, 4 78 C-6 54, -4 30, 12 16Z"/>
+              </svg>
+              <div class="hex__inner">
+                <div class="hex__label" data-i18n="about_stat_lang">JAZYK</div>
+                <div class="hex__value">CZ/DE</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -184,14 +198,6 @@
       <div class="container">
         <h2 id="temata-heading" class="page-title" data-i18n="topics_heading">Moje specializace</h2>
         <div class="tags topics__lead-tags">
-          <button type="button" class="tag" data-def="adhd" data-i18n="tag_adhd">ADHD</button>
-          <button type="button" class="tag" data-def="poruchy-uceni" data-i18n="tag_poruchy_uceni">Poruchy učení</button>
-          <button type="button" class="tag" data-def="dyslexie" data-i18n="tag_dyslexie">Dyslexie</button>
-          <button type="button" class="tag" data-def="dysgrafie" data-i18n="tag_dysgrafie">Dysgrafie</button>
-          <button type="button" class="tag" data-def="dyskalkulie" data-i18n="tag_dyskalkulie">Dyskalkulie</button>
-          <button type="button" class="tag" data-def="napravna-cviceni" data-i18n="tag_napravna_cviceni">Nápravná cvičení</button>
-          <button type="button" class="tag" data-def="vysetreni-reci" data-i18n="tag_vysetreni_reci">Vyšetření řeči</button>
-          <button type="button" class="tag" data-def="spoluprace-se-skolami" data-i18n="tag_spoluprace_se_skolami">Spolupráce se školami</button>
           <button type="button" class="tag" data-def="uzkosti" data-i18n="tag_uzkosti">Úzkosti</button>
           <button type="button" class="tag" data-def="strach" data-i18n="tag_strach">Strach</button>
           <button type="button" class="tag" data-def="vztek" data-i18n="tag_vztek">Vztek</button>
@@ -202,6 +208,9 @@
           <button type="button" class="tag" data-def="male-sebevedomi" data-i18n="tag_male_sebevedomi">Malé sebevědomí</button>
           <button type="button" class="tag" data-def="panicke-ataky" data-i18n="tag_panicke_ataky">Panické ataky</button>
           <button type="button" class="tag" data-def="sebeposkozovani" data-i18n="tag_sebeposkozovani">Sebepoškozování</button>
+          <button type="button" class="tag" data-def="adhd" data-i18n="tag_adhd">ADHD</button>
+          <button type="button" class="tag" data-def="poruchy-uceni" data-i18n="tag_poruchy_uceni">Poruchy učení</button>
+          <button type="button" class="tag" data-def="spoluprace-se-skolami" data-i18n="tag_spoluprace_se_skolami">Spolupráce se školami</button>
         </div>
         <div class="topic-block">
           <h3 data-i18n="topic_family">Rodina a podpora</h3>
@@ -580,9 +589,9 @@
       </div>
     </footer>
 
-    <script src="i18n.js?v=34" defer></script>
+    <script src="i18n.js?v=36" defer></script>
     <script src="faq.js?v=1" defer></script>
-    <script src="tags.js?v=23" defer></script>
+    <script src="tags.js?v=24" defer></script>
     <script>
       (function () {
         var wrap = document.querySelector(".map-wrap");

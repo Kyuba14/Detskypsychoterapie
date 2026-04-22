@@ -1,18 +1,51 @@
-/* Design: dětská psychoterapie — barvy a typografie podle návrhu */
-
+/*
+ * Design: paleta z loga (les, zlato, teplý krém).
+ * Rytmus světlých ploch: --cream-50 = základ (tělo, FAQ, kontakt),
+ * --cream-100 = stejný „pás“ pro úvod a témata (žádná jiná světlá zeleň na celé sekce).
+ */
 :root {
-  --purple-deep: #3b1e7b;
-  --purple-bg: #331b6b;
-  --ink: #2e1a5e;
-  --ink-hero: #361d77;
-  --bg-lavender: #fdf5f9;
-  --bg-lavender-alt: #f7f4fa;
-  --coral: #f27463;
+  /* Základ z loga — lehčí les (méně „uhlíková“ zeleň) */
+  --forest-950: #222c27;
+  --forest-900: #2f3d36;
+  --forest-800: #3a4a42;
+  --forest-700: #475a52;
+
+  /* Zlato: o chlup světlejší a teplejší, ať je vidět, ale zůstane decentní */
+  --gold-800: #735425;
+  --gold-700: #8f6a2e;
+  --gold-600: #a67f38;
+  --gold-500: #bc9446;
+  --gold-400: #d4b86a;
+
+  /* Teplé neutrální krémy (sdílená rodina odstínů, bez „random“ šalvěje na celých blocích) */
+  --cream-50: #faf9f6;
+  --cream-100: #f2f0ea;
+  --cream-200: #e6e2da;
+  /* Chipy / tagy — o stupeň hutnější než pozadí, stále ve stejné teplotě barvy */
+  --chip-bg: #dfdbd3;
+
+  --ink: #2d3a34;
+  --ink-hero: #3a4a43;
   --white: #ffffff;
-  --banner-tan: #e0d1b5;
-  --banner-text: #2a1f18;
-  --tag-bg: #e4e0ea;
-  --muted: rgba(46, 26, 94, 0.75);
+  --muted: rgba(45, 58, 52, 0.7);
+
+  /* Společné RGB pro stíny / průhlednosti (space-separated) */
+  --brand-rgb: 58, 72, 66;
+  --brand-deep-rgb: 38, 48, 44;
+  --accent-rgb: 172, 130, 56;
+  --ink-rgb: 45, 58, 52;
+
+  /* Sémantické tokeny (název často z historie layoutu) */
+  --purple-deep: var(--forest-700);
+  --purple-bg: var(--forest-900);
+  --bg-lavender: var(--cream-50);
+  --bg-lavender-alt: var(--cream-100);
+  /* Témata = stejný světlý pás jako hero (oddělení jen tmavým blokem „O mně“) */
+  --bg-topics: var(--cream-100);
+  --coral: var(--gold-700);
+  --banner-tan: #efe4cf;
+  --banner-text: #2a2419;
+  --tag-bg: var(--chip-bg);
   --hex-fill: rgba(255, 255, 255, 0.12);
   --font-serif: "Playfair Display", Georgia, serif;
   --font-sans: "Montserrat", system-ui, sans-serif;
@@ -220,7 +253,7 @@ section[id] {
 
 .lang-switch__btn--active {
   color: var(--white);
-  background: rgba(242, 116, 99, 0.28);
+  background: rgba(var(--accent-rgb), 0.38);
 }
 
 .lang-switch__flag {
@@ -271,35 +304,37 @@ section[id] {
   letter-spacing: 0.04em;
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
-  border-radius: 0.35rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
   white-space: nowrap;
-  transition: color 0.15s;
+  transition:
+    color 0.15s ease,
+    background 0.15s ease,
+    border-color 0.15s ease;
 }
 
 .site-nav__menu a:hover {
-  color: var(--coral);
-  background: rgba(255, 255, 255, 0.07);
+  background: var(--coral);
+  color: var(--white);
+  border-color: var(--coral);
 }
 
 .site-nav__menu a:focus-visible {
   outline: 2px solid var(--coral);
   outline-offset: 2px;
+  background: var(--coral);
+  color: var(--white);
+  border-color: var(--coral);
 }
 
 /* Zvýraznění odkazu „Kontakt" jako CTA */
 .site-nav__menu li:last-child a {
   color: var(--white);
-  background: rgba(242, 116, 99, 0.2);
-  border: 1px solid rgba(242, 116, 99, 0.4);
+  background: rgba(var(--accent-rgb), 0.3);
+  border: 1px solid rgba(var(--accent-rgb), 0.55);
   border-radius: var(--radius-pill);
   padding-inline: 0.9rem;
   margin-left: 0.5rem;
-}
-
-.site-nav__menu li:last-child a:hover {
-  background: var(--coral);
-  color: var(--white);
-  border-color: var(--coral);
 }
 
 @media (min-width: 720px) {
@@ -312,15 +347,14 @@ section[id] {
 /* ——— Hero ——— */
 .hero {
   /*
-   * Gradient-mesh: teplý fialový záblesk vpravo nahoře + lavender vlevo dole + grain.
-   * Grain = jemný šum jako na kvalitním papíře, dává pozadí haptický pocit.
+   * Gradient-mesh: zlato + teplý kámen (stejná chromatická rodina jako krém, bez studené šalvěje).
    */
   background-color: var(--bg-lavender-alt);
   background-image:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)' opacity='0.038'/%3E%3C/svg%3E"),
-    radial-gradient(ellipse 58% 52% at 88% 8%,  rgba(160, 120, 220, 0.20) 0%, transparent 68%),
-    radial-gradient(ellipse 52% 46% at 8%  92%,  rgba(190, 175, 235, 0.22) 0%, transparent 65%),
-    radial-gradient(ellipse 65% 55% at 50% 48%,  rgba(248, 244, 255, 0.55) 0%, transparent 78%);
+    radial-gradient(ellipse 58% 52% at 88% 8%, rgba(212, 184, 118, 0.24) 0%, transparent 68%),
+    radial-gradient(ellipse 52% 46% at 8% 92%, rgba(178, 168, 150, 0.14) 0%, transparent 65%),
+    radial-gradient(ellipse 65% 55% at 50% 48%, rgba(252, 250, 246, 0.6) 0%, transparent 78%);
   /*
    * Viewport výška minus nav minus ~56px — další sekce vykukuje ze spodního okraje.
    */
@@ -351,8 +385,8 @@ section[id] {
   right: -12%;
   background: radial-gradient(
     circle,
-    rgba(110, 65, 195, 0.13) 0%,
-    rgba(110, 65, 195, 0.05) 50%,
+    rgba(212, 184, 118, 0.2) 0%,
+    rgba(212, 184, 118, 0.07) 50%,
     transparent 72%
   );
   filter: blur(48px);
@@ -367,8 +401,8 @@ section[id] {
   left: -8%;
   background: radial-gradient(
     circle,
-    rgba(155, 125, 215, 0.14) 0%,
-    rgba(155, 125, 215, 0.05) 50%,
+    rgba(168, 158, 142, 0.14) 0%,
+    rgba(188, 178, 160, 0.07) 50%,
     transparent 72%
   );
   filter: blur(40px);
@@ -408,25 +442,28 @@ section[id] {
   /* width přebírá .container (min(100% - 2.5rem, var(--max))) — nepřepisovat */
 }
 
-@media (max-width: 767px) {
-  .hero__photo-wrap {
-    order: -1;
-  }
+.hero__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  min-width: 0;
 }
 
-/* Fotka v kruhu (100 % poloměru rohů = plný kruh u čtverce); na mobilu zarovnání vlevo */
+/* Fotka v kruhu (úvod) — základ; logo v hero má vlastní rozměr níže */
 .hero__photo-wrap {
-  border-radius: 100%;
-  overflow: hidden;
-  box-shadow:
-    0 1rem 2.25rem rgba(59, 30, 123, 0.16),
-    0 0 0 1px rgba(59, 30, 123, 0.08);
-  margin-inline: 0;
-  justify-self: start;
+  margin-inline: auto;
+  justify-self: center;
   aspect-ratio: 1;
   width: min(11.5rem, 72vw);
   max-width: 100%;
+  border-radius: 100%;
+  overflow: hidden;
   background: var(--bg-lavender-alt);
+  box-shadow:
+    0 1rem 2.25rem rgba(var(--brand-rgb), 0.16),
+    0 0 0 1px rgba(var(--brand-rgb), 0.08);
 }
 
 .hero__photo-wrap img {
@@ -438,35 +475,39 @@ section[id] {
   display: block;
 }
 
+/* Úvod: malé logo uprostřed nad kickrem */
+.hero__text > .hero__photo-wrap {
+  flex-shrink: 0;
+  margin-bottom: clamp(0.65rem, 2vw, 1rem);
+}
+
+.hero__photo-wrap--logo {
+  width: 80px;
+  height: 80px;
+  max-width: 80px;
+  border-radius: 100px;
+  background: var(--cream-50);
+  box-shadow:
+    0 0.35rem 1rem rgba(var(--brand-rgb), 0.12),
+    0 0 0 1px rgba(var(--brand-rgb), 0.08);
+}
+
+.hero__photo-wrap--logo img {
+  border-radius: 100px;
+  object-fit: contain;
+  object-position: center center;
+  padding: 12%;
+}
+
 @media (min-width: 768px) {
-  /*
-   * Dva sloupce: vlevo fotka, vpravo text (DOM zůstává text → fotka kvůli čtečkám).
-   * Jeden řádek — fotka nesdílí řádek jen s H1, aby nevznikla díra mezi H1 a perexem.
-   */
   .hero__grid {
-    grid-template-columns: min(calc(12.5rem + 30px), calc(28vw + 30px))
-      minmax(17.5rem, 1fr);
-    /* Fotka nahoře v jedné linii s kickrem „Dětská psychoterapie…“ */
-    align-items: start;
-    column-gap: clamp(1.75rem, 4vw, 2.5rem);
-    row-gap: 0;
+    grid-template-columns: minmax(0, 1fr);
+    justify-content: center;
+    justify-items: center;
   }
 
   .hero__text {
-    grid-column: 2;
-    grid-row: 1;
-    min-width: 0;
-    max-width: 32rem;
-    justify-self: start;
-  }
-
-  .hero__photo-wrap {
-    grid-column: 1;
-    grid-row: 1;
-    align-self: start;
-    width: min(calc(12.5rem + 30px), calc(28vw + 30px));
-    justify-self: start;
-    margin-inline: 0;
+    max-width: min(42rem, 100%);
   }
 }
 
@@ -484,11 +525,11 @@ section[id] {
   }
 }
 
-/* H1: dva bloky (.hero__title-line); uvnitř každého přirozené zalomení podle šířky (CS krátké, DE může na více řádků) */
+/* H1: dva logické řádky (.hero__title-line); na mobilu zalomení uvnitř řádku, od tabletu jeden vizuální řádek na blok (nowrap). */
 .hero__title {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   font-family: var(--font-serif);
   font-weight: 600;
   font-style: italic;
@@ -512,14 +553,22 @@ section[id] {
   word-wrap: break-word;
 }
 
-/* Bez nowrap na desktopu: dlouhé jazyky (např. DE) se zalomí uvnitř řádku místo oříznutí. */
+@media (min-width: 768px) {
+  .hero__title-line {
+    white-space: nowrap;
+    overflow-wrap: normal;
+    word-wrap: normal;
+    max-width: none;
+  }
+}
 
 .hero__perex {
-  margin: 0 0 2rem;
+  margin: 0 auto 2rem;
   font-size: clamp(0.9rem, 2vw, 1.05rem);
   line-height: 1.6;
   color: var(--muted);
   max-width: 30rem;
+  text-align: center;
 }
 
 .hero__cta {
@@ -555,7 +604,7 @@ section[id] {
 
 /* ——— About (statistiky — sedmiúhelníky jako v návrhu) ——— */
 .about {
-  --about-purple: #331a7a;
+  --about-purple: #2c3833;
   --badge-glass: rgba(255, 255, 255, 0.11);
   background: var(--about-purple);
   color: var(--white);
@@ -564,11 +613,42 @@ section[id] {
 
 .about__grid {
   display: grid;
-  gap: clamp(1.25rem, 3vw, 2rem);
+  gap: 40px;
   align-items: start;
 }
 
-/* Mobil: nejdřív jméno + nadpis + popisek, bubliny až pod ním */
+.about__intro {
+  min-width: 0;
+}
+
+/* O mně: portrét ve stripu vlevo — plně zaoblené rohy, zarovnání řádku gridu nahoru */
+.about__photo-wrap {
+  width: min(10.5rem, 58vw);
+  max-width: 100%;
+  aspect-ratio: 1;
+  margin: 0 0 1.25rem;
+  border-radius: 100px;
+  overflow: hidden;
+  box-shadow:
+    0 1rem 2.25rem rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.14);
+}
+
+.badges-strip > .about__photo-wrap {
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.about__photo-wrap img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 100px;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Mobil: nejdřív jméno + nadpis + popisek + bubliny, pak fotka ve stripu */
 @media (max-width: 767px) {
   .about__grid > div:last-child {
     order: 1;
@@ -581,20 +661,20 @@ section[id] {
 
 @media (min-width: 768px) {
   .about__grid {
-    /* Vlevo text, vpravo stupňovité bubliny */
-    grid-template-columns: 1fr max-content;
-    column-gap: clamp(0.85rem, 2.2vw, 1.5rem);
-    row-gap: clamp(1.25rem, 3vw, 2rem);
-    align-items: center;
+    /* Vlevo strip (fotka), vpravo text — mezera 40px (stejná jako základní gap) */
+    grid-template-columns: max-content 1fr;
+    align-items: start;
   }
 
   .about__grid > .badges-strip {
-    grid-column: 2;
+    grid-column: 1;
     grid-row: 1;
+    justify-self: start;
+    align-self: start;
   }
 
   .about__grid > div:last-child {
-    grid-column: 1;
+    grid-column: 2;
     grid-row: 1;
     min-width: 0;
     justify-self: stretch;
@@ -614,17 +694,20 @@ section[id] {
   }
 }
 
-/* Horizontální pás bublin + carousel na úzkém viewportu */
+/* Strip jen s portrétem; hex řádek je v .about__intro pod popiskem */
 .badges-strip {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: clamp(0.85rem, 2.5vw, 1.25rem);
   width: 100%;
   min-width: 0;
   padding: 0 16px;
   box-sizing: border-box;
-  overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
-  scroll-snap-type: x proximity;
+  border-radius: 10px;
+  overflow-x: visible;
+  overflow-y: visible;
 }
 
 .badges {
@@ -635,9 +718,16 @@ section[id] {
   justify-content: flex-start;
   gap: 1rem;
   width: max-content;
+  max-width: 100%;
+  min-width: 0;
   padding-bottom: 0.35rem;
   margin-inline: 0;
   flex-shrink: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scroll-snap-type: x proximity;
 }
 
 .badges .hex {
@@ -669,21 +759,17 @@ section[id] {
     padding: 0 16px;
     max-width: 100%;
   }
+}
 
-  /* Vertikální stupňovité bubliny: odsazení od levého okraje sloupce */
-  .about .badges {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-
-  .about .badges .hex:nth-child(1) {
-    margin-left: 0;
-  }
-
-  .about .badges .hex:nth-child(2) {
-    margin-left: 40px;
-  }
+/* Hex „pilulky“ pod popiskem v pravém sloupci — vedle sebe */
+.about__intro .badges {
+  margin-top: clamp(1.25rem, 3vw, 1.75rem);
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  width: max-content;
+  max-width: 100%;
 }
 
 .hex {
@@ -798,7 +884,7 @@ section[id] {
   margin: 0;
   font-size: 0.95rem;
   line-height: 1.65;
-  opacity: 0.95;
+  opacity: 0.7;
   max-width: 40rem;
   text-align: left;
 }
@@ -806,7 +892,7 @@ section[id] {
 /* ——— Témata (tagy) ——— */
 .topics {
   padding: clamp(3.5rem, 7vw, 5rem) 0;
-  background: var(--bg-lavender);
+  background: var(--bg-topics);
 }
 
 .topics .page-title {
@@ -863,9 +949,9 @@ section[id] {
 
 .tag:hover,
 .tag:focus-visible {
-  background: rgba(59, 30, 123, 0.12);
+  background: rgba(var(--brand-rgb), 0.12);
   color: var(--ink-hero);
-  box-shadow: 0 0 0 2px rgba(242, 116, 99, 0.35);
+  box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.35);
   outline: none;
 }
 
@@ -885,8 +971,8 @@ section[id] {
   color: var(--ink);
   border-radius: 0.75rem;
   box-shadow:
-    0 0.35rem 1.25rem rgba(59, 30, 123, 0.18),
-    0 0 0 1px rgba(59, 30, 123, 0.08);
+    0 0.35rem 1.25rem rgba(var(--brand-rgb), 0.18),
+    0 0 0 1px rgba(var(--brand-rgb), 0.08);
   pointer-events: none;
   opacity: 0;
   transform: translateY(4px);
@@ -931,7 +1017,7 @@ section[id] {
 .tag-sheet__backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(29, 14, 75, 0.45);
+  background: rgba(var(--brand-deep-rgb), 0.52);
   opacity: 0;
   transition: opacity 0.25s ease;
 }
@@ -950,7 +1036,7 @@ section[id] {
   padding-bottom: max(1.25rem, env(safe-area-inset-bottom));
   background: var(--bg-lavender-alt);
   border-radius: 1.25rem 1.25rem 0 0;
-  box-shadow: 0 -0.5rem 2rem rgba(59, 30, 123, 0.2);
+  box-shadow: 0 -0.5rem 2rem rgba(var(--brand-rgb), 0.2);
   transform: translateY(105%);
   transition: transform 0.28s cubic-bezier(0.32, 0.72, 0, 1);
   overflow-y: auto;
@@ -964,7 +1050,7 @@ section[id] {
   width: 2.25rem;
   height: 0.28rem;
   margin: 0.35rem auto 0.75rem;
-  background: rgba(59, 30, 123, 0.2);
+  background: rgba(var(--brand-rgb), 0.2);
   border-radius: var(--radius-pill);
 }
 
@@ -1061,7 +1147,7 @@ body.tag-sheet-open {
 .section-purple-light .edu-more-btn:focus-visible {
   color: var(--coral);
   border-color: var(--coral);
-  background: rgba(242, 116, 99, 0.08);
+  background: rgba(var(--accent-rgb), 0.08);
 }
 
 .section-purple-light .edu-more-content {
@@ -1223,7 +1309,7 @@ body.tag-sheet-open {
   font-weight: 600;
   color: var(--ink-hero);
   background: rgba(255, 255, 255, 0.55);
-  border: 1px solid rgba(59, 30, 123, 0.2);
+  border: 1px solid rgba(var(--brand-rgb), 0.2);
   border-radius: var(--radius-pill);
   cursor: pointer;
   user-select: none;
@@ -1234,12 +1320,12 @@ body.tag-sheet-open {
 .edu-more-btn:focus-visible {
   color: var(--coral);
   border-color: var(--coral);
-  background: rgba(242, 116, 99, 0.07);
+  background: rgba(var(--accent-rgb), 0.07);
   outline: none;
 }
 
 .edu-more-btn:focus-visible {
-  box-shadow: 0 0 0 2px rgba(242, 116, 99, 0.4);
+  box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.4);
 }
 
 .edu-more-btn__icon {
@@ -1286,7 +1372,7 @@ body.tag-sheet-open {
 }
 
 .section-light.faq-section .faq-page-title__mid {
-  color: rgba(46, 26, 94, 0.45);
+  color: rgba(var(--ink-rgb), 0.42);
 }
 
 .section-light.faq-section .faq-item__question {
@@ -1369,11 +1455,11 @@ body.tag-sheet-open {
   margin: 0;
   padding: 0;
   border: none;
-  border-bottom: 1px solid rgba(59, 30, 123, 0.12);
+  border-bottom: 1px solid rgba(var(--brand-rgb), 0.12);
 }
 
 .faq-item:first-child {
-  border-top: 1px solid rgba(59, 30, 123, 0.12);
+  border-top: 1px solid rgba(var(--brand-rgb), 0.12);
 }
 
 .faq-item__trigger {
@@ -1606,8 +1692,8 @@ body.tag-sheet-open {
   margin: 1.15rem 0 1rem;
   background: linear-gradient(
     90deg,
-    rgba(242, 116, 99, 0.35) 0%,
-    rgba(59, 30, 123, 0.12) 100%
+    rgba(var(--accent-rgb), 0.35) 0%,
+    rgba(var(--brand-rgb), 0.12) 100%
   );
 }
 
@@ -1644,7 +1730,7 @@ body.tag-sheet-open {
 .contact {
   background: var(--bg-lavender);
   padding: clamp(3.5rem, 7vw, 5rem) 0 4rem;
-  border-top: 1px solid rgba(59, 30, 123, 0.12);
+  border-top: 1px solid rgba(var(--brand-rgb), 0.12);
 }
 
 .contact h2.page-title {
@@ -1689,7 +1775,7 @@ body.tag-sheet-open {
   margin-top: 2.5rem;
   border-radius: var(--radius-photo);
   overflow: hidden;
-  box-shadow: 0 0.5rem 2rem rgba(59, 30, 123, 0.1);
+  box-shadow: 0 0.5rem 2rem rgba(var(--brand-rgb), 0.1);
   max-width: 56rem;
   margin-inline: auto;
 }

@@ -52,9 +52,9 @@
 
     hero_kicker: "KINDERPSYCHOTHERAPIE PRAG 6",
     hero_title:
-      '<span class="hero__title-line">Ein sicherer Raum</span><span class="hero__title-line">für das Wachstum Ihres Kindes</span>',
+      '<span class="hero__title-line">Wachstumsraum für Kinder,</span><span class="hero__title-line">Jugendliche und junge Erwachsene</span>',
     hero_perex:
-      "Psychotherapeutische und heilpädagogische Betreuung für Kinder, Jugendliche und ihre Familien. Privatpraxis in Prag 6 — ohne Überweisung, diskret und persönlich.",
+      "Psychotherapeutische\u00a0und\u00a0heilpädagogische Betreuung in\u00a0der Privatpraxis in\u00a0Prag\u00a06. Ohne ärztliche Überweisung, in\u00a0diskreter und\u00a0ruhiger Atmosphäre.",
     hero_cta: "Kontakt",
     hero_img_alt:
       "Dr. Veronika Kieslingová, Kinderpsychologin Prag 6",
