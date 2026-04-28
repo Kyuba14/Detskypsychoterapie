@@ -53,12 +53,13 @@
     tag_krizova_intervence: "Krisenintervention",
     tag_vychovne_poradenstvi: "Erziehungsberatung",
 
-    hero_kicker: "KINDERPSYCHOTHERAPIE PRAG 6",
+    hero_kicker: "Kinderpsychotherapie Prag 6",
     hero_title:
       '<span class="hero__title-line">Wachstumsraum für Kinder,</span><span class="hero__title-line">Jugendliche und junge Erwachsene</span>',
     hero_perex:
       "Psychotherapeutische\u00a0und\u00a0heilpädagogische Betreuung in\u00a0der Privatpraxis in\u00a0Prag\u00a06. Ohne ärztliche Überweisung, in\u00a0diskreter und\u00a0ruhiger Atmosphäre.",
     hero_cta: "Kontakt",
+    hero_secondary: "Über mich",
     hero_img_alt:
       "Dr. Veronika Kieslingová, Kinderpsychologin Prag 6",
 

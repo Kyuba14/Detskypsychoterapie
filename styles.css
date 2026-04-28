@@ -37,7 +37,13 @@
 
   /* Sémantické tokeny (název často z historie layoutu) */
   --purple-deep: var(--forest-700);
-  --purple-bg: var(--forest-900);
+  /* Tmavý zelený „les“ — nav, O mně, vzdělání, ceník (méně šedi, jemný zlatý nádech) */
+  --forest-surface-base: #243329;
+  --forest-surface-image:
+    radial-gradient(ellipse 115% 75% at 8% 0%, rgba(212, 184, 106, 0.12) 0%, transparent 42%),
+    radial-gradient(ellipse 90% 65% at 100% 100%, rgba(34, 52, 44, 0.85) 0%, transparent 52%),
+    linear-gradient(168deg, #2d4036 0%, #25332b 48%, #1b2620 100%);
+  --purple-bg: var(--forest-surface-base);
   --bg-lavender: var(--cream-50);
   --bg-lavender-alt: var(--cream-100);
   /* Témata = stejný světlý pás jako hero (oddělení jen tmavým blokem „O mně“) */
@@ -51,7 +57,7 @@
   --font-sans: "Montserrat", system-ui, sans-serif;
   --max: 880px;
   /* Úvod může být o něco širší než zbytek stránky */
-  --hero-max: 1000px;
+  --hero-max: 1040px;
   --nav-max: 1000px;
   --radius-pill: 9999px;
   --radius-photo: 2.5rem;
@@ -169,7 +175,8 @@ section[id] {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: var(--purple-bg);
+  /* Jedna barva — gradient na tenké liště působil rušivě s blur */
+  background: var(--forest-surface-base);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -466,7 +473,7 @@ section[id] {
     padding-block: 0.35rem 0.5rem;
     pointer-events: auto;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    background: var(--purple-bg);
+    background: var(--forest-surface-base);
   }
 
   .site-nav__menu a {
@@ -595,22 +602,34 @@ section[id] {
   }
 }
 
+/*
+ * Mobil: kicker → fotka → obsah (H1, perex, akce).
+ * Desktop: kicker jen nad textem; fotka vlevo na řádku s H1 — horní hrany zarovnané.
+ */
 .hero__grid {
   display: grid;
-  gap: clamp(1.75rem, 4vw, 2.5rem);
-  align-items: center;
+  gap: clamp(1.25rem, 3.5vw, 2rem);
+  align-items: start;
   position: relative;
   z-index: 1;
-  /* width přebírá .container (min(100% - 2.5rem, var(--max))) — nepřepisovat */
+  justify-items: center;
 }
 
-.hero__text {
+.hero__media {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
+}
+
+.hero__content {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   width: 100%;
   min-width: 0;
+  max-width: 36rem;
 }
 
 /* Fotka v úvodu — základ; portrét v hero má vlastní rozměr níže */
@@ -637,22 +656,20 @@ section[id] {
   display: block;
 }
 
-/* Úvod: profilový portrét uprostřed nad kickrem */
-.hero__text > .hero__photo-wrap {
+.hero__media .hero__photo-wrap {
   flex-shrink: 0;
-  margin-bottom: clamp(0.65rem, 2vw, 1rem);
 }
 
 .hero__photo-wrap--portrait {
-  /* ≈ dvojnásobek původních 88px; na úzkém viewportu mírně klesne */
   width: min(11rem, 52vw);
   height: min(11rem, 52vw);
   max-width: min(11rem, 52vw);
   border-radius: 100px;
   background: var(--cream-50);
   box-shadow:
-    0 0.5rem 1.25rem rgba(var(--brand-rgb), 0.14),
-    0 0 0 1px rgba(var(--brand-rgb), 0.08);
+    0 0.65rem 1.5rem rgba(var(--brand-rgb), 0.18),
+    0 0 0 1px rgba(var(--brand-rgb), 0.09),
+    0 0 0 6px rgba(212, 184, 106, 0.12);
 }
 
 .hero__photo-wrap--portrait img {
@@ -664,48 +681,104 @@ section[id] {
 
 @media (min-width: 768px) {
   .hero__grid {
-    grid-template-columns: minmax(0, 1fr);
-    justify-content: center;
-    justify-items: center;
+    grid-template-columns: minmax(10.5rem, 13.25rem) minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: clamp(1.75rem, 4.5vw, 3.25rem);
+    row-gap: 0;
+    justify-items: stretch;
+    align-items: start;
   }
 
-  .hero__text {
-    max-width: min(42rem, 100%);
+  .hero__kicker {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: start;
+    text-align: start;
+  }
+
+  .hero__media {
+    grid-column: 1;
+    grid-row: 2;
+    justify-content: flex-end;
+    align-self: start;
+  }
+
+  .hero__content {
+    grid-column: 2;
+    grid-row: 2;
+    align-items: flex-start;
+    text-align: start;
+    max-width: none;
+    min-width: 0;
+    padding-block: 0;
+  }
+
+  .hero__photo-wrap--portrait {
+    width: min(13rem, 28vw);
+    height: min(13rem, 28vw);
+    max-width: min(13rem, 28vw);
   }
 }
 
+/*
+ * Hero typografie: jeden sans „řád“ (Montserrat) + jediný display serif (Playfair, bez kurzívy).
+ * Kapitálky + široké tracking u kickru a tlačítek působily jako třetí styl vedle kurzívy.
+ */
 .hero__kicker {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--ink-hero);
-  margin: 0 0 1.25rem;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: rgba(var(--ink-rgb), 0.66);
+  margin: 0;
+  line-height: 1.35;
+  max-width: 22rem;
+  text-align: center;
 }
 
 @media (min-width: 768px) {
   .hero__kicker {
-    white-space: nowrap;
+    max-width: none;
+    margin-bottom: 0.75rem;
   }
 }
 
-/* H1: dva logické řádky (.hero__title-line); na mobilu zalomení uvnitř řádku, od tabletu jeden vizuální řádek na blok (nowrap). */
+/* H1: dva logické řádky (.hero__title-line). nowrap jen na širokém viewportu — u dvousloupce 768–~1100px jinak přetéká. */
 .hero__title {
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: var(--font-serif);
   font-weight: 600;
-  font-style: italic;
-  color: var(--ink-hero);
-  margin: 0 0 1.1rem;
-  line-height: 1.15;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  color: var(--forest-900);
+  margin: 0 0 1rem;
+  line-height: 1.14;
   font-size: var(--fs-h1);
+  min-width: 0;
+  width: 100%;
 }
 
-/* Jediné H1 je v úvodu — na mobilu vždy 50px (clamp v :root by jinak dával ~30px). */
 @media (max-width: 767px) {
+  .hero__kicker {
+    margin-bottom: 0.75rem;
+  }
+
+  .hero__media {
+    margin-bottom: 0.35rem;
+  }
+
+  /* Jediné H1 je v úvodu — na mobilu vždy 50px (clamp v :root by jinak dával ~30px). */
   .hero__title {
     font-size: 50px;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero__title {
+    align-items: flex-start;
   }
 }
 
@@ -716,42 +789,74 @@ section[id] {
   word-wrap: break-word;
 }
 
-@media (min-width: 768px) {
+/* Jedna vizuální řádka na span jen když je dost šířky (fotka + sloupec textu). */
+@media (min-width: 1100px) {
   .hero__title-line {
     white-space: nowrap;
     overflow-wrap: normal;
     word-wrap: normal;
-    max-width: none;
+  }
+}
+
+/* Mezi tabletem a „širokým“ desktopem mírně menší display, ať se vejde i s nowrap u hranice. */
+@media (min-width: 768px) and (max-width: 1099px) {
+  .hero__title {
+    font-size: clamp(1.65rem, 2.75vw + 0.6rem, 2.85rem);
   }
 }
 
 .hero__perex {
-  margin: 0 auto 2rem;
-  font-size: clamp(0.9rem, 2vw, 1.05rem);
-  line-height: 1.6;
-  color: var(--muted);
-  max-width: 30rem;
+  font-family: var(--font-sans);
+  margin: 0 0 1.65rem;
+  font-size: clamp(0.92rem, 1.5vw, 1.05rem);
+  font-weight: 400;
+  line-height: 1.62;
+  color: rgba(var(--ink-rgb), 0.78);
+  max-width: 32rem;
   text-align: center;
 }
 
+@media (min-width: 768px) {
+  .hero__perex {
+    text-align: start;
+    max-width: 38rem;
+    margin-bottom: 1.85rem;
+  }
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .hero__actions {
+    justify-content: flex-start;
+  }
+}
+
 .hero__cta {
+  font-family: var(--font-sans);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: fit-content;
   max-width: 100%;
-  padding: 0.9rem 24px;
-  background: var(--ink-hero);
+  padding: 0.85rem 1.5rem;
+  background: var(--forest-900);
   color: var(--white);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: none;
   text-decoration: none;
   border-radius: var(--radius-pill);
   border: none;
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: background 0.2s ease, transform 0.15s ease;
 }
 
 .hero__cta:hover {
@@ -765,11 +870,35 @@ section[id] {
   opacity: 1;
 }
 
+.hero__secondary {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  text-decoration: none;
+  color: var(--forest-800);
+  border-bottom: 1px solid rgba(var(--brand-rgb), 0.32);
+  padding-bottom: 0.12rem;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.hero__secondary:hover {
+  color: var(--coral);
+  border-bottom-color: rgba(var(--accent-rgb), 0.55);
+}
+
+.hero__secondary:focus-visible {
+  outline: 2px solid var(--coral);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
 /* ——— About (statistiky — sedmiúhelníky jako v návrhu) ——— */
 .about {
-  --about-purple: #2c3833;
   --badge-glass: rgba(255, 255, 255, 0.11);
-  background: var(--about-purple);
+  background-color: var(--forest-surface-base);
+  background-image: var(--forest-surface-image);
   color: var(--white);
   padding: clamp(3.5rem, 7vw, 5.5rem) 0;
 }
@@ -1247,11 +1376,12 @@ body.tag-sheet-open {
   margin: 0 0 2.5rem;
 }
 
-/* Vzdělání (včetně rozbalovacího obsahu) — fialová sekce */
+/* Vzdělání (včetně rozbalovacího obsahu) — stejný lesní povrch jako zbytek tmavých sekcí */
 .section-purple-light {
   padding: clamp(3.5rem, 7vw, 5rem) 0;
-  background: var(--purple-bg);
   color: var(--white);
+  background-color: var(--forest-surface-base);
+  background-image: var(--forest-surface-image);
 }
 
 .section-purple-light .page-title {
@@ -1282,6 +1412,18 @@ body.tag-sheet-open {
 
 .section-purple-light .edu-list li strong {
   color: var(--white);
+}
+
+.section-purple-light .edu-row__title {
+  color: var(--gold-400);
+  font-weight: 700;
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.55),
+    0 0 1.25rem rgba(var(--accent-rgb), 0.18);
+}
+
+.section-purple-light .edu-pillar__period {
+  color: var(--gold-500);
 }
 
 /* Dvousloupcové bloky vzdělání (název vlevo, seznam vpravo) */
@@ -1474,7 +1616,8 @@ body.tag-sheet-open {
 
 /* ——— FAQ + fialové bloky ——— */
 .section-purple {
-  background: var(--purple-bg);
+  background-color: var(--forest-surface-base);
+  background-image: var(--forest-surface-image);
   color: var(--white);
   padding: clamp(3.5rem, 7vw, 5rem) 0;
 }
@@ -1593,7 +1736,14 @@ body.tag-sheet-open {
   padding: 1.15rem 0;
   margin: 0;
   text-align: left;
-  font: inherit;
+  /* Ne „font: inherit“ z body (Montserrat) — uvnitř <button> bývá jinak sans dominantní */
+  font-family: var(--font-serif);
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  line-height: 1.32;
+  font-style: normal;
+  font-variant: normal;
+  letter-spacing: -0.01em;
   color: inherit;
   background: none;
   border: none;
@@ -1611,10 +1761,11 @@ body.tag-sheet-open {
 }
 
 .faq-item__question {
-  font-family: var(--font-serif);
-  font-size: var(--fs-h3);
-  font-weight: 700;
-  line-height: 1.3;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
   flex: 1;
   min-width: 0;
 }
@@ -1721,28 +1872,20 @@ body.tag-sheet-open {
   margin-bottom: clamp(1.25rem, 3vw, 1.75rem);
 }
 
-/* Dva texty pod boxy: vedle sebe do 880px; na úzkém viewportu pod sebou */
+/* Společné poznámky pod oběma kartami — stejná šířka jako .pricing__cards (šířka .container), text na střed. */
 .pricing__footnotes {
-  max-width: 880px;
   width: 100%;
-  margin-inline: auto;
-  margin-top: clamp(1.25rem, 3vw, 2rem);
-  padding: 0 min(1.25rem, 4vw);
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: clamp(1rem, 2.5vw, 1.75rem);
-  align-items: start;
+  max-width: none;
+  margin-inline: 0;
+  margin-top: clamp(1.5rem, 3.5vw, 2.25rem);
+  padding: clamp(1rem, 2.5vw, 1.35rem) 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  align-items: stretch;
   box-sizing: border-box;
   text-align: center;
-}
-
-@media (min-width: 768px) {
-  .pricing__footnotes {
-    grid-template-columns: 1fr 1fr;
-    column-gap: clamp(1.5rem, 4vw, 2.5rem);
-    align-items: center;
-    text-align: left;
-  }
 }
 
 .pricing__access-note {
@@ -1768,9 +1911,11 @@ body.tag-sheet-open {
   background: var(--white);
   color: var(--ink);
   border-radius: var(--radius-photo);
+  /* Méně „křiklavá“ bílá vůči tmavému pozadí sekce */
+  opacity: 0.8;
   box-shadow:
-    0 4px 24px rgba(0, 0, 0, 0.12),
-    0 0 0 1px rgba(255, 255, 255, 0.06);
+    0 3px 18px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
 .pricing__card-title {
@@ -1830,22 +1975,13 @@ body.tag-sheet-open {
   margin-top: 0;
 }
 
-.pricing__policy {
-  max-width: none;
-  margin: 0;
-  padding: 0;
-  background: none;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-}
-
 .pricing__policy-text {
   margin: 0;
   font-size: 0.875rem;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.88);
   letter-spacing: 0.01em;
+  text-align: center;
 }
 
 /* ——— Kontakt ——— */
