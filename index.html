@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#2f3d36" />
     <title>Dětská psychoterapie Praha 6 | Dr. Veronika Kieslingová</title>
-    <meta name="description" content="Dětská psychoterapie Praha 6 – Dr. Veronika Kieslingová. Bez žádanky, diskrétně. ADHD, úzkosti, poruchy učení. Tel: +420 602 643 450">
+    <meta name="description" content="Dětská psychoterapie a speciálně pedagogická péče Praha 6 — Dr. Veronika Kieslingová. Soukromá praxe, bez žádanky. ADHD, úzkosti, poruchy učení, rodina. Tel. +420 602 643 450">
     <meta name="robots" content="index, follow" />
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R10GVQ1SYS"></script>
@@ -25,11 +25,12 @@
     />
     <link rel="icon" href="favicon-32.png?v=2" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2" />
-    <link rel="stylesheet" href="styles.css?v=45" />
+    <link rel="stylesheet" href="styles.css?v=50" />
     <link rel="canonical" href="https://detska-psychoterapie.cz/" />
     <!-- Náhled při sdílení (OG / WhatsApp / iMessage); ?v= pro invalidaci cache -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="cs_CZ" />
+    <meta property="og:locale:alternate" content="de_DE" />
     <meta property="og:url" content="https://detska-psychoterapie.cz/" />
     <meta
       property="og:title"
@@ -64,10 +65,30 @@
     />
   </head>
   <body>
+    <a class="skip-link" href="#main" data-i18n="skip_to_content">Přeskočit na obsah</a>
     <nav class="site-nav" aria-label="Hlavní navigace">
       <div class="container site-nav__inner">
         <a class="site-nav__brand" href="#uvod">Dr. Veronika Kieslingová</a>
-        <ul class="site-nav__menu">
+        <button
+          type="button"
+          class="site-nav__toggle"
+          id="site-nav-toggle"
+          aria-expanded="false"
+          aria-controls="site-nav-menu"
+          aria-label="Otevřít nebo zavřít menu"
+        >
+          <span class="site-nav__toggle-bars" aria-hidden="true"></span>
+        </button>
+        <ul class="site-nav__menu" id="site-nav-menu">
+            <li>
+              <a
+                href="#o-mne"
+                data-i18n="nav_about"
+                data-i18n-title="nav_about_title"
+                title="Představení a praxe"
+                >O mně</a
+              >
+            </li>
             <li>
               <a
                 href="#temata"
@@ -120,18 +141,19 @@
       </div>
     </nav>
 
+    <main class="page-main" id="main">
     <header class="hero" id="uvod">
       <div class="container hero__grid">
         <div class="hero__text">
-          <div class="hero__photo-wrap hero__photo-wrap--logo">
+          <div class="hero__photo-wrap hero__photo-wrap--portrait">
             <img
-              src="brand-mark-icon.png?v=6"
-              alt=""
-              width="80"
-              height="80"
+              src="veronika-kieslingova.png?v=5"
+              data-i18n-alt="hero_img_alt"
+              alt="Dr. Veronika Kieslingová, dětská psycholožka Praha 6"
+              width="400"
+              height="400"
               decoding="async"
               fetchpriority="high"
-              aria-hidden="true"
             />
           </div>
           <p class="hero__kicker" data-i18n="hero_kicker">DĚTSKÁ PSYCHOTERAPIE PRAHA 6</p>
@@ -149,19 +171,6 @@
 
     <section class="about" id="o-mne" aria-labelledby="about-heading">
       <div class="container about__grid">
-        <div class="badges-strip">
-          <div class="about__photo-wrap">
-            <img
-              src="veronika-kieslingova.png?v=4"
-              data-i18n-alt="hero_img_alt"
-              alt="Dr. Veronika Kieslingová, dětská psycholožka Praha 6"
-              width="600"
-              height="600"
-              decoding="async"
-              loading="lazy"
-            />
-          </div>
-        </div>
         <div class="about__intro">
           <p class="about__name">DR. VERONIKA KIESLINGOVÁ</p>
           <h2 id="about-heading" class="about__headline" data-i18n="about_headline">
@@ -170,6 +179,8 @@
           <p class="about__text" data-i18n="about_text">
             Více než třicet let pracuji na Praze 6 jako psychoterapeutka a speciální pedagožka. Svůj obor považuji za celoživotní učení – neustále hledám cesty, jak propojit ověřené psychoterapeutické metody s laskavým a celostním přístupem k dítěti i rodině.
           </p>
+        </div>
+        <div class="badges-strip">
           <div class="badges" aria-hidden="true">
             <div class="hex">
               <svg class="hex__blob" viewBox="0 0 232 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -579,6 +590,7 @@
         </div>
       </div>
     </section>
+    </main>
 
     <footer class="site-footer">
       <div class="container site-footer__inner">
@@ -589,7 +601,7 @@
       </div>
     </footer>
 
-    <script src="i18n.js?v=36" defer></script>
+    <script src="i18n.js?v=38" defer></script>
     <script src="faq.js?v=1" defer></script>
     <script src="tags.js?v=24" defer></script>
     <script>
@@ -616,14 +628,54 @@
           content.hidden = expanded;
         });
       })();
+
+      (function () {
+        var nav = document.querySelector(".site-nav");
+        var toggle = document.getElementById("site-nav-toggle");
+        var menu = document.getElementById("site-nav-menu");
+        if (!nav || !toggle || !menu) return;
+
+        function setOpen(open) {
+          nav.classList.toggle("site-nav--open", open);
+          toggle.setAttribute("aria-expanded", open ? "true" : "false");
+          document.body.classList.toggle("site-nav-open", open);
+        }
+
+        toggle.addEventListener("click", function (e) {
+          e.stopPropagation();
+          setOpen(!nav.classList.contains("site-nav--open"));
+        });
+
+        menu.querySelectorAll("a").forEach(function (a) {
+          a.addEventListener("click", function () {
+            setOpen(false);
+          });
+        });
+
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") setOpen(false);
+        });
+
+        document.addEventListener("click", function (e) {
+          if (!nav.classList.contains("site-nav--open")) return;
+          if (!nav.contains(e.target)) setOpen(false);
+        });
+
+        var mq = window.matchMedia("(min-width: 768px)");
+        function closeIfDesktop() {
+          if (mq.matches) setOpen(false);
+        }
+        if (mq.addEventListener) mq.addEventListener("change", closeIfDesktop);
+        else if (mq.addListener) mq.addListener(closeIfDesktop);
+      })();
     </script>
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Dr. Veronika Kieslingová – Dětská psychoterapie",
-  "description": "Psychologická a speciálně pedagogická péče pro děti, dospívající a jejich rodiny. Soukromá praxe v Praze 6.",
-  "url": "https://detskapsychoterapie.cz",
+  "description": "Psychoterapeutická a speciálně pedagogická péče pro děti, dospívající a jejich rodiny. Soukromá praxe v Praze 6.",
+  "url": "https://detska-psychoterapie.cz/",
   "telephone": "+420602643450",
   "email": "v.kiesling@seznam.cz",
   "address": {

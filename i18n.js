@@ -11,16 +11,19 @@
       "Kinderpsychotherapie und Beratung in Prag 6. Dr. Veronika Kieslingová — 30 Jahre Praxis, ADHS, Ängste, Schulprobleme, Familienberatung. Privatpraxis ohne Überweisung.",
 
     nav_about: "Über mich",
+    nav_about_title: "Kurzprofil und Praxis",
     nav_help: "Meine Spezialisierungen",
     nav_edu: "Ausbildung",
     nav_faq: "Häufige Fragen",
     nav_pricing: "Preise",
     nav_contact: "Kontakt",
-    nav_help_title: "Wie kann ich helfen",
+    nav_help_title: "Themen und Spezialisierungen",
     nav_edu_title: "Ausbildung",
     lang_toggle_btn: "Tschechische Version anzeigen",
     nav_faq_title: "Fragen und Antworten",
     nav_aria_main: "Hauptnavigation",
+    nav_menu_toggle_aria: "Menü ein- oder ausblenden",
+    skip_to_content: "Zum Inhalt springen",
 
     lang_aria: "Sprache der Seite",
     sheet_close: "Schließen",
@@ -187,6 +190,10 @@
     if (langGroup) {
       SNAPSHOT.lang_aria_cs = langGroup.getAttribute("aria-label") || "";
     }
+    var navToggle = document.querySelector(".site-nav__toggle");
+    if (navToggle) {
+      SNAPSHOT.nav_menu_toggle_aria = navToggle.getAttribute("aria-label") || "";
+    }
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
       var k = el.getAttribute("data-i18n");
       if (!k) return;
@@ -243,6 +250,10 @@
 
     document.documentElement.lang = "de";
     if (navEl) navEl.setAttribute("aria-label", STRINGS_DE.nav_aria_main);
+    var navToggle = document.querySelector(".site-nav__toggle");
+    if (navToggle && STRINGS_DE.nav_menu_toggle_aria) {
+      navToggle.setAttribute("aria-label", STRINGS_DE.nav_menu_toggle_aria);
+    }
   }
 
   function setTextsCs() {
@@ -286,6 +297,10 @@
     document.documentElement.lang = "cs";
     if (navEl && SNAPSHOT.nav_aria_main) {
       navEl.setAttribute("aria-label", SNAPSHOT.nav_aria_main);
+    }
+    var navToggle = document.querySelector(".site-nav__toggle");
+    if (navToggle && SNAPSHOT.nav_menu_toggle_aria) {
+      navToggle.setAttribute("aria-label", SNAPSHOT.nav_menu_toggle_aria);
     }
   }
 
