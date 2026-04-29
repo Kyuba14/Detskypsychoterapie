@@ -160,9 +160,11 @@ a {
   width: min(100% - 2.5rem, var(--nav-max));
 }
 
-/* Úvod: širší layout než --max (880px) */
+/* Úvod: širší layout; boční mezera až 80px dle zadání */
 .hero > .container {
   width: min(100% - 2.5rem, var(--hero-max));
+  padding-inline: clamp(1.25rem, 4vw, 80px);
+  box-sizing: border-box;
 }
 
 header[id],
@@ -532,6 +534,7 @@ section[id] {
   position: relative;
   overflow: hidden;
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -602,26 +605,21 @@ section[id] {
   }
 }
 
-/*
- * Mobil: kicker → fotka → obsah (H1, perex, akce).
- * Desktop: kicker jen nad textem; fotka vlevo na řádku s H1 — horní hrany zarovnané.
- */
+/* Úvod: flex sloupec; flex:1 vyplní min-height hero, justify-content uprostřed svisle i vodorovně (align-items) */
 .hero__grid {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+  min-height: 0;
   gap: clamp(1.25rem, 3.5vw, 2rem);
-  align-items: start;
+  width: 100%;
   position: relative;
   z-index: 1;
-  justify-items: center;
 }
 
-.hero__media {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  min-width: 0;
-}
-
+/* Bez úzkého 42rem stropu — titulek + nowrap na širokém viewportu potřebuje šířku kontejneru úvodu (jinak ~672px vs. délka řádku = vizuálně „mimo střed“). */
 .hero__content {
   display: flex;
   flex-direction: column;
@@ -629,95 +627,46 @@ section[id] {
   text-align: center;
   width: 100%;
   min-width: 0;
-  max-width: 36rem;
+  max-width: 100%;
 }
 
-/* Fotka v úvodu — základ; portrét v hero má vlastní rozměr níže */
+/* Společný obal pro logo v hero (kruh byl u portrétu — u loga menší čtverec / zaoblení 100px) */
 .hero__photo-wrap {
   margin-inline: auto;
-  justify-self: center;
+  align-self: center;
   aspect-ratio: 1;
-  width: min(11.5rem, 72vw);
-  max-width: 100%;
-  border-radius: 100%;
   overflow: hidden;
-  background: var(--bg-lavender-alt);
-  box-shadow:
-    0 1rem 2.25rem rgba(var(--brand-rgb), 0.16),
-    0 0 0 1px rgba(var(--brand-rgb), 0.08);
-}
-
-.hero__photo-wrap img {
-  width: 100%;
-  height: 100%;
-  border-radius: 100%;
-  object-fit: cover;
-  object-position: center center;
-  display: block;
-}
-
-.hero__media .hero__photo-wrap {
   flex-shrink: 0;
 }
 
-.hero__photo-wrap--portrait {
-  width: min(11rem, 52vw);
-  height: min(11rem, 52vw);
-  max-width: min(11rem, 52vw);
+.hero__photo-wrap img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+}
+
+/* Logo značky nad kickrem (dřívější stav) */
+.hero__content > .hero__photo-wrap {
+  margin-bottom: clamp(0.65rem, 2vw, 1rem);
+}
+
+.hero__photo-wrap--logo {
+  width: 80px;
+  height: 80px;
+  max-width: 80px;
   border-radius: 100px;
   background: var(--cream-50);
   box-shadow:
-    0 0.65rem 1.5rem rgba(var(--brand-rgb), 0.18),
-    0 0 0 1px rgba(var(--brand-rgb), 0.09),
-    0 0 0 6px rgba(212, 184, 106, 0.12);
+    0 0.35rem 1rem rgba(var(--brand-rgb), 0.12),
+    0 0 0 1px rgba(var(--brand-rgb), 0.08);
 }
 
-.hero__photo-wrap--portrait img {
+.hero__photo-wrap--logo img {
   border-radius: 100px;
-  object-fit: cover;
-  object-position: center top;
-  padding: 0;
-}
-
-@media (min-width: 768px) {
-  .hero__grid {
-    grid-template-columns: minmax(10.5rem, 13.25rem) minmax(0, 1fr);
-    grid-template-rows: auto auto;
-    column-gap: clamp(1.75rem, 4.5vw, 3.25rem);
-    row-gap: 0;
-    justify-items: stretch;
-    align-items: start;
-  }
-
-  .hero__kicker {
-    grid-column: 2;
-    grid-row: 1;
-    justify-self: start;
-    text-align: start;
-  }
-
-  .hero__media {
-    grid-column: 1;
-    grid-row: 2;
-    justify-content: flex-end;
-    align-self: start;
-  }
-
-  .hero__content {
-    grid-column: 2;
-    grid-row: 2;
-    align-items: flex-start;
-    text-align: start;
-    max-width: none;
-    min-width: 0;
-    padding-block: 0;
-  }
-
-  .hero__photo-wrap--portrait {
-    width: min(13rem, 28vw);
-    height: min(13rem, 28vw);
-    max-width: min(13rem, 28vw);
-  }
+  object-fit: contain;
+  object-position: center center;
+  padding: 12%;
 }
 
 /*
@@ -744,11 +693,10 @@ section[id] {
   }
 }
 
-/* H1: dva logické řádky (.hero__title-line). nowrap jen na širokém viewportu — u dvousloupce 768–~1100px jinak přetéká. */
+/* H1: dva logické řádky (.hero__title-line). Blok + text-align (ne flex) — mezery v HTML by jinak tvořily textové uzly ve flexu a rozhodily střed. */
 .hero__title {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: block;
+  text-align: center;
   font-family: var(--font-serif);
   font-weight: 600;
   font-style: normal;
@@ -766,19 +714,9 @@ section[id] {
     margin-bottom: 0.75rem;
   }
 
-  .hero__media {
-    margin-bottom: 0.35rem;
-  }
-
   /* Jediné H1 je v úvodu — na mobilu vždy 50px (clamp v :root by jinak dával ~30px). */
   .hero__title {
     font-size: 50px;
-  }
-}
-
-@media (min-width: 768px) {
-  .hero__title {
-    align-items: flex-start;
   }
 }
 
@@ -789,19 +727,12 @@ section[id] {
   word-wrap: break-word;
 }
 
-/* Jedna vizuální řádka na span jen když je dost šířky (fotka + sloupec textu). */
+/* Jedna vizuální řádka na span na širším úvodním bloku */
 @media (min-width: 1100px) {
   .hero__title-line {
     white-space: nowrap;
     overflow-wrap: normal;
     word-wrap: normal;
-  }
-}
-
-/* Mezi tabletem a „širokým“ desktopem mírně menší display, ať se vejde i s nowrap u hranice. */
-@media (min-width: 768px) and (max-width: 1099px) {
-  .hero__title {
-    font-size: clamp(1.65rem, 2.75vw + 0.6rem, 2.85rem);
   }
 }
 
@@ -818,7 +749,7 @@ section[id] {
 
 @media (min-width: 768px) {
   .hero__perex {
-    text-align: start;
+    text-align: center;
     max-width: 38rem;
     margin-bottom: 1.85rem;
   }
@@ -829,13 +760,7 @@ section[id] {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 0.85rem 1.5rem;
-}
-
-@media (min-width: 768px) {
-  .hero__actions {
-    justify-content: flex-start;
-  }
+  gap: 0.65rem 0.65rem;
 }
 
 .hero__cta {
@@ -872,26 +797,39 @@ section[id] {
 
 .hero__secondary {
   font-family: var(--font-sans);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  max-width: 100%;
+  padding: 0.8rem 1.35rem;
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.01em;
   text-transform: none;
   text-decoration: none;
-  color: var(--forest-800);
-  border-bottom: 1px solid rgba(var(--brand-rgb), 0.32);
-  padding-bottom: 0.12rem;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  color: var(--forest-900);
+  background: rgba(255, 255, 255, 0);
+  border: 1px solid rgba(199, 199, 199, 1);
+  border-image: none;
+  border-radius: var(--radius-pill);
+  box-sizing: border-box;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .hero__secondary:hover {
-  color: var(--coral);
-  border-bottom-color: rgba(var(--accent-rgb), 0.55);
+  color: var(--forest-900);
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(var(--brand-rgb), 0.5);
 }
 
 .hero__secondary:focus-visible {
   outline: 2px solid var(--coral);
   outline-offset: 3px;
-  border-radius: 2px;
 }
 
 /* ——— About (statistiky — sedmiúhelníky jako v návrhu) ——— */
@@ -906,54 +844,91 @@ section[id] {
 .about__grid {
   display: grid;
   gap: 40px;
-  align-items: start;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.about__media {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Portrét v sekci O mně (dřív v úvodu) */
+.about__photo-wrap {
+  width: min(10.5rem, 58vw);
+  max-width: 100%;
+  aspect-ratio: 1;
+  margin: 0 auto 1rem;
+  border-radius: 100px;
+  overflow: hidden;
+  box-shadow:
+    0 1rem 2.25rem rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.14);
+}
+
+.about__photo-wrap img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 100px;
+  object-fit: cover;
+  object-position: center top;
 }
 
 .about__intro {
   min-width: 0;
 }
 
+/* Chipy pod popisem — uvnitř .about__intro */
+.about__intro > .badges-strip {
+  margin-top: clamp(1.25rem, 3vw, 1.85rem);
+  min-width: 0;
+}
+
 @media (min-width: 768px) {
   .about__grid {
-    /* Vlevo text, vpravo hex chipy — mezera 40px (stejná jako základní gap) */
-    grid-template-columns: 1fr max-content;
-    align-items: start;
+    grid-template-columns: minmax(9.5rem, 12rem) 1fr;
+    align-items: flex-end;
+  }
+
+  .about__media {
+    justify-content: flex-start;
+    margin-bottom: 0;
+  }
+
+  .about__photo-wrap {
+    margin: 0;
+  }
+
+  .about__grid > .about__media {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+    align-self: start;
   }
 
   .about__grid > .about__intro {
-    grid-column: 1;
+    grid-column: 2;
     grid-row: 1;
     min-width: 0;
     justify-self: stretch;
     width: 100%;
   }
 
-  .about__grid > .badges-strip {
-    grid-column: 2;
-    grid-row: 1;
-    justify-self: end;
-    align-self: start;
-  }
-}
-
-/* Na mobilu min-width: 0 kvůli horizontálnímu scrollu; na desktopu nesmí klesnout pod šířku bublin */
-.about__grid > .badges-strip {
-  min-width: 0;
-}
-
-@media (min-width: 768px) {
-  .about__grid > .badges-strip {
-    min-width: max-content;
+  .about__intro > .badges-strip {
+    max-width: 100%;
     overflow-x: visible;
   }
 }
 
-/* Strip s hex chipy (O mně vpravo); na mobilu pod textem */
+/* Strip s hex chipy (pod textem v O mně) */
 .badges-strip {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   gap: clamp(0.85rem, 2.5vw, 1.25rem);
   width: 100%;
   min-width: 0;
@@ -1003,24 +978,27 @@ section[id] {
 
 @media (min-width: 768px) {
   .about .badges-strip {
-    width: max-content;
+    width: 100%;
     max-width: 100%;
     padding-left: 0;
     padding-right: 0;
-    align-items: flex-end;
-  }
-
-  /* Chipy pod sebou, zarovnané vpravo ve sloupci */
-  .about .badges-strip .badges {
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-start;
-    gap: 1rem;
+    align-items: center;
   }
 
   .about .badges-strip .badges .hex:nth-child(2) {
     margin-left: 0;
   }
+}
+
+/* Jen sekce O mně: řádek chipů pod textem, mírně ztlumený, zaoblený kontejner */
+.about .badges-strip .badges {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  border-radius: 100px;
+  opacity: 0.8;
 }
 
 .hex {
@@ -1395,13 +1373,6 @@ body.tag-sheet-open {
   background: rgba(255, 255, 255, 0.08);
 }
 
-.section-purple-light .edu-more-btn:hover,
-.section-purple-light .edu-more-btn:focus-visible {
-  color: var(--coral);
-  border-color: var(--coral);
-  background: rgba(var(--accent-rgb), 0.08);
-}
-
 .section-purple-light .edu-more-content {
   border-color: rgba(255, 255, 255, 0.12);
 }
@@ -1577,19 +1548,22 @@ body.tag-sheet-open {
   border-radius: var(--radius-pill);
   cursor: pointer;
   user-select: none;
-  transition: color 0.18s, border-color 0.18s, background 0.18s;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
-.edu-more-btn:hover,
-.edu-more-btn:focus-visible {
-  color: var(--coral);
+/* Stejný hover jako .hero__cta — plná coral, bílý text */
+.edu-more-btn:hover {
+  background: var(--coral);
+  color: var(--white);
   border-color: var(--coral);
-  background: rgba(var(--accent-rgb), 0.07);
-  outline: none;
 }
 
 .edu-more-btn:focus-visible {
-  box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.4);
+  outline: 2px solid var(--coral);
+  outline-offset: 3px;
+  background: var(--coral);
+  color: var(--white);
+  border-color: var(--coral);
 }
 
 .edu-more-btn__icon {
@@ -1627,18 +1601,7 @@ body.tag-sheet-open {
   color: var(--white);
 }
 
-/* FAQ je teď na světlém pozadí — přizpůsobíme barvy */
-.section-light.faq-section .faq-page-title__line--q {
-  color: var(--coral);
-}
-
-.section-light.faq-section .faq-page-title__line--a {
-  color: var(--ink-hero);
-}
-
-.section-light.faq-section .faq-page-title__mid {
-  color: rgba(var(--ink-rgb), 0.42);
-}
+/* FAQ na světlém pozadí — barvy nadpisu jsou v .faq-page-title* (ne legacy bílá z tmavé sekce). */
 
 .section-light.faq-section .faq-item__question {
   color: var(--ink-hero);
@@ -1665,15 +1628,16 @@ body.tag-sheet-open {
   letter-spacing: 0.02em;
 }
 
+/* Světlé FAQ: oba řádky nadpisu stejná zelená (--ink-hero), spojka tlumená. */
 .faq-page-title__line--q {
   font-size: var(--fs-h2);
-  color: var(--coral);
+  color: var(--ink-hero);
   transform: rotate(-1.2deg);
 }
 
 .faq-page-title__line--a {
   font-size: var(--fs-h2);
-  color: var(--white);
+  color: var(--ink-hero);
   transform: rotate(1deg);
 }
 
@@ -1682,7 +1646,7 @@ body.tag-sheet-open {
   font-size: 1.125rem;
   font-weight: 600;
   font-style: italic;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(var(--ink-rgb), 0.42);
   text-transform: lowercase;
   align-self: center;
 }

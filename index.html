@@ -25,7 +25,7 @@
     />
     <link rel="icon" href="favicon-32.png?v=2" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2" />
-    <link rel="stylesheet" href="styles.css?v=61" />
+    <link rel="stylesheet" href="styles.css?v=65" />
     <link rel="canonical" href="https://detska-psychoterapie.cz/" />
     <!-- Náhled při sdílení (OG / WhatsApp / iMessage); ?v= pro invalidaci cache -->
     <meta property="og:type" content="website" />
@@ -144,25 +144,20 @@
     <main class="page-main" id="main">
     <header class="hero" id="uvod">
       <div class="container hero__grid">
-        <p class="hero__kicker" data-i18n="hero_kicker">Dětská psychoterapie Praha 6</p>
-        <div class="hero__media">
-          <div class="hero__photo-wrap hero__photo-wrap--portrait">
+        <div class="hero__content">
+          <div class="hero__photo-wrap hero__photo-wrap--logo">
             <img
-              src="veronika-kieslingova.png?v=5"
-              data-i18n-alt="hero_img_alt"
-              alt="Dr. Veronika Kieslingová, dětská psycholožka Praha 6"
-              width="400"
-              height="400"
+              src="brand-mark-icon.png?v=6"
+              alt=""
+              width="80"
+              height="80"
               decoding="async"
               fetchpriority="high"
+              aria-hidden="true"
             />
           </div>
-        </div>
-        <div class="hero__content">
-          <h1 class="hero__title" data-i18n="hero_title" data-i18n-html>
-            <span class="hero__title-line">Prostor růstu pro děti,</span
-            ><span class="hero__title-line">dospívající a mladé dospělé</span>
-          </h1>
+          <p class="hero__kicker" data-i18n="hero_kicker">Dětská psychoterapie Praha 6</p>
+          <h1 class="hero__title" data-i18n="hero_title" data-i18n-html><span class="hero__title-line">Prostor růstu pro děti,</span><span class="hero__title-line">dospívající a mladé dospělé</span></h1>
           <p class="hero__perex" data-i18n="hero_perex">
             Psychoterapeutická a speciálně pedagogická péče v soukromé praxi na Praze 6. Bez žádanky od lékaře, v diskrétním a klidném prostředí.
           </p>
@@ -176,6 +171,19 @@
 
     <section class="about" id="o-mne" aria-labelledby="about-heading">
       <div class="container about__grid">
+        <div class="about__media">
+          <div class="about__photo-wrap">
+            <img
+              src="veronika-kieslingova.png?v=5"
+              data-i18n-alt="hero_img_alt"
+              alt="Dr. Veronika Kieslingová, dětská psycholožka Praha 6"
+              width="400"
+              height="400"
+              decoding="async"
+              loading="lazy"
+            />
+          </div>
+        </div>
         <div class="about__intro">
           <p class="about__name">DR. VERONIKA KIESLINGOVÁ</p>
           <h2 id="about-heading" class="about__headline" data-i18n="about_headline">
@@ -184,25 +192,25 @@
           <p class="about__text" data-i18n="about_text">
             Více než třicet let pracuji na Praze 6 jako psychoterapeutka a speciální pedagožka. Svůj obor považuji za celoživotní učení – neustále hledám cesty, jak propojit ověřené psychoterapeutické metody s laskavým a celostním přístupem k dítěti i rodině.
           </p>
-        </div>
-        <div class="badges-strip">
-          <div class="badges" aria-hidden="true">
-            <div class="hex">
-              <svg class="hex__blob" viewBox="0 0 232 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M18 20 C40 2, 120 0, 180 8 C220 14, 234 50, 230 100 C226 140, 190 162, 140 158 C90 154, 30 150, 10 118 C-8 88, -4 38, 18 20Z"/>
-              </svg>
-              <div class="hex__inner">
-                <div class="hex__label" data-i18n="about_stat_practice">PRAXE</div>
-                <div class="hex__value" data-i18n="about_stat_practice_val">30 let</div>
+          <div class="badges-strip">
+            <div class="badges" aria-hidden="true">
+              <div class="hex">
+                <svg class="hex__blob" viewBox="0 0 232 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18 20 C40 2, 120 0, 180 8 C220 14, 234 50, 230 100 C226 140, 190 162, 140 158 C90 154, 30 150, 10 118 C-8 88, -4 38, 18 20Z"/>
+                </svg>
+                <div class="hex__inner">
+                  <div class="hex__label" data-i18n="about_stat_practice">PRAXE</div>
+                  <div class="hex__value" data-i18n="about_stat_practice_val">30 let</div>
+                </div>
               </div>
-            </div>
-            <div class="hex">
-              <svg class="hex__blob" viewBox="0 0 152 112" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 16 C28 2, 80 -2, 122 6 C148 12, 156 40, 150 72 C144 100, 116 114, 80 112 C46 110, 14 102, 4 78 C-6 54, -4 30, 12 16Z"/>
-              </svg>
-              <div class="hex__inner">
-                <div class="hex__label" data-i18n="about_stat_lang">JAZYK</div>
-                <div class="hex__value">CZ/DE</div>
+              <div class="hex">
+                <svg class="hex__blob" viewBox="0 0 152 112" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 16 C28 2, 80 -2, 122 6 C148 12, 156 40, 150 72 C144 100, 116 114, 80 112 C46 110, 14 102, 4 78 C-6 54, -4 30, 12 16Z"/>
+                </svg>
+                <div class="hex__inner">
+                  <div class="hex__label" data-i18n="about_stat_lang">JAZYK</div>
+                  <div class="hex__value">CZ/DE</div>
+                </div>
               </div>
             </div>
           </div>
