@@ -68,7 +68,7 @@
   --bg-topics: var(--cream-100);
   --coral: var(--gold-700);
   --banner-tan: #efe4cf;
-  /* Primární CTA (Kontakt, cookie „Přijmout vše“) — na světlém krému */
+  /* Primární CTA (Kontakt) — na světlém krému */
   --cta-bg: #b8893b;
   --cta-bg-hover: #a87a30;
   --cta-text: #faf6ee;
@@ -77,8 +77,8 @@
   --font-serif: "Playfair Display", Georgia, serif;
   --font-sans: "Montserrat", system-ui, sans-serif;
   --max: 880px;
-  /* Úvod může být o něco širší než zbytek stránky */
-  --hero-max: 1040px;
+  /* Úvod může být o něco širší než zbytek stránky (větší kvůli DE H1 + nowrap na .hero__title-line). */
+  --hero-max: 1280px;
   --nav-max: 1000px;
   --radius-pill: 9999px;
   --radius-photo: 2.5rem;
@@ -2129,6 +2129,23 @@ body.tag-sheet-open {
   color: var(--coral);
 }
 
+.site-footer__privacy {
+  margin: 0;
+  flex-basis: 100%;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.site-footer__privacy-link {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.site-footer__privacy-link:hover {
+  color: var(--coral);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -2140,154 +2157,31 @@ body.tag-sheet-open {
   }
 }
 
-/* ——— Cookie souhlas (Consent Mode) ——— */
-.cookie-banner {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1200;
-  padding: 1rem 0 max(1rem, env(safe-area-inset-bottom, 0px));
-  background: rgba(var(--forest-950-rgb), 0.97);
-  color: rgba(255, 255, 255, 0.92);
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.2);
-}
-
-.cookie-banner__inner {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 1rem 1.5rem;
-}
-
-.cookie-banner__text {
-  flex: 1 1 16rem;
-  min-width: 0;
-}
-
-.cookie-banner__title {
-  margin: 0 0 0.35rem;
-  font-family: var(--font-serif);
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--white);
-}
-
-.cookie-banner__desc {
-  margin: 0;
-  font-size: 11px;
-  line-height: 1.55;
-  color: rgba(255, 255, 255, 0.82);
-}
-
-.cookie-banner__legal {
-  font-size: 0.85rem;
-  margin: 0 0 0.75rem;
-}
-
-.cookie-banner__link {
-  color: var(--cta-bg);
-  text-decoration: underline;
-}
-
-.cookie-banner__link:hover {
-  color: var(--cta-bg-hover);
-}
-
-.cookie-banner__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  flex-shrink: 0;
-}
-
-.cookie-banner__btn {
-  font-family: var(--font-sans);
-  font-size: 0.85rem;
-  font-weight: 600;
-  padding: 0.55rem 1rem;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
-}
-
-.cookie-banner__btn--primary,
-.cookie-accept-all,
-.consent-accept,
-[data-consent="accept-all"],
-[data-consent-accept] {
-  background: var(--cta-bg);
-  color: var(--cta-text);
-  border: 1px solid var(--cta-bg);
-  box-shadow: 0 2px 8px rgba(var(--gold-700-rgb), 0.18);
-}
-
-.cookie-banner__btn--primary:hover,
-.cookie-accept-all:hover,
-.consent-accept:hover,
-[data-consent="accept-all"]:hover,
-[data-consent-accept]:hover {
-  background: var(--cta-bg-hover);
-  border-color: var(--cta-bg-hover);
-  filter: none;
-}
-
-.cookie-banner__btn--ghost {
-  background: transparent;
-  color: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-}
-
-.cookie-banner__btn--ghost:hover {
-  background: rgba(255, 255, 255, 0.08);
-}
-
 /* ——— Zásady OÚ / právní text ——— */
 .legal-page {
-  padding-top: clamp(5.25rem, 14vw, 6.75rem);
-  padding-bottom: 3.5rem;
-  background: var(--cream-50);
+  max-width: 720px;
+  margin: 0 auto;
+  padding: calc(var(--nav-height) + 2.5rem) 1.5rem 4rem;
   color: var(--ink);
 }
 
-.legal-page .container {
-  max-width: 42rem;
-}
-
 .legal-page h1 {
-  font-family: var(--font-serif);
-  font-size: clamp(1.75rem, 4vw, 2.25rem);
-  font-weight: 700;
-  color: var(--forest-900);
-  margin: 0 0 1rem;
-  line-height: 1.2;
+  margin-bottom: 1.5rem;
 }
 
 .legal-page h2 {
-  font-family: var(--font-serif);
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--forest-800);
-  margin: 2rem 0 0.65rem;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--gold-on-light);
 }
 
 .legal-page p {
-  margin: 0 0 0.85rem;
-  font-family: var(--font-sans);
-  font-size: 0.95rem;
-  line-height: 1.65;
-  color: var(--muted);
-}
-
-.legal-page section:first-of-type h2 {
-  margin-top: 1.25rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
 }
 
 .legal-page__updated {
-  margin-top: 2.25rem !important;
-  font-size: 0.85rem !important;
-  color: rgba(45, 53, 48, 0.62) !important;
+  margin-top: 3rem;
+  font-size: 0.85rem;
+  color: var(--muted);
 }

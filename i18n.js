@@ -3,6 +3,30 @@
 
   var STORAGE_KEY = "detska-psychoterapie-lang";
 
+  /** České řetězce právní stránky a patičky (zdroj pravdy vedle HTML). */
+  var STRINGS_CS = {
+    footer_privacy: "Zásady ochrany osobních údajů",
+    privacy_title: "Zásady ochrany osobních údajů",
+    privacy_lead:
+      "Tato stránka shrnuje, jak nakládám s osobními údaji v souvislosti s provozem webu detskapsychoterapie.cz a poskytováním péče v mé soukromé praxi.",
+    privacy_h_controller: "Kdo zpracovává údaje",
+    privacy_p_controller:
+      "Dr. Veronika Kieslingová, Nad Paťankou 16, Praha 6. Kontakt: v.kiesling@seznam.cz, +420 602 643 450.",
+    privacy_h_web: "Tento web",
+    privacy_p_web:
+      "Web neměří návštěvnost a nepoužívá analytické nástroje. Webhostingový server automaticky uchovává základní technické logy s IP adresami pro účely provozu a bezpečnosti — to je standardní fungování každého webu na internetu.",
+    privacy_h_map: "Mapa",
+    privacy_p_map:
+      "Stránka obsahuje vložený rámec služby Mapy.cz. Při interakci s mapou mohou být uloženy cookies provozovatele této služby (Seznam.cz a.s.).",
+    privacy_h_contact: "Když mě kontaktujete",
+    privacy_p_contact:
+      "Pokud mě kontaktujete e-mailem nebo telefonicky, zpracovávám pouze údaje, které mi sami sdělíte (jméno, kontakt, údaje o dítěti). Tyto informace používám výhradně pro poskytování psychoterapeutické péče a chráním je v souladu s povinnostmi vyplývajícími z mé profesní role a obecného nařízení GDPR.",
+    privacy_h_rights: "Vaše práva",
+    privacy_p_rights:
+      "Můžete mě kdykoli požádat, abych vám sdělila, jaké údaje o vás mám, opravila je, nebo je smazala. Pokud nesouhlasíte s tím, jak údaje zpracovávám, můžete podat stížnost u Úřadu pro ochranu osobních údajů (uoou.gov.cz). Stačí mi napsat na v.kiesling@seznam.cz nebo zavolat — vyřídím to bez papírování.",
+    privacy_updated: "Poslední aktualizace: duben 2026",
+  };
+
   function isPrivacyPage() {
     return (
       document.body &&
@@ -32,35 +56,30 @@
     nav_menu_toggle_aria: "Menü ein- oder ausblenden",
     skip_to_content: "Zum Inhalt springen",
 
-    consent_title: "Cookies und Reichweitenmessung",
-    consent_body:
-      "Diese Website nutzt Google Analytics zur Besucherstatistik. Technisch notwendige Cookies sind immer aktiv; die Analysemessung wird erst nach Ihrer Einwilligung aktiviert (DSGVO / ePrivacy).",
-    consent_essential: "Nur notwendige",
-    consent_accept: "Alle akzeptieren",
-    consent_privacy_link: "Datenschutzerklärung",
+    footer_privacy: "Datenschutzerklärung",
 
     privacy_doc_title: "Datenschutzerklärung – Dr. Veronika Kieslingová",
     privacy_meta_description:
-      "Informationen zur Verarbeitung personenbezogener Daten im Zusammenhang mit dieser Website und der Kontaktaufnahme zur Praxis von Dr. Veronika Kieslingová, Prag 6.",
+      "Kurzüberblick zur Verarbeitung personenbezogener Daten auf detskapsychoterapie.cz und in der Praxis von Dr. Veronika Kieslingová, Prag 6.",
 
     privacy_title: "Datenschutzerklärung",
     privacy_lead:
-      "Diese Erklärung beschreibt, wie ich personenbezogene Daten im Zusammenhang mit dieser Website und bei der Kontaktaufnahme verarbeite.",
-    privacy_h_controller: "Verantwortliche Stelle",
+      "Diese Seite fasst zusammen, wie ich personenbezogene Daten im Zusammenhang mit dem Betrieb der Website detskapsychoterapie.cz und der psychotherapeutischen Versorgung in meiner Privatpraxis verarbeite.",
+    privacy_h_controller: "Wer die Daten verarbeitet",
     privacy_p_controller:
-      "Dr. Veronika Kieslingová, Nad Paťankou 16, Prag 6. Kontakt: v.kiesling@seznam.cz, Tel. +420 602 643 450.",
-    privacy_h_data: "Welche Daten ich verarbeite",
-    privacy_p_data:
-      "Diese Website speichert keine personenbezogenen Daten automatisch. Wenn Sie mich telefonisch oder per E-Mail kontaktieren, verarbeite ich nur die Angaben, die Sie mir mitteilen (Name, Kontakt, zum Therapiekontext relevante Informationen über das Kind) auf Grundlage der Vertragserfüllung (Art. 6 Abs. 1 lit. b DSGVO) und berechtigter Interessen.",
-    privacy_h_analytics: "Besuchermessung (Google Analytics)",
-    privacy_p_analytics:
-      "Wenn Sie über die Cookie-Leiste zustimmen, nutze ich Google Analytics 4 zur statistischen Auswertung der Nutzung. Die Messung dient ausschließlich der Verbesserung des Webangebots und ist anonymisiert. Ohne Einwilligung findet keine Analyse statt. Sie können Ihre Einwilligung jederzeit widrufen, indem Sie die Cookies in Ihrem Browser löschen.",
-    privacy_h_thirdparty: "Dienste Dritter",
-    privacy_p_thirdparty:
-      "Die Karte auf der Kontaktseite nutzt einen eingebetteten Rahmen von Mapy.cz. Bei Interaktion mit der Karte können Cookies des Betreibers dieser Dienste gesetzt werden.",
+      "Dr. Veronika Kieslingová, Nad Paťankou 16, Prag 6. Kontakt: v.kiesling@seznam.cz, +420 602 643 450.",
+    privacy_h_web: "Diese Website",
+    privacy_p_web:
+      "Die Website erfasst keine Besucherzahlen und verwendet keine Analysetools. Der Webhosting-Server speichert automatisch grundlegende technische Protokolle mit IP-Adressen für den Betrieb und die Sicherheit — das entspricht dem üblichen Betrieb jeder Website im Internet.",
+    privacy_h_map: "Karte",
+    privacy_p_map:
+      "Die Seite enthält einen eingebetteten Rahmen des Dienstes Mapy.cz. Bei Interaktion mit der Karte können Cookies des Betreibers dieses Dienstes (Seznam.cz a.s.) gespeichert werden.",
+    privacy_h_contact: "Wenn Sie mich kontaktieren",
+    privacy_p_contact:
+      "Wenn Sie mich per E-Mail oder telefonisch kontaktieren, verarbeite ich nur die Daten, die Sie mir mitteilen (Name, Kontakt, Angaben zum Kind). Diese Informationen nutze ich ausschließlich für die psychotherapeutische Versorgung und schütze sie entsprechend den Pflichten aus meiner beruflichen Rolle und der DSGVO.",
     privacy_h_rights: "Ihre Rechte",
     privacy_p_rights:
-      "Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung und Datenübertragbarkeit. Zur Ausübung Ihrer Rechte kontaktieren Sie mich bitte unter der oben genannten E-Mail-Adresse oder Telefonnummer. Beschwerden können Sie bei der tschechischen Datenschutzbehörde einreichen (Úřad pro ochranu osobních údajů — uoou.cz).",
+      "Sie können mich jederzeit bitten, Ihnen mitzuteilen, welche Daten ich über Sie habe, sie zu berichtigen oder zu löschen. Wenn Sie mit meiner Datenverarbeitung nicht einverstanden sind, können Sie eine Beschwerde beim tschechischen Datenschutzamt einreichen (uoou.gov.cz). Schreiben Sie mir an v.kiesling@seznam.cz oder rufen Sie an — wir klären das unkompliziert.",
     privacy_updated: "Letzte Aktualisierung: April 2026",
 
     lang_aria: "Sprache der Seite",
@@ -260,6 +279,12 @@
     SNAPSHOT.__docTitle = document.title;
     var meta = document.querySelector('meta[name="description"]');
     SNAPSHOT.__metaDesc = meta ? meta.getAttribute("content") || "" : "";
+
+    if (isPrivacyPage()) {
+      Object.keys(STRINGS_CS).forEach(function (key) {
+        SNAPSHOT[key] = STRINGS_CS[key];
+      });
+    }
   }
 
   function setTextsDe() {
@@ -381,6 +406,10 @@
       });
   }
 
+  /** Vlajka a značka ukazují jazyk, na který tlačítko přepne (ne aktuální jazyk stránky). */
+  var FLAG_DE = "\uD83C\uDDE9\uD83C\uDDEA";
+  var FLAG_CZ = "\uD83C\uDDE8\uD83C\uDDFF";
+
   function updateLangSwitch(lang) {
     var group = document.querySelector(".lang-switch");
     if (!group) return;
@@ -390,6 +419,17 @@
       var deOn = lang === "de";
       toggleBtn.classList.toggle("lang-switch__btn--active", deOn);
       toggleBtn.setAttribute("aria-pressed", deOn ? "true" : "false");
+      var flagEl = toggleBtn.querySelector(".lang-switch__flag");
+      var markEl = toggleBtn.querySelector(".lang-switch__mark");
+      if (flagEl && markEl) {
+        if (deOn) {
+          flagEl.textContent = FLAG_CZ;
+          markEl.textContent = "CZ";
+        } else {
+          flagEl.textContent = FLAG_DE;
+          markEl.textContent = "DE";
+        }
+      }
     }
     if (lang === "de" && STRINGS_DE.lang_aria) {
       group.setAttribute("aria-label", STRINGS_DE.lang_aria);
