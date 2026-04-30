@@ -997,7 +997,11 @@ section[id] {
   justify-content: flex-start;
   gap: 1rem;
   border-radius: 100px;
-  opacity: 0.8;
+}
+
+/* Ztlumení jen skla bubliny — text zůstane plná bílá (ne opacity na celém .badges). */
+.about .badges-strip .badges .hex__blob {
+  opacity: 0.82;
 }
 
 .hex {
@@ -1078,16 +1082,15 @@ section[id] {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--white);
+  color: #fff;
   line-height: 1.2;
-  opacity: 0.85;
 }
 
 .hex__value {
   font-family: var(--font-serif);
   font-weight: 600;
   line-height: 1.05;
-  color: var(--white);
+  color: #fff;
 }
 
 .hex:nth-child(1) .hex__value { font-size: clamp(1.55rem, 3.6vw, 2.05rem); }
