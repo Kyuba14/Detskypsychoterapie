@@ -2182,6 +2182,20 @@ body.tag-sheet-open {
   color: rgba(255, 255, 255, 0.82);
 }
 
+.cookie-banner__legal {
+  font-size: 0.85rem;
+  margin: 0 0 0.75rem;
+}
+
+.cookie-banner__link {
+  color: var(--cta-bg);
+  text-decoration: underline;
+}
+
+.cookie-banner__link:hover {
+  color: var(--cta-bg-hover);
+}
+
 .cookie-banner__actions {
   display: flex;
   flex-wrap: wrap;
