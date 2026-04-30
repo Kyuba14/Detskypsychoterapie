@@ -62,6 +62,8 @@
     hero_kicker: "Kinderpsychotherapie Prag 6",
     hero_title:
       '<span class="hero__title-line">Wachstumsraum für Kinder,</span><span class="hero__title-line">Jugendliche und junge Erwachsene</span>',
+    hero_title_aria:
+      "Wachstumsraum für Kinder, Jugendliche und junge Erwachsene",
     hero_perex:
       "Psychotherapeutische\u00a0und\u00a0heilpädagogische Betreuung in\u00a0der Privatpraxis in\u00a0Prag\u00a06. Ohne ärztliche Überweisung, in\u00a0diskreter und\u00a0ruhiger Atmosphäre.",
     hero_cta: "Kontakt",
@@ -218,6 +220,11 @@
       if (!k) return;
       SNAPSHOT["alt:" + k] = el.getAttribute("alt") || "";
     });
+    document.querySelectorAll("[data-i18n-aria-label]").forEach(function (el) {
+      var k = el.getAttribute("data-i18n-aria-label");
+      if (!k) return;
+      SNAPSHOT["arialabel:" + k] = el.getAttribute("aria-label") || "";
+    });
     SNAPSHOT.__docTitle = document.title;
     var meta = document.querySelector('meta[name="description"]');
     SNAPSHOT.__metaDesc = meta ? meta.getAttribute("content") || "" : "";
@@ -241,6 +248,10 @@
     document.querySelectorAll("[data-i18n-alt]").forEach(function (el) {
       var k = el.getAttribute("data-i18n-alt");
       if (k && STRINGS_DE[k]) el.setAttribute("alt", STRINGS_DE[k]);
+    });
+    document.querySelectorAll("[data-i18n-aria-label]").forEach(function (el) {
+      var k = el.getAttribute("data-i18n-aria-label");
+      if (k && STRINGS_DE[k]) el.setAttribute("aria-label", STRINGS_DE[k]);
     });
 
     var lis = document.querySelectorAll("#vzdelani .edu-list li[data-i18n-edu-li]");
@@ -286,6 +297,13 @@
       if (!k) return;
       var a = SNAPSHOT["alt:" + k];
       if (a) el.setAttribute("alt", a);
+    });
+    document.querySelectorAll("[data-i18n-aria-label]").forEach(function (el) {
+      var k = el.getAttribute("data-i18n-aria-label");
+      if (!k) return;
+      var al = SNAPSHOT["arialabel:" + k];
+      if (al) el.setAttribute("aria-label", al);
+      else el.removeAttribute("aria-label");
     });
 
     document.querySelectorAll("#vzdelani .edu-list li[data-i18n-edu-li]").forEach(
