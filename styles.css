@@ -52,7 +52,7 @@
   --banner-tan: #efe4cf;
   --banner-text: #2a2419;
   --tag-bg: var(--chip-bg);
-  --hex-fill: rgba(255, 255, 255, 0.12);
+  --hex-fill: rgba(255, 255, 255, 0.18);
   --font-serif: "Playfair Display", Georgia, serif;
   --font-sans: "Montserrat", system-ui, sans-serif;
   --max: 880px;
@@ -526,10 +526,8 @@ section[id] {
     radial-gradient(ellipse 58% 52% at 88% 8%, rgba(212, 184, 118, 0.24) 0%, transparent 68%),
     radial-gradient(ellipse 52% 46% at 8% 92%, rgba(178, 168, 150, 0.14) 0%, transparent 65%),
     radial-gradient(ellipse 65% 55% at 50% 48%, rgba(252, 250, 246, 0.6) 0%, transparent 78%);
-  /*
-   * Viewport výška minus nav minus ~56px — další sekce vykukuje ze spodního okraje.
-   */
-  min-height: calc(100svh - var(--nav-height) - 3.5rem);
+  /* Výška podle obsahu — bez zbytečné prázdné plochy pod CTA */
+  min-height: auto;
   padding: clamp(3rem, 8vw, 6rem) 0;
   position: relative;
   overflow: hidden;
@@ -605,13 +603,13 @@ section[id] {
   }
 }
 
-/* Úvod: flex sloupec; flex:1 vyplní min-height hero, justify-content uprostřed svisle i vodorovně (align-items) */
+/* Úvod: sloupec; bez flex-grow — obsah drží u horní části, méně mezery nad další sekcí */
 .hero__grid {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  flex: 1 1 auto;
+  justify-content: flex-start;
+  flex: 0 1 auto;
   min-height: 0;
   gap: clamp(1.25rem, 3.5vw, 2rem);
   width: 100%;
@@ -742,7 +740,7 @@ section[id] {
   font-size: clamp(0.92rem, 1.5vw, 1.05rem);
   font-weight: 400;
   line-height: 1.62;
-  color: rgba(var(--ink-rgb), 0.78);
+  color: var(--ink);
   max-width: 32rem;
   text-align: center;
 }
@@ -834,7 +832,7 @@ section[id] {
 
 /* ——— About (statistiky — sedmiúhelníky jako v návrhu) ——— */
 .about {
-  --badge-glass: rgba(255, 255, 255, 0.11);
+  --badge-glass: var(--hex-fill);
   background-color: var(--forest-surface-base);
   background-image: var(--forest-surface-image);
   color: var(--white);
@@ -1019,6 +1017,9 @@ section[id] {
   height: 100%;
   pointer-events: none;
   overflow: visible;
+  stroke: rgba(255, 255, 255, 0.18);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
 }
 
 .hex__blob path {
@@ -1367,12 +1368,6 @@ body.tag-sheet-open {
   margin: 0 0 2.5rem;
 }
 
-.section-purple-light .edu-more-btn {
-  color: rgba(255, 255, 255, 0.9);
-  border-color: rgba(255, 255, 255, 0.25);
-  background: rgba(255, 255, 255, 0.08);
-}
-
 .section-purple-light .edu-more-content {
   border-color: rgba(255, 255, 255, 0.12);
 }
@@ -1542,28 +1537,27 @@ body.tag-sheet-open {
   font-family: var(--font-sans);
   font-size: 0.88rem;
   font-weight: 600;
-  color: var(--ink-hero);
-  background: rgba(255, 255, 255, 0.55);
-  border: 1px solid rgba(var(--brand-rgb), 0.2);
+  color: #d4b86a;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(212, 184, 106, 0.25);
   border-radius: var(--radius-pill);
   cursor: pointer;
   user-select: none;
   transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
-/* Stejný hover jako .hero__cta — plná coral, bílý text */
 .edu-more-btn:hover {
-  background: var(--coral);
-  color: var(--white);
-  border-color: var(--coral);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(212, 184, 106, 0.4);
+  color: #d4b86a;
 }
 
 .edu-more-btn:focus-visible {
-  outline: 2px solid var(--coral);
+  outline: 2px solid rgba(212, 184, 106, 0.55);
   outline-offset: 3px;
-  background: var(--coral);
-  color: var(--white);
-  border-color: var(--coral);
+  background: rgba(255, 255, 255, 0.1);
+  color: #d4b86a;
+  border-color: rgba(212, 184, 106, 0.45);
 }
 
 .edu-more-btn__icon {
@@ -1642,13 +1636,14 @@ body.tag-sheet-open {
 }
 
 .faq-page-title__mid {
-  font-family: var(--font-sans);
-  font-size: 1.125rem;
+  font-family: var(--font-serif);
+  font-size: calc(0.88 * var(--fs-h2));
   font-weight: 600;
   font-style: italic;
   color: rgba(var(--ink-rgb), 0.42);
   text-transform: lowercase;
-  align-self: center;
+  align-self: baseline;
+  line-height: 1.05;
 }
 
 @media (max-width: 520px) {
@@ -1986,11 +1981,6 @@ body.tag-sheet-open {
   font-size: 1.1rem;
   font-weight: 700;
   text-decoration: none;
-}
-
-.contact__value--address {
-  text-decoration: underline;
-  text-underline-offset: 3px;
 }
 
 .contact__map {
