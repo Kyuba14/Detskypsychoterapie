@@ -1,48 +1,50 @@
 /*
- * Design: paleta z loga (les, zlato, teplý krém).
+ * Design: šalvěj + teplý krém + hořčicová (akcenty).
  * Rytmus světlých ploch: --cream-50 = základ (tělo, FAQ, kontakt),
  * --cream-100 = stejný „pás“ pro úvod a témata (žádná jiná světlá zeleň na celé sekce).
  */
 :root {
   /* Základ z loga — lehčí les (méně „uhlíková“ zeleň) */
-  --forest-950: #222c27;
-  --forest-900: #2f3d36;
-  --forest-800: #3a4a42;
-  --forest-700: #475a52;
+  --forest-950: #1f2922;
+  --forest-900: #2d3d33;
+  --forest-800: #3a5446;
+  --forest-700: #6b7f6e;
 
-  /* Zlato: o chlup světlejší a teplejší, ať je vidět, ale zůstane decentní */
-  --gold-800: #735425;
-  --gold-700: #8f6a2e;
-  --gold-600: #a67f38;
-  --gold-500: #bc9446;
-  --gold-400: #d4b86a;
+  /* Hořčicová (akcenty, CTA) */
+  --gold-800: #8a6628;
+  --gold-700: #a87a30;
+  --gold-600: #b8893b;
+  --gold-500: #c89a4a;
+  --gold-400: #d8b06e;
 
-  /* Teplé neutrální krémy (sdílená rodina odstínů, bez „random“ šalvěje na celých blocích) */
-  --cream-50: #faf9f6;
-  --cream-100: #f2f0ea;
-  --cream-200: #e6e2da;
-  /* Chipy / tagy — o stupeň hutnější než pozadí, stále ve stejné teplotě barvy */
-  --chip-bg: #dfdbd3;
+  /* Teplý krém */
+  --cream-50: #faf6ee;
+  --cream-100: #f5efe4;
+  --cream-200: #ebe3d2;
+  /* Chipy / tagy — o stupeň hutnější než pozadí */
+  --chip-bg: #d8cfb8;
 
-  --ink: #2d3a34;
+  --ink: #2d3530;
   --ink-hero: #3a4a43;
   --white: #ffffff;
-  --muted: rgba(45, 58, 52, 0.7);
+  --muted: rgba(45, 53, 48, 0.7);
 
   /* Společné RGB pro stíny / průhlednosti (space-separated) */
-  --brand-rgb: 58, 72, 66;
+  --brand-rgb: 107, 127, 110;
   --brand-deep-rgb: 38, 48, 44;
-  --accent-rgb: 172, 130, 56;
-  --ink-rgb: 45, 58, 52;
+  --accent-rgb: 184, 137, 59;
+  --ink-rgb: 45, 53, 48;
 
   /* Sémantické tokeny (název často z historie layoutu) */
   --purple-deep: var(--forest-700);
-  /* Tmavý zelený „les“ — nav, O mně, vzdělání, ceník (méně šedi, jemný zlatý nádech) */
-  --forest-surface-base: #243329;
+  /* Šalvějové pozadí tmavých sekcí — nav, O mně, vzdělání, ceník */
+  --forest-surface-base: #6b7f6e;
+  /* Lišta navigace: o stupeň tmavší kvůli kontrastu bílého textu (AA). */
+  --forest-surface-nav: #5d7060;
   --forest-surface-image:
-    radial-gradient(ellipse 115% 75% at 8% 0%, rgba(212, 184, 106, 0.12) 0%, transparent 42%),
-    radial-gradient(ellipse 90% 65% at 100% 100%, rgba(34, 52, 44, 0.85) 0%, transparent 52%),
-    linear-gradient(168deg, #2d4036 0%, #25332b 48%, #1b2620 100%);
+    radial-gradient(ellipse 115% 75% at 8% 0%, rgba(216, 176, 110, 0.22) 0%, transparent 42%),
+    radial-gradient(ellipse 90% 65% at 100% 100%, rgba(60, 80, 70, 0.32) 0%, transparent 52%),
+    linear-gradient(168deg, #768c79 0%, #6b7f6e 48%, #5d7060 100%);
   --purple-bg: var(--forest-surface-base);
   --bg-lavender: var(--cream-50);
   --bg-lavender-alt: var(--cream-100);
@@ -52,7 +54,7 @@
   --banner-tan: #efe4cf;
   --banner-text: #2a2419;
   --tag-bg: var(--chip-bg);
-  --hex-fill: rgba(255, 255, 255, 0.18);
+  --hex-fill: rgba(255, 255, 255, 0.22);
   --font-serif: "Playfair Display", Georgia, serif;
   --font-sans: "Montserrat", system-ui, sans-serif;
   --max: 880px;
@@ -177,8 +179,7 @@ section[id] {
   position: sticky;
   top: 0;
   z-index: 100;
-  /* Jedna barva — gradient na tenké liště působil rušivě s blur */
-  background: var(--forest-surface-base);
+  background: var(--forest-surface-nav);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -261,7 +262,7 @@ section[id] {
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.06em;
-  color: rgba(255, 255, 255, 0.8);
+  color: #fff;
   cursor: pointer;
   transition:
     color 0.15s ease,
@@ -336,7 +337,7 @@ section[id] {
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.04em;
-  color: rgba(255, 255, 255, 0.8);
+  color: #fff;
   text-decoration: none;
   border-radius: var(--radius-pill);
   border: 1px solid transparent;
@@ -1017,7 +1018,7 @@ section[id] {
   height: 100%;
   pointer-events: none;
   overflow: visible;
-  stroke: rgba(255, 255, 255, 0.18);
+  stroke: rgba(255, 255, 255, 0.2);
   stroke-width: 1;
   vector-effect: non-scaling-stroke;
 }
@@ -1537,9 +1538,9 @@ body.tag-sheet-open {
   font-family: var(--font-sans);
   font-size: 0.88rem;
   font-weight: 600;
-  color: #d4b86a;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(212, 184, 106, 0.25);
+  color: #d8b06e;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(216, 176, 110, 0.3);
   border-radius: var(--radius-pill);
   cursor: pointer;
   user-select: none;
@@ -1547,17 +1548,17 @@ body.tag-sheet-open {
 }
 
 .edu-more-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(212, 184, 106, 0.4);
-  color: #d4b86a;
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(216, 176, 110, 0.5);
+  color: #d8b06e;
 }
 
 .edu-more-btn:focus-visible {
-  outline: 2px solid rgba(212, 184, 106, 0.55);
+  outline: 2px solid rgba(216, 176, 110, 0.55);
   outline-offset: 3px;
-  background: rgba(255, 255, 255, 0.1);
-  color: #d4b86a;
-  border-color: rgba(212, 184, 106, 0.45);
+  background: rgba(255, 255, 255, 0.14);
+  color: #d8b06e;
+  border-color: rgba(216, 176, 110, 0.5);
 }
 
 .edu-more-btn__icon {
@@ -1637,7 +1638,7 @@ body.tag-sheet-open {
 
 .faq-page-title__mid {
   font-family: var(--font-serif);
-  font-size: calc(0.88 * var(--fs-h2));
+  font-size: calc(0.9 * var(--fs-h2));
   font-weight: 600;
   font-style: italic;
   color: rgba(var(--ink-rgb), 0.42);
@@ -1983,6 +1984,15 @@ body.tag-sheet-open {
   text-decoration: none;
 }
 
+.contact__value--address {
+  text-decoration: none;
+}
+
+.contact__value--address:hover,
+.contact__value--address:focus-visible {
+  text-decoration: none;
+}
+
 .contact__map {
   margin-top: 2.5rem;
   border-radius: var(--radius-photo);
@@ -2085,7 +2095,7 @@ body.tag-sheet-open {
   bottom: 0;
   z-index: 1200;
   padding: 1rem 0 max(1rem, env(safe-area-inset-bottom, 0px));
-  background: rgba(36, 51, 41, 0.97);
+  background: rgba(31, 41, 34, 0.97);
   color: rgba(255, 255, 255, 0.92);
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.2);
@@ -2138,8 +2148,8 @@ body.tag-sheet-open {
 }
 
 .cookie-banner__btn--primary {
-  background: var(--coral);
-  color: var(--white);
+  background: var(--gold-400);
+  color: var(--forest-950);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
