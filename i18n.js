@@ -364,17 +364,31 @@
     });
   }
 
+  /** Např. `?lang=de` / `?lang=cs` — má přednost před localStorage (hreflang / sdílené odkazy). */
+  function getLangFromSearch() {
+    try {
+      var q = new URLSearchParams(window.location.search || "");
+      var v = (q.get("lang") || "").trim().toLowerCase();
+      if (v === "de") return "de";
+      if (v === "cs") return "cs";
+    } catch (e) {}
+    return null;
+  }
+
   function init() {
     capture();
     captureEduLis();
     initLangSwitch();
 
+    var fromUrl = getLangFromSearch();
     var saved = null;
     try {
       saved = localStorage.getItem(STORAGE_KEY);
     } catch (e) {}
 
-    if (saved === "de") {
+    if (fromUrl !== null) {
+      applyLang(fromUrl);
+    } else if (saved === "de") {
       applyLang("de");
     } else {
       updateLangSwitch("cs");
