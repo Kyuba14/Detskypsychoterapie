@@ -21,8 +21,12 @@
   --cream-50: #faf6ee;
   --cream-100: #f5efe4;
   --cream-200: #ebe3d2;
-  /* Chipy / tagy — o stupeň hutnější než pozadí */
-  --chip-bg: #d8cfb8;
+  /* Chipy / tagy — teplý krém + jemný zlatý okraj */
+  --chip-bg: #ebe3d2;
+  --chip-border: rgba(168, 122, 48, 0.22);
+  --chip-text: #2d3530;
+  --chip-bg-hover: #e0d6bf;
+  --chip-border-hover: rgba(168, 122, 48, 0.4);
 
   --ink: #2d3530;
   --ink-hero: #3a4a43;
@@ -33,6 +37,10 @@
   --brand-rgb: 107, 127, 110;
   --brand-deep-rgb: 38, 48, 44;
   --accent-rgb: 184, 137, 59;
+  --gold-400-rgb: 216, 176, 110;
+  --gold-700-rgb: 168, 122, 48;
+  --forest-950-rgb: 31, 41, 34;
+  --cream-50-rgb: 250, 246, 238;
   --ink-rgb: 45, 53, 48;
 
   /* Sémantické tokeny (název často z historie layoutu) */
@@ -52,9 +60,13 @@
   --bg-topics: var(--cream-100);
   --coral: var(--gold-700);
   --banner-tan: #efe4cf;
+  /* Primární CTA (Kontakt, cookie „Přijmout vše“) */
+  --cta-bg: var(--gold-600);
+  --cta-bg-hover: var(--gold-700);
+  --cta-text: var(--cream-50);
   --banner-text: #2a2419;
-  --tag-bg: var(--chip-bg);
-  --hex-fill: rgba(255, 255, 255, 0.22);
+  --hex-fill: rgba(216, 176, 110, 0.18);
+  --hex-stroke: rgba(216, 176, 110, 0.35);
   --font-serif: "Playfair Display", Georgia, serif;
   --font-sans: "Montserrat", system-ui, sans-serif;
   --max: 880px;
@@ -262,7 +274,7 @@ section[id] {
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.06em;
-  color: #fff;
+  color: var(--white);
   cursor: pointer;
   transition:
     color 0.15s ease,
@@ -337,7 +349,7 @@ section[id] {
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.04em;
-  color: #fff;
+  color: var(--white);
   text-decoration: none;
   border-radius: var(--radius-pill);
   border: 1px solid transparent;
@@ -524,9 +536,9 @@ section[id] {
   background-color: var(--bg-lavender-alt);
   background-image:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)' opacity='0.038'/%3E%3C/svg%3E"),
-    radial-gradient(ellipse 58% 52% at 88% 8%, rgba(212, 184, 118, 0.24) 0%, transparent 68%),
+    radial-gradient(ellipse 58% 52% at 88% 8%, rgba(var(--gold-400-rgb), 0.24) 0%, transparent 68%),
     radial-gradient(ellipse 52% 46% at 8% 92%, rgba(178, 168, 150, 0.14) 0%, transparent 65%),
-    radial-gradient(ellipse 65% 55% at 50% 48%, rgba(252, 250, 246, 0.6) 0%, transparent 78%);
+    radial-gradient(ellipse 65% 55% at 50% 48%, rgba(var(--cream-50-rgb), 0.6) 0%, transparent 78%);
   /* Výška podle obsahu — bez zbytečné prázdné plochy pod CTA */
   min-height: auto;
   padding: clamp(3rem, 8vw, 6rem) 0;
@@ -556,8 +568,8 @@ section[id] {
   right: -12%;
   background: radial-gradient(
     circle,
-    rgba(212, 184, 118, 0.2) 0%,
-    rgba(212, 184, 118, 0.07) 50%,
+    rgba(var(--gold-400-rgb), 0.2) 0%,
+    rgba(var(--gold-400-rgb), 0.07) 50%,
     transparent 72%
   );
   filter: blur(48px);
@@ -762,7 +774,9 @@ section[id] {
   gap: 0.65rem 0.65rem;
 }
 
-.hero__cta {
+.btn-primary,
+.hero__cta,
+.hero__cta--primary {
   font-family: var(--font-sans);
   display: inline-flex;
   align-items: center;
@@ -770,28 +784,45 @@ section[id] {
   width: fit-content;
   max-width: 100%;
   padding: 0.85rem 1.5rem;
-  background: var(--forest-900);
-  color: var(--white);
+  background: var(--cta-bg);
+  color: var(--cta-text);
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.01em;
   text-transform: none;
   text-decoration: none;
   border-radius: var(--radius-pill);
-  border: none;
+  border: 1px solid var(--cta-bg);
+  box-shadow: 0 2px 8px rgba(var(--gold-700-rgb), 0.18);
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.15s ease;
+  transition:
+    background 0.2s,
+    box-shadow 0.2s,
+    transform 0.1s,
+    border-color 0.2s;
 }
 
-.hero__cta:hover {
-  background: var(--coral);
-  opacity: 1;
+.btn-primary:hover,
+.hero__cta:hover,
+.hero__cta--primary:hover {
+  background: var(--cta-bg-hover);
+  border-color: var(--cta-bg-hover);
+  box-shadow: 0 4px 14px rgba(var(--gold-700-rgb), 0.28);
+  transform: translateY(-1px);
 }
 
-.hero__cta:focus-visible {
-  outline: 2px solid var(--coral);
+.btn-primary:active,
+.hero__cta:active,
+.hero__cta--primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(var(--gold-700-rgb), 0.2);
+}
+
+.btn-primary:focus-visible,
+.hero__cta:focus-visible,
+.hero__cta--primary:focus-visible {
+  outline: 2px solid var(--gold-600);
   outline-offset: 3px;
-  opacity: 1;
 }
 
 .hero__secondary {
@@ -999,11 +1030,6 @@ section[id] {
   border-radius: 100px;
 }
 
-/* Ztlumení jen skla bubliny — text zůstane plná bílá (ne opacity na celém .badges). */
-.about .badges-strip .badges .hex__blob {
-  opacity: 0.82;
-}
-
 .hex {
   position: relative;
   display: flex;
@@ -1022,13 +1048,13 @@ section[id] {
   height: 100%;
   pointer-events: none;
   overflow: visible;
-  stroke: rgba(255, 255, 255, 0.2);
-  stroke-width: 1;
-  vector-effect: non-scaling-stroke;
 }
 
 .hex__blob path {
-  fill: var(--badge-glass);
+  fill: var(--hex-fill);
+  stroke: var(--hex-stroke);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
 }
 
 .hex__inner {
@@ -1082,7 +1108,7 @@ section[id] {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--cream-50);
   line-height: 1.2;
 }
 
@@ -1090,7 +1116,7 @@ section[id] {
   font-family: var(--font-serif);
   font-weight: 600;
   line-height: 1.05;
-  color: #fff;
+  color: var(--cream-50);
 }
 
 .hex:nth-child(1) .hex__value { font-size: clamp(1.55rem, 3.6vw, 2.05rem); }
@@ -1163,14 +1189,14 @@ section[id] {
   display: inline-block;
   padding: 0.5rem 1.1rem;
   margin: 0;
-  background: var(--tag-bg);
-  color: var(--ink);
+  background: var(--chip-bg);
+  color: var(--chip-text);
   font-family: inherit;
   font-size: 0.875rem;
   font-weight: 500;
   line-height: inherit;
   text-align: center;
-  border: none;
+  border: 1px solid var(--chip-border);
   border-radius: var(--radius-pill);
   cursor: help;
   -webkit-appearance: none;
@@ -1178,15 +1204,20 @@ section[id] {
   transition:
     background-color 0.15s ease,
     color 0.15s ease,
+    border-color 0.15s ease,
     box-shadow 0.15s ease;
 }
 
-.tag:hover,
+.tag:hover {
+  background: var(--chip-bg-hover);
+  border-color: var(--chip-border-hover);
+}
+
 .tag:focus-visible {
-  background: rgba(var(--brand-rgb), 0.12);
-  color: var(--ink-hero);
-  box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.35);
-  outline: none;
+  background: var(--chip-bg-hover);
+  border-color: var(--chip-border-hover);
+  outline: 2px solid var(--gold-600);
+  outline-offset: 2px;
 }
 
 @media (max-width: 767px) {
@@ -1385,7 +1416,7 @@ body.tag-sheet-open {
 }
 
 .section-purple-light .edu-row__title {
-  color: var(--gold-400);
+  color: var(--gold-600);
   font-weight: 700;
   text-shadow:
     0 1px 3px rgba(0, 0, 0, 0.55),
@@ -1393,7 +1424,7 @@ body.tag-sheet-open {
 }
 
 .section-purple-light .edu-pillar__period {
-  color: var(--gold-500);
+  color: var(--gold-600);
 }
 
 /* Dvousloupcové bloky vzdělání (název vlevo, seznam vpravo) */
@@ -1424,7 +1455,7 @@ body.tag-sheet-open {
   font-weight: 600;
   line-height: 1.2;
   margin: 0;
-  color: var(--coral);
+  color: var(--gold-600);
 }
 
 .edu-row__content {
@@ -1458,7 +1489,7 @@ body.tag-sheet-open {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--coral);
+  color: var(--gold-600);
   margin: 0 0 0.4rem;
 }
 
@@ -1541,9 +1572,9 @@ body.tag-sheet-open {
   font-family: var(--font-sans);
   font-size: 0.88rem;
   font-weight: 600;
-  color: #d8b06e;
+  color: var(--gold-400);
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(216, 176, 110, 0.3);
+  border: 1px solid rgba(var(--gold-400-rgb), 0.3);
   border-radius: var(--radius-pill);
   cursor: pointer;
   user-select: none;
@@ -1552,16 +1583,16 @@ body.tag-sheet-open {
 
 .edu-more-btn:hover {
   background: rgba(255, 255, 255, 0.14);
-  border-color: rgba(216, 176, 110, 0.5);
-  color: #d8b06e;
+  border-color: rgba(var(--gold-400-rgb), 0.5);
+  color: var(--gold-400);
 }
 
 .edu-more-btn:focus-visible {
-  outline: 2px solid rgba(216, 176, 110, 0.55);
+  outline: 2px solid rgba(var(--gold-400-rgb), 0.55);
   outline-offset: 3px;
   background: rgba(255, 255, 255, 0.14);
-  color: #d8b06e;
-  border-color: rgba(216, 176, 110, 0.5);
+  color: var(--gold-400);
+  border-color: rgba(var(--gold-400-rgb), 0.5);
 }
 
 .edu-more-btn__icon {
@@ -1777,7 +1808,7 @@ body.tag-sheet-open {
 .quote-offset > h3 {
   font-family: var(--font-serif);
   font-size: var(--fs-h3);
-  color: var(--coral);
+  color: var(--gold-600);
   margin: 0 0 1.25rem;
   line-height: 1.3;
   max-width: 22rem;
@@ -2098,7 +2129,7 @@ body.tag-sheet-open {
   bottom: 0;
   z-index: 1200;
   padding: 1rem 0 max(1rem, env(safe-area-inset-bottom, 0px));
-  background: rgba(31, 41, 34, 0.97);
+  background: rgba(var(--forest-950-rgb), 0.97);
   color: rgba(255, 255, 255, 0.92);
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.2);
@@ -2150,14 +2181,25 @@ body.tag-sheet-open {
   transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.cookie-banner__btn--primary {
-  background: var(--gold-400);
-  color: var(--forest-950);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+.cookie-banner__btn--primary,
+.cookie-accept-all,
+.consent-accept,
+[data-consent="accept-all"],
+[data-consent-accept] {
+  background: var(--cta-bg);
+  color: var(--cta-text);
+  border: 1px solid var(--cta-bg);
+  box-shadow: 0 2px 8px rgba(var(--gold-700-rgb), 0.18);
 }
 
-.cookie-banner__btn--primary:hover {
-  filter: brightness(1.06);
+.cookie-banner__btn--primary:hover,
+.cookie-accept-all:hover,
+.consent-accept:hover,
+[data-consent="accept-all"]:hover,
+[data-consent-accept]:hover {
+  background: var(--cta-bg-hover);
+  border-color: var(--cta-bg-hover);
+  filter: none;
 }
 
 .cookie-banner__btn--ghost {
