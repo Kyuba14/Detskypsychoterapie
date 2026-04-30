@@ -10,12 +10,18 @@
   --forest-800: #3a5446;
   --forest-700: #6b7f6e;
 
-  /* Hořčicová (akcenty, CTA) */
+  /* Zlatá pro SVĚTLÁ pozadí (krém) — tmavší, dobrý kontrast */
+  --gold-on-light: #a87a30;
+  --gold-on-light-hover: #8a6628;
+  /* Zlatá pro TMAVÁ pozadí (šalvěj) — světlejší, jasně čitelná */
+  --gold-on-dark: #e8d199;
+  --gold-on-dark-soft: #dcc382;
+  /* Škála (zpětná kompatibilita) */
   --gold-800: #8a6628;
   --gold-700: #a87a30;
   --gold-600: #b8893b;
-  --gold-500: #c89a4a;
-  --gold-400: #d8b06e;
+  --gold-500: #dcc382;
+  --gold-400: #e8d199;
 
   /* Teplý krém */
   --cream-50: #faf6ee;
@@ -37,7 +43,9 @@
   --brand-rgb: 107, 127, 110;
   --brand-deep-rgb: 38, 48, 44;
   --accent-rgb: 184, 137, 59;
-  --gold-400-rgb: 216, 176, 110;
+  --gold-on-light-rgb: 168, 122, 48;
+  --gold-on-dark-rgb: 232, 209, 153;
+  --gold-400-rgb: 232, 209, 153;
   --gold-700-rgb: 168, 122, 48;
   --forest-950-rgb: 31, 41, 34;
   --cream-50-rgb: 250, 246, 238;
@@ -50,7 +58,7 @@
   /* Lišta navigace: o stupeň tmavší kvůli kontrastu bílého textu (AA). */
   --forest-surface-nav: #5d7060;
   --forest-surface-image:
-    radial-gradient(ellipse 115% 75% at 8% 0%, rgba(216, 176, 110, 0.22) 0%, transparent 42%),
+    radial-gradient(ellipse 115% 75% at 8% 0%, rgba(var(--gold-on-dark-rgb), 0.22) 0%, transparent 42%),
     radial-gradient(ellipse 90% 65% at 100% 100%, rgba(60, 80, 70, 0.32) 0%, transparent 52%),
     linear-gradient(168deg, #768c79 0%, #6b7f6e 48%, #5d7060 100%);
   --purple-bg: var(--forest-surface-base);
@@ -60,13 +68,12 @@
   --bg-topics: var(--cream-100);
   --coral: var(--gold-700);
   --banner-tan: #efe4cf;
-  /* Primární CTA (Kontakt, cookie „Přijmout vše“) */
-  --cta-bg: var(--gold-600);
-  --cta-bg-hover: var(--gold-700);
-  --cta-text: var(--cream-50);
+  /* Primární CTA (Kontakt, cookie „Přijmout vše“) — na světlém krému */
+  --cta-bg: #b8893b;
+  --cta-bg-hover: #a87a30;
+  --cta-text: #faf6ee;
   --banner-text: #2a2419;
-  --hex-fill: rgba(216, 176, 110, 0.18);
-  --hex-stroke: rgba(216, 176, 110, 0.35);
+  --hex-fill: rgba(232, 209, 153, 0.18);
   --font-serif: "Playfair Display", Georgia, serif;
   --font-sans: "Montserrat", system-ui, sans-serif;
   --max: 880px;
@@ -536,7 +543,7 @@ section[id] {
   background-color: var(--bg-lavender-alt);
   background-image:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)' opacity='0.038'/%3E%3C/svg%3E"),
-    radial-gradient(ellipse 58% 52% at 88% 8%, rgba(var(--gold-400-rgb), 0.24) 0%, transparent 68%),
+    radial-gradient(ellipse 58% 52% at 88% 8%, rgba(var(--gold-on-light-rgb), 0.24) 0%, transparent 68%),
     radial-gradient(ellipse 52% 46% at 8% 92%, rgba(178, 168, 150, 0.14) 0%, transparent 65%),
     radial-gradient(ellipse 65% 55% at 50% 48%, rgba(var(--cream-50-rgb), 0.6) 0%, transparent 78%);
   /* Výška podle obsahu — bez zbytečné prázdné plochy pod CTA */
@@ -568,8 +575,8 @@ section[id] {
   right: -12%;
   background: radial-gradient(
     circle,
-    rgba(var(--gold-400-rgb), 0.2) 0%,
-    rgba(var(--gold-400-rgb), 0.07) 50%,
+    rgba(var(--gold-on-light-rgb), 0.2) 0%,
+    rgba(var(--gold-on-light-rgb), 0.07) 50%,
     transparent 72%
   );
   filter: blur(48px);
@@ -1048,13 +1055,17 @@ section[id] {
   height: 100%;
   pointer-events: none;
   overflow: visible;
+  fill: var(--hex-fill);
+  stroke: rgba(232, 209, 153, 0.4);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
 }
 
 .hex__blob path {
-  fill: var(--hex-fill);
-  stroke: var(--hex-stroke);
-  stroke-width: 1;
-  vector-effect: non-scaling-stroke;
+  fill: inherit;
+  stroke: inherit;
+  stroke-width: inherit;
+  vector-effect: inherit;
 }
 
 .hex__inner {
@@ -1128,6 +1139,7 @@ section[id] {
   letter-spacing: 0.16em;
   text-transform: uppercase;
   margin: 0 0 1rem;
+  color: var(--cream-50);
   opacity: 0.95;
   text-align: left;
 }
@@ -1416,15 +1428,13 @@ body.tag-sheet-open {
 }
 
 .section-purple-light .edu-row__title {
-  color: var(--gold-600);
+  color: var(--gold-on-dark);
   font-weight: 700;
-  text-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.55),
-    0 0 1.25rem rgba(var(--accent-rgb), 0.18);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 }
 
 .section-purple-light .edu-pillar__period {
-  color: var(--gold-600);
+  color: var(--gold-on-dark);
 }
 
 /* Dvousloupcové bloky vzdělání (název vlevo, seznam vpravo) */
@@ -1455,7 +1465,7 @@ body.tag-sheet-open {
   font-weight: 600;
   line-height: 1.2;
   margin: 0;
-  color: var(--gold-600);
+  color: var(--gold-on-dark);
 }
 
 .edu-row__content {
@@ -1489,7 +1499,7 @@ body.tag-sheet-open {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--gold-600);
+  color: var(--gold-on-dark);
   margin: 0 0 0.4rem;
 }
 
@@ -1572,9 +1582,9 @@ body.tag-sheet-open {
   font-family: var(--font-sans);
   font-size: 0.88rem;
   font-weight: 600;
-  color: var(--gold-400);
+  color: var(--gold-on-dark);
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(var(--gold-400-rgb), 0.3);
+  border: 1px solid rgba(232, 209, 153, 0.4);
   border-radius: var(--radius-pill);
   cursor: pointer;
   user-select: none;
@@ -1583,16 +1593,16 @@ body.tag-sheet-open {
 
 .edu-more-btn:hover {
   background: rgba(255, 255, 255, 0.14);
-  border-color: rgba(var(--gold-400-rgb), 0.5);
-  color: var(--gold-400);
+  border-color: rgba(232, 209, 153, 0.65);
+  color: var(--gold-on-dark);
 }
 
 .edu-more-btn:focus-visible {
-  outline: 2px solid rgba(var(--gold-400-rgb), 0.55);
+  outline: 2px solid rgba(232, 209, 153, 0.55);
   outline-offset: 3px;
   background: rgba(255, 255, 255, 0.14);
-  color: var(--gold-400);
-  border-color: rgba(var(--gold-400-rgb), 0.5);
+  color: var(--gold-on-dark);
+  border-color: rgba(232, 209, 153, 0.65);
 }
 
 .edu-more-btn__icon {
@@ -1754,6 +1764,10 @@ body.tag-sheet-open {
   outline-offset: 2px;
 }
 
+.section-light.faq-section .faq-item__trigger:focus-visible {
+  outline-color: var(--gold-on-light);
+}
+
 .faq-item__question {
   font-family: inherit;
   font-size: inherit;
@@ -1773,6 +1787,11 @@ body.tag-sheet-open {
   border-bottom: 2px solid var(--coral);
   transform: rotate(45deg);
   transition: transform 0.2s ease;
+}
+
+.section-light.faq-section .faq-item__chevron {
+  border-right-color: var(--gold-on-light);
+  border-bottom-color: var(--gold-on-light);
 }
 
 .faq-item__trigger[aria-expanded="true"] .faq-item__chevron {
@@ -1953,7 +1972,7 @@ body.tag-sheet-open {
   margin: 1.15rem 0 1rem;
   background: linear-gradient(
     90deg,
-    rgba(var(--accent-rgb), 0.35) 0%,
+    rgba(var(--gold-on-light-rgb), 0.38) 0%,
     rgba(var(--brand-rgb), 0.12) 100%
   );
 }
