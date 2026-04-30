@@ -10,6 +10,8 @@ import os
 
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
+LOGO_FILENAME = "brand-mark-icon.png"
+
 CREAM_100 = (245, 239, 228)
 CREAM_50 = (250, 246, 238)
 MUSTARD_SOFT = (216, 176, 110)
@@ -29,7 +31,19 @@ def _try_font(path: str, size: int) -> ImageFont.FreeTypeFont | ImageFont.ImageF
     return ImageFont.load_default()
 
 
-def render_og(w: int, h: int) -> Image.Image:
+def _load_logo(root: str, px_side: int) -> Image.Image | None:
+    path = os.path.join(root, LOGO_FILENAME)
+    if not os.path.isfile(path):
+        return None
+    try:
+        logo = Image.open(path).convert("RGB")
+    except OSError:
+        return None
+    px_side = max(64, px_side)
+    return logo.resize((px_side, px_side), Image.Resampling.LANCZOS)
+
+
+def render_og(w: int, h: int, root: str) -> Image.Image:
     bar = max(10, int(round(h * 0.022)))
     img = Image.new("RGB", (w, h), CREAM_100)
     layer = Image.new("RGBA", (w, h), (0, 0, 0, 0))
@@ -75,10 +89,25 @@ def render_og(w: int, h: int) -> Image.Image:
     line_h = max(2, int(round(3 * scale)))
     accent_w = min(max(tw, sw) + int(40 * scale), w - 80)
 
+    logo_side = max(72, int(round(128 * scale)))
+    gap_logo = max(10, int(round(16 * scale)))
+    logo = _load_logo(root, logo_side)
+
     block_h = th + gap_small + line_h + gap_mid + sh
+    if logo is not None:
+        block_h += logo.height + gap_logo
+
     y_title = (h - block_h) // 2
+    y_logo = y_title
+    if logo is not None:
+        y_title = y_logo + logo.height + gap_logo
+
     tx = (w - tw) // 2
     sx = (w - sw) // 2
+
+    if logo is not None:
+        lx = (w - logo.width) // 2
+        img.paste(logo, (lx, y_logo))
 
     halo = Image.new("RGBA", (w, h), (0, 0, 0, 0))
     hd = ImageDraw.Draw(halo)
@@ -104,8 +133,8 @@ def main() -> None:
     out1200 = os.path.join(root, "og-share-1200.png")
     out1024 = os.path.join(root, "og-share.png")
 
-    render_og(1200, 630).save(out1200, "PNG", optimize=True)
-    render_og(1024, 513).save(out1024, "PNG", optimize=True)
+    render_og(1200, 630, root).save(out1200, "PNG", optimize=True)
+    render_og(1024, 513, root).save(out1024, "PNG", optimize=True)
     print("Wrote", out1200)
     print("Wrote", out1024)
 
