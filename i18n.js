@@ -3,6 +3,13 @@
 
   var STORAGE_KEY = "detska-psychoterapie-lang";
 
+  function isPrivacyPage() {
+    return (
+      document.body &&
+      document.body.getAttribute("data-page") === "privacy"
+    );
+  }
+
   /** Pouze němčina — čeština zůstává v HTML (snapshot při načtení). */
   var STRINGS_DE = {
     doc_title:
@@ -30,6 +37,31 @@
       "Diese Website nutzt Google Analytics zur Besucherstatistik. Technisch notwendige Cookies sind immer aktiv; die Analysemessung wird erst nach Ihrer Einwilligung aktiviert (DSGVO / ePrivacy).",
     consent_essential: "Nur notwendige",
     consent_accept: "Alle akzeptieren",
+    consent_privacy_link: "Datenschutzerklärung",
+
+    privacy_doc_title: "Datenschutzerklärung – Dr. Veronika Kieslingová",
+    privacy_meta_description:
+      "Informationen zur Verarbeitung personenbezogener Daten im Zusammenhang mit dieser Website und der Kontaktaufnahme zur Praxis von Dr. Veronika Kieslingová, Prag 6.",
+
+    privacy_title: "Datenschutzerklärung",
+    privacy_lead:
+      "Diese Erklärung beschreibt, wie ich personenbezogene Daten im Zusammenhang mit dieser Website und bei der Kontaktaufnahme verarbeite.",
+    privacy_h_controller: "Verantwortliche Stelle",
+    privacy_p_controller:
+      "Dr. Veronika Kieslingová, Nad Paťankou 16, Prag 6. Kontakt: v.kiesling@seznam.cz, Tel. +420 602 643 450.",
+    privacy_h_data: "Welche Daten ich verarbeite",
+    privacy_p_data:
+      "Diese Website speichert keine personenbezogenen Daten automatisch. Wenn Sie mich telefonisch oder per E-Mail kontaktieren, verarbeite ich nur die Angaben, die Sie mir mitteilen (Name, Kontakt, zum Therapiekontext relevante Informationen über das Kind) auf Grundlage der Vertragserfüllung (Art. 6 Abs. 1 lit. b DSGVO) und berechtigter Interessen.",
+    privacy_h_analytics: "Besuchermessung (Google Analytics)",
+    privacy_p_analytics:
+      "Wenn Sie über die Cookie-Leiste zustimmen, nutze ich Google Analytics 4 zur statistischen Auswertung der Nutzung. Die Messung dient ausschließlich der Verbesserung des Webangebots und ist anonymisiert. Ohne Einwilligung findet keine Analyse statt. Sie können Ihre Einwilligung jederzeit widrufen, indem Sie die Cookies in Ihrem Browser löschen.",
+    privacy_h_thirdparty: "Dienste Dritter",
+    privacy_p_thirdparty:
+      "Die Karte auf der Kontaktseite nutzt einen eingebetteten Rahmen von Mapy.cz. Bei Interaktion mit der Karte können Cookies des Betreibers dieser Dienste gesetzt werden.",
+    privacy_h_rights: "Ihre Rechte",
+    privacy_p_rights:
+      "Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung und Datenübertragbarkeit. Zur Ausübung Ihrer Rechte kontaktieren Sie mich bitte unter der oben genannten E-Mail-Adresse oder Telefonnummer. Beschwerden können Sie bei der tschechischen Datenschutzbehörde einreichen (Úřad pro ochranu osobních údajů — uoou.cz).",
+    privacy_updated: "Letzte Aktualisierung: April 2026",
 
     lang_aria: "Sprache der Seite",
     sheet_close: "Schließen",
@@ -262,9 +294,18 @@
       }
     });
 
-    document.title = STRINGS_DE.doc_title;
+    document.title = isPrivacyPage()
+      ? STRINGS_DE.privacy_doc_title
+      : STRINGS_DE.doc_title;
     var meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", STRINGS_DE.meta_description);
+    if (meta) {
+      meta.setAttribute(
+        "content",
+        isPrivacyPage()
+          ? STRINGS_DE.privacy_meta_description
+          : STRINGS_DE.meta_description
+      );
+    }
 
     document.documentElement.lang = "de";
     if (navEl) navEl.setAttribute("aria-label", STRINGS_DE.nav_aria_main);
