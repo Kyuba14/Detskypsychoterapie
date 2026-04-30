@@ -25,6 +25,12 @@
     nav_menu_toggle_aria: "Menü ein- oder ausblenden",
     skip_to_content: "Zum Inhalt springen",
 
+    consent_title: "Cookies und Reichweitenmessung",
+    consent_body:
+      "Diese Website nutzt Google Analytics zur Besucherstatistik. Technisch notwendige Cookies sind immer aktiv; die Analysemessung wird erst nach Ihrer Einwilligung aktiviert (DSGVO / ePrivacy).",
+    consent_essential: "Nur notwendige",
+    consent_accept: "Alle akzeptieren",
+
     lang_aria: "Sprache der Seite",
     sheet_close: "Schließen",
 
